@@ -1,0 +1,31 @@
+government = monarchy
+add_government_reform = iqta
+primary_culture = khorasani
+religion = sunni
+government_rank = 1
+technology_group = muslim
+capital = 435	# Zaranj
+religious_school = shafii_school
+
+#Mihrabanids
+
+1439.1.1 = {
+	monarch = {
+		name = "Yahya"
+		dynasty = "Mihrabanid"
+		birth_date = 1417.1.1
+		adm = 6
+		dip = 6
+		mil = 5
+	}
+}
+
+1480.1.1 = {
+	monarch = {
+		name = "Shams al-Din Muhammad"
+		dynasty = "Mihrabanid"
+		adm = 1
+		dip = 2
+		mil = 1
+	}
+}

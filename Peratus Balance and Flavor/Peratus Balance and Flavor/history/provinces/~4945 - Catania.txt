@@ -1,0 +1,27 @@
+#1247 - Catania
+
+latent_trade_goods = {
+	coal
+}
+
+owner = ARA
+controller = ARA
+culture = sicilian
+religion = catholic
+capital = "Catania"
+hre = no
+base_tax = 2
+base_production = 3
+trade_goods = copper
+base_manpower = 3
+is_city = yes
+add_core = ARA
+add_core = NAP
+
+
+
+discovered_by = western
+discovered_by = eastern
+discovered_by = muslim
+discovered_by = ottoman
+

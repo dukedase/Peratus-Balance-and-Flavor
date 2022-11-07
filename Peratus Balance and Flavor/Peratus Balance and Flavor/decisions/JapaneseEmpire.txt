@@ -1,0 +1,103 @@
+country_decisions = {
+
+		jpe_form_decision = {
+			major = yes
+			potential = {
+				culture_group = japanese_g
+				NOT = { has_country_flag = jpe_form_flag }
+				NOT = {
+					exists = JPE
+				}
+			}
+			provinces_to_highlight = {
+				OR = {
+					region = japan_region
+					region = korea_region
+					region = manchuria_region
+					region = north_china_region
+				}
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			}
+			allow = {
+				is_free_or_tributary_trigger = yes
+				stability = 1
+				is_at_war = no
+				japan_region = {
+					type = all
+					owned_by = ROOT
+				}
+				korea_region = {
+					type = all
+					owned_by = ROOT
+				}
+				num_of_owned_provinces_with = {
+					value = 15
+					region = manchuria_region
+				}
+				num_of_owned_provinces_with = {
+					value = 15
+					region = north_china_region
+				}
+				1816 = {
+					owned_by = ROOT
+				}
+			}
+			effect = {
+				set_country_flag = jpe_form_flag
+				change_tag = JPE
+				remove_government_reform = shogunate
+				set_government_rank = 3
+				add_government_reform = imperial_japan_reform
+				add_prestige = 50
+				manchuria_region = {
+					add_permanent_claim = ROOT
+				}
+				johor_area = {
+					add_permanent_claim = ROOT
+				}
+				malacca_area = {
+					add_permanent_claim = ROOT
+				}
+				malaya_area = {
+					add_permanent_claim = ROOT
+				}
+				brunei_area = {
+					add_permanent_claim = ROOT
+				}
+				central_thai_area = {
+					add_permanent_claim = ROOT
+				}
+				taiwan_area = {
+					add_permanent_claim = ROOT
+				}
+				jiangsu_area = {
+					add_permanent_claim = ROOT
+				}
+				zhejiang_area = {
+					add_permanent_claim = ROOT
+				}
+				fujian_area = {
+					add_permanent_claim = ROOT
+				}
+				shandong_area = {
+					add_permanent_claim = ROOT
+				}
+				hebei_area = {
+					add_permanent_claim = ROOT
+				}
+				south_hebei_area = {
+					add_permanent_claim = ROOT
+				}
+				IF = {
+					limit = {
+						has_custom_ideas = no
+					}
+					country_event = { id = ideagroups.1 } #Swap Ideas
+				}
+				add_country_modifier = {
+					name = "centralization_modifier"
+					duration = 7300
+				}
+			}
+		}
+}

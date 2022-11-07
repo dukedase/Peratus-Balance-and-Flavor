@@ -1,0 +1,20 @@
+# Peratus Modded
+
+french_proclaim_meme = {
+	opinion = -100
+	yearly_decay = 5
+}
+
+per_cologne_hansa_opinion = {
+	opinion = 50
+}
+
+per_cologne_left_hansa_opinion = {
+	opinion = -100
+	yearly_decay = 5
+}
+
+per_cologne_seized_hansa_opinion = {
+	opinion = -200
+	yearly_decay = 5
+}

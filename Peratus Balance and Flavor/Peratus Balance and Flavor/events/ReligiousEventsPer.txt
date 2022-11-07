@@ -1,0 +1,42 @@
+#### Religious Events ###
+### By Peratus ###
+
+
+namespace = per_religious_events
+normal_or_historical_nations = yes
+
+### Religious Events
+
+country_event = { # Help Converting
+	id = per_religious_events.1
+	title = "per_religious_events.1.t"
+	desc = "per_religious_events.1.desc"
+	picture = CHURCH_ESTATE_1_eventPicture
+	
+	major = no
+	fire_only_once = no
+	
+	trigger = {
+		NOT = {
+			religious_unity = .75
+			has_country_flag = help_converting_got
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 36
+	}
+	
+	option = {
+		name = "per_religious_events.1.a"
+		add_country_modifier = {
+			name = per_missionary_help
+			duration = 3650 # 10 years
+		}
+		add_years_of_income = -0.5
+		set_country_flag = help_converting_got
+	}
+	option = {
+		name = "per_religious_events.1.b"
+	}
+}

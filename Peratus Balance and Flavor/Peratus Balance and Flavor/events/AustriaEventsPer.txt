@@ -1,0 +1,214 @@
+#### Austria Events ###
+### By Peratus ###
+
+
+namespace = per_austria_events
+normal_or_historical_nations = yes
+
+### Austria Events
+
+country_event = { # Austria Gets Perm Claims on Venetia
+	id = per_austria_events.1
+	title = "per_austria_events.1.t"
+	desc = "per_austria_events.1.desc"
+	picture = DIPLOMACY_eventPicture
+	
+	major = no
+	fire_only_once = yes
+	
+	trigger = {
+		OR = {
+			tag = HAB
+			was_tag = HAB
+		}
+		is_year = 1450
+	}
+	
+	mean_time_to_happen = {
+		months = 3
+	}
+	
+	option = {
+		name = "per_austria_events.1.a"
+		venetia_area = {
+			add_permanent_claim = ROOT
+		}		
+	}
+}
+
+#country_event = { # Austro-Hungarian Event Chain Start
+#	id = per_austria_events.2
+#	title = "per_austria_events.2.t"
+#	desc = "per_austria_events.2.desc"
+#	picture = DIPLOMACY_eventPicture
+#	
+#	major = yes
+#	fire_only_once = yes
+#	
+#	trigger = {
+#		tag = AUE
+#		NOT = {
+#			exists = HUN
+#		}
+#		is_year = 1585
+#		transdanubia_area = {
+#			type = all
+#			owned_by = ROOT
+#		}	
+#		alfold_area = {
+#			type = all
+#			owned_by = ROOT
+#		}
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 12
+#	}
+#	
+#	option = { # Become Austria-Hungary
+#		name = "per_austria_events.2.a"
+#		set_country_flag = per_accepted_hungarians_flag
+#		change_tag = AUH
+#		add_stability = -1
+#		add_prestige = -25
+#		add_legitimacy = -25
+#		transdanubia_area = {
+#			add_province_modifier = {
+#				name = "hungarian_autonomy"
+#				duration = -1
+#			}
+#		}	
+#		alfold_area = {
+#			add_province_modifier = {
+#				name = "hungarian_autonomy"
+#				duration = -1
+#			}
+#		}
+#	}
+#	option = { # Resist the Hungarians!
+#		name = "per_austria_events.2.b"
+#		set_country_flag = per_resisted_hungarians_flag	
+#		custom_tooltip = hungarian_revolt_start_tooltip
+#		add_stability = -1
+#		153 = {
+#			spawn_rebels = {
+#				type = hun_rebels
+#				culture = hungarian
+#				size = 3
+#				unrest = 4
+#				win = yes
+#			}
+#		}
+#		135 = {
+#			spawn_rebels = {
+#				type = hun_rebels
+#				culture = hungarian
+#				size = 3
+#				unrest = 4
+#				win = yes
+#			}
+#		}
+#		1954 = {
+#			spawn_rebels = {
+#				type = hun_rebels
+#				culture = hungarian
+#				size = 3
+#				unrest = 4
+#				win = yes
+#			}
+#		}
+#		1953 = {
+#			spawn_rebels = {
+#				type = hun_rebels
+#				culture = hungarian
+#				size = 2
+#				unrest = 4
+#				win = yes
+#			}
+#		}	
+#	}
+#}
+#
+#country_event = { # Hungarian Rebels Spawn
+#	id = per_austria_events.3
+#	title = "per_austria_events.3.t"
+#	desc = "per_austria_events.3.desc"
+#	picture = DIPLOMACY_eventPicture
+#	
+#	major = no
+#	fire_only_once = no
+#	
+#	trigger = {
+#		has_country_flag = per_resisted_hungarians_flag
+#		OR = {
+#			tag = HAB
+#			tag = AUE
+#		}
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 10
+#	}
+#	
+#	option = { # Rebels Spawn
+#		name = "per_austria_events.3.a"
+#		random_owned_province = {
+#			limit = {
+#				OR = {
+#					area = transdanubia_area
+#					area = alfold_area
+#					area = slovakia_area
+#					area = slavonia_area
+#					area = transylvania_area
+#					area = southern_transylvania_area
+#				}
+#			}
+#			spawn_rebels = {
+#				type = hun_rebels
+#				culture = hungarian
+#				size = 2
+#				unrest = 1
+#			}
+#			spawn_rebels = {
+#				type = hun_rebels
+#				culture = hungarian
+#				size = 2
+#				unrest = 1
+#			}
+#			spawn_rebels = {
+#				type = hun_rebels
+#				culture = hungarian
+#				size = 1
+#				unrest = 1
+#			}
+#		}	
+#	}
+#}
+#
+#country_event = { # Hungarian Revolution Ends
+#	id = per_austria_events.4
+#	title = "per_austria_events.4.t"
+#	desc = "per_austria_events.4.desc"
+#	picture = DIPLOMACY_eventPicture
+#	
+#	major = yes
+#	fire_only_once = yes
+#	
+#	trigger = {
+#		had_country_flag = { flag = per_resisted_hungarians_flag days = 1825 }
+#		OR = {
+#			tag = HAB
+#			tag = AUE
+#		}
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 3
+#	}
+#	
+#	option = { # Revolution Ends
+#		name = "per_austria_events.4.a"
+#		clr_country_flag = per_resisted_hungarians_flag
+#		add_stability = 2
+#	}
+#}

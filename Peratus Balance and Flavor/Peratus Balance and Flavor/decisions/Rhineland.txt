@@ -1,0 +1,69 @@
+country_decisions = {
+
+	rhi_form_decision = {
+		major = yes
+		potential = {
+			culture = hessian
+			NOT = { has_country_flag = rhi_form_flag }
+			NOT = {
+				exists = RHI
+			}
+			NOT = { 
+				tag = PRU
+				tag = NGC
+				tag = GER
+				tag = HAB
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 85
+				area = north_rhine_area
+				area = lower_rhineland_area
+				area = north_westphalia_area
+				area = westphalia_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		allow = {
+			is_free_or_tributary_trigger = yes
+			adm_tech = 8
+			stability = 1
+			is_at_war = no
+			num_of_owned_provinces_with = {
+				value = 10
+				culture = hessian
+			}
+			85 = {
+				owned_by = ROOT
+			}	
+			north_rhine_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			lower_rhineland_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			north_westphalia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			westphalia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			set_country_flag = rhi_form_flag
+			change_tag = RHI
+			add_prestige = 25
+			if = {
+				limit = {
+					has_custom_ideas = no
+				}
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+		}
+	}
+}

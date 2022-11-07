@@ -1,0 +1,32 @@
+government = monarchy
+add_government_reform = iqta
+government_rank = 1
+primary_culture = persian
+religion = shiite
+technology_group = muslim
+capital = 4332 
+
+1442.1.1 = { #New Regent, taking over from Shaykh Muhibb al-Din Abu'l Khayr
+	religious_school = jafari_school
+	add_piety = -0.5
+	monarch = {
+		name = "Mu'izz al-Din Malik"
+		dynasty = "Simnani"
+		regent = yes
+		adm = 5
+		dip = 4
+		mil = 5
+	}
+	heir = {
+		name = "Abdallah bin Ibrahim"
+		dynasty = "Timurid"
+		birth_date = 1433.1.1
+		death_date = 1451.6.1 #Executed
+		claim = 95
+		culture = uzbehk
+		religion = sunni
+		adm = 4
+		dip = 3
+		mil = 3
+	}
+}

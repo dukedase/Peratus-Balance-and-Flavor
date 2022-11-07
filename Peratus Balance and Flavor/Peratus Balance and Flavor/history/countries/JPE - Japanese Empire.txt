@@ -1,0 +1,7 @@
+government = monarchy
+add_government_reform = imperial_japan_reform
+government_rank = 3
+primary_culture = togoku
+religion = shinto
+technology_group = western
+capital = 1020	# Kyoto

@@ -1,0 +1,39 @@
+#country_decisions = {
+#
+#		swiss_neutrality = {
+#			major = yes
+#			potential = {
+#				tag = SWI
+#				ai = no
+#				NOT = { has_country_flag = swissneutralityflag }
+#			}
+#			allow = {
+#				tag = SWI
+#				is_at_war = no
+#				stability = 1
+#				NOT = {
+#					num_of_subjects = 1
+#				}
+#				romandie_area = {
+#					type = ALL
+#					owned_by = ROOT
+#				}
+#				switzerland_area = {
+#					type = ALL
+#					owned_by = ROOT
+#				}
+#				NOT = {
+#					num_of_cities = 11
+#				}
+#			}
+#			effect = {
+#				set_country_flag = swissneutralityflag
+#				ROOT = { country_event = { ID = per_swiss_events.1 } }
+#				add_stability = 1
+#				add_country_modifier = {
+#					name = "swiss_neutrality_modifier"
+#					duration = -1 # Forever
+#				}
+#			}
+#		}
+#}

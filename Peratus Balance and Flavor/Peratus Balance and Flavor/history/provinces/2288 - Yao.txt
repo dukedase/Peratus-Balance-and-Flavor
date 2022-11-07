@@ -1,0 +1,15 @@
+# No previous file for Yao
+
+owner = YAO
+controller = YAO
+add_core = YAO
+culture = bilala 
+religion = sunni
+capital = "Yao"
+trade_goods = little_black_squash_balls
+hre = no
+base_tax = 2 
+base_production = 5
+base_manpower = 3
+is_city = yes
+discovered_by = sub_saharan

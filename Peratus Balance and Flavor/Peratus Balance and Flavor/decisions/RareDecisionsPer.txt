@@ -1,0 +1,57 @@
+country_decisions = {
+
+	disgruntled_general_1_decision = {
+		major = no
+		potential = {
+			ai = no
+			has_country_flag = per_got_disgruntled_general_flag
+			NOT = { has_country_flag = per_finished_disgruntled_general_flag }
+			NOT = { has_country_flag = per_disgruntled_1_effect_flag }
+		}
+		
+		provinces_to_highlight = {
+		}
+		
+		allow = {
+			custom_trigger_tooltip = {
+				tooltip = total_battles_won_check_ct
+				check_variable = {
+					which = DisgruntledGeneralBattlesWon
+					value = 100
+				}
+			}
+		}
+		
+		effect = {
+			ROOT = { country_event = { ID = per_rare_events.2 } }
+			set_country_flag = per_disgruntled_1_effect_flag
+		}
+	}
+	
+	disgruntled_general_2_decision = {
+		major = no
+		potential = {
+			ai = no
+			has_country_flag = per_disgruntled_general_2_flag
+			NOT = { has_country_flag = per_finished_disgruntled_general_flag }
+		}
+		
+		provinces_to_highlight = {
+		}
+		
+		allow = {
+			custom_trigger_tooltip = {
+				tooltip = total_player_battles_won_check_ct
+				check_variable = {
+					which = DisgruntledGeneralPlayerBattlesWon
+					value = 100
+				}
+			}
+		}
+		
+		effect = {
+			ROOT = { country_event = { ID = per_rare_events.3 } }
+			set_country_flag = per_finished_disgruntled_general_flag
+		}
+	}
+}

@@ -1,0 +1,279 @@
+#### Carthage Events ###
+### By Peratus ###
+
+
+namespace = per_carthage_events
+normal_or_historical_nations = yes
+
+### Carthage Events
+
+country_event = { # Conquest of Rome
+	id = per_carthage_events.1
+	title = "per_carthage_events.1.t"
+	desc = "per_carthage_events.1.desc"
+	picture = CONQUEST_eventPicture
+	
+	major = no
+	fire_only_once = no
+	is_triggered_only = yes
+	
+	
+	trigger = {
+	}
+	
+	mean_time_to_happen = {
+	}
+	
+	option = {
+		name = "per_carthage_events.1.a"
+		add_legitimacy = 25
+		add_treasury = 1500
+		118 = {
+			add_devastation = 100
+			add_base_tax = -5
+			add_base_production = -5
+			add_base_manpower = -5
+		}
+		341 = {
+			add_base_tax = 3
+			add_base_production = 3
+			add_base_manpower = 3
+		}
+	}
+	
+	option = {
+		name = "per_carthage_events.1.b"
+		add_prestige = 25
+		add_legitimacy = 25
+	}
+}
+
+country_event = { # Conquest of Iberia
+	id = per_carthage_events.2
+	title = "per_carthage_events.2.t"
+	desc = "per_carthage_events.2.desc"
+	picture = CONQUEST_eventPicture
+	
+	major = no
+	fire_only_once = no
+	is_triggered_only = yes
+	
+	
+	trigger = {
+	}
+	
+	mean_time_to_happen = {
+	}
+	
+	option = {
+		name = "per_carthage_events.2.a"
+		add_treasury = 250
+		add_country_modifier = {
+			name = per_crg_colonize_modifier
+			duration = -1
+		}
+		create_explorer = { tradition = 50 }
+		create_conquistador = { tradition = 50 }
+	}
+	
+	option = {
+		name = "per_carthage_events.2.b"
+		add_treasury = 250
+		2754 = {
+			add_base_production = 5
+			add_province_modifier = {
+				name = per_crg_lamancha_modifier
+				duration = -1
+			}
+		}
+	}
+}
+
+country_event = { # Conquest of Homelands
+	id = per_carthage_events.3
+	title = "per_carthage_events.3.t"
+	desc = "per_carthage_events.3.desc"
+	picture = CONQUEST_eventPicture
+	
+	major = no
+	fire_only_once = no
+	is_triggered_only = yes
+	
+	
+	trigger = {
+	}
+	
+	mean_time_to_happen = {
+	}
+	
+	option = {
+		name = "per_carthage_events.3.a"
+		add_republican_tradition = 100
+		add_prestige = 100
+		add_country_modifier = {
+			name = per_crg_homelands_modifier
+			duration = -1
+		}
+	}
+}
+
+country_event = { # A Massive Shipment of Fish
+	id = per_carthage_events.4
+	title = "per_carthage_events.4.t"
+	desc = "per_carthage_events.4.desc"
+	picture = HARBOUR_eventPicture
+	
+	major = no
+	fire_only_once = yes
+	
+	
+	trigger = {
+		tag = LAN
+		exists = CRG
+	}
+	
+	mean_time_to_happen = {
+		months = 200
+	}
+	
+	option = {
+		name = "per_carthage_events.4.a"
+		ai_chance = { factor = 90 }
+		add_treasury = 500
+		add_prestige = 10
+		random_owned_province = {
+			limit = { has_port = yes }
+			ROOT = {
+				heavy_ship = PREV
+			}
+		}
+		hidden_effect = {
+			CRG = { country_event = { ID = per_carthage_events.5 } }
+		}
+	}
+	
+	option = {
+		name = "per_carthage_events.4.b"
+		ai_chance = { factor = 10 }
+		add_prestige = -10
+	}
+}
+
+country_event = { # Carthage Informed of The Great Florentine Fish Massacre
+	id = per_carthage_events.5
+	title = "per_carthage_events.5.t"
+	desc = "per_carthage_events.5.desc"
+	picture = WOUNDED_SOLDIERS_eventPicture
+	
+	major = yes
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	
+	trigger = {
+	}
+	
+	mean_time_to_happen = {
+	}
+	
+	option = {
+		name = "per_carthage_events.5.a"
+		ai_chance = { factor = 100 }
+		LAN = { country_event = { ID = per_carthage_events.6 } }
+	}
+	
+	option = {
+		name = "per_carthage_events.5.b"
+		add_prestige = -10
+	}
+}
+
+country_event = { # Florence Informed Carthage Demands Payment And Prisoners
+	id = per_carthage_events.6
+	title = "per_carthage_events.6.t"
+	desc = "per_carthage_events.6.desc"
+	picture = ACCUSATION_eventPicture
+	
+	major = no
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	
+	trigger = {
+	}
+	
+	mean_time_to_happen = {
+	}
+	
+	option = { # Yes
+		name = "per_carthage_events.6.a"
+		ai_chance = { factor = 25 }
+		add_treasury = -500
+		add_prestige = -10
+		add_manpower = -15
+		CRG = { country_event = { ID = per_carthage_events.7 } }
+	}
+	
+	option = { # Refuse
+		name = "per_carthage_events.6.b"
+		ai_chance = { factor = 75 }
+		CRG = { country_event = { ID = per_carthage_events.8 } }
+	}
+}
+
+country_event = { # Carthage Informed Florence Accepts
+	id = per_carthage_events.7
+	title = "per_carthage_events.7.t"
+	desc = "per_carthage_events.7.desc"
+	picture = CORRUPTION_eventPicture
+	
+	major = no
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	
+	trigger = {
+	}
+	
+	mean_time_to_happen = {
+	}
+	
+	option = { # Yes
+		name = "per_carthage_events.7.a"
+		add_treasury = 500
+		add_prestige = 10
+		add_manpower = 15
+	}
+}
+
+country_event = { # Carthage Informed Florence Refuses
+	id = per_carthage_events.8
+	title = "per_carthage_events.8.t"
+	desc = "per_carthage_events.8.desc"
+	picture = ANGRY_MOB_eventPicture
+	
+	major = no
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	
+	trigger = {
+	}
+	
+	mean_time_to_happen = {
+	}
+	
+	option = { # This means war
+		name = "per_carthage_events.8.a"
+		ai_chance = { factor = 25 }
+		declare_war_with_cb = {
+			who = LAN
+			casus_belli = cb_trade_war_triggered
+		}
+	}
+	
+	option = { # Do nothing
+		name = "per_carthage_events.8.b"
+		ai_chance = { factor = 75 }
+	}
+}

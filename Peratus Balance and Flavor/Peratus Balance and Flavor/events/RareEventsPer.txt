@@ -1,0 +1,129 @@
+#### Story Events ###
+### By Peratus ###
+
+
+namespace = per_rare_events
+normal_or_historical_nations = yes
+
+### Story Events
+
+country_event = { # Disgruntled General
+	id = per_rare_events.1
+	title = "per_rare_events.1.t"
+	desc = "per_rare_events.1.desc"
+	picture = COURT_eventPicture
+	
+	major = no
+	fire_only_once = no
+	
+	trigger = {
+		ai = no
+		NOT = {
+			OR = {
+				has_country_flag = per_got_disgruntled_general_flag 
+				has_country_flag = per_finished_disgruntled_general_flag
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 250
+		
+		modifier = {
+			factor = 0.8
+			NOT = { army_tradition = 50 }
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { army_tradition = 20 }
+		}
+	}
+	
+	immediate = {
+	}	
+	
+	option = {
+		name = "per_rare_events.1.a"
+		set_country_flag = per_got_disgruntled_general_flag
+		create_general = {
+			tradition = 60
+			add_shock = 1
+			add_siege = 1
+		}
+		hidden_effect = {
+			set_variable = {
+				which = DisgruntledGeneralBattlesWon
+				value = 0
+			}
+		}
+	}
+	option = { # No
+		name = "per_rare_events.1.b"
+	}
+}
+
+country_event = { # Disgruntled General, Part Two
+	id = per_rare_events.2
+	title = "per_rare_events.2.t"
+	desc = "per_rare_events.2.desc"
+	picture = CONQUEST_eventPicture
+	
+	major = no
+	fire_only_once = no
+	is_triggered_only = yes
+	
+	trigger = {
+	}
+	
+	mean_time_to_happen = {
+	}
+	
+	immediate = {
+	}	
+	
+	option = {
+		name = "per_rare_events.2.a"
+		set_country_flag = per_disgruntled_general_2_flag
+		add_prestige = 25
+		add_legitimacy = 25
+		add_army_tradition = 25
+		hidden_effect = {
+			set_variable = {
+				which = DisgruntledGeneralPlayerBattlesWon
+				value = 0
+			}
+		}
+	}
+}
+
+country_event = { # Disgruntled General, Part Three, End
+	id = per_rare_events.3
+	title = "per_rare_events.3.t"
+	desc = "per_rare_events.3.desc"
+	picture = CONQUEST_eventPicture
+	
+	major = no
+	fire_only_once = no
+	is_triggered_only = yes
+	
+	trigger = {
+	}
+	
+	mean_time_to_happen = {
+	}
+	
+	immediate = {
+	}	
+	
+	option = {
+		name = "per_rare_events.3.a"
+		set_country_flag = per_disgruntled_general_3_flag
+		add_prestige = 25
+		add_legitimacy = 25
+		add_army_tradition = 25
+		add_country_modifier = {
+			name = per_disgruntled_general_tradition_modifier
+			duration = -1
+		}
+	}
+}

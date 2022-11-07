@@ -1,0 +1,32 @@
+government = republic
+add_government_reform = ambrosian_republic
+government_rank = 1
+primary_culture = lombard
+religion = catholic
+technology_group = western
+capital = 104 # Milano
+fixed_capital = 104 # Cannot move capital away from this province & no power cost to move to it
+add_army_professionalism = 0.05
+elector = yes
+add_treasury = 100
+add_manpower = 5
+
+change_estate_land_share = {
+	estate = estate_church
+	share = -5
+}
+change_estate_land_share = {
+	estate = estate_burghers
+	share = 5
+}
+
+1444.1.1 = {
+	monarch = {
+		name = "Francesco I"
+		dynasty = "Sforza"
+		birth_date = 1401.6.23
+		adm = 4
+		dip = 4
+		mil = 4
+	}
+}

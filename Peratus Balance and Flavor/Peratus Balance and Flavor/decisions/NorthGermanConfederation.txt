@@ -1,0 +1,98 @@
+country_decisions = {
+
+		ngc_form_decision = {
+			major = yes
+			potential = {
+				culture_group = germanic
+				NOT = { has_country_flag = ngc_formed_flag }
+				NOT = {
+					exists = NGC
+				}
+				NOT = {
+					OR = {
+						tag = GER
+						tag = HAB
+						tag = SGC
+					}
+				}
+			}
+			provinces_to_highlight = {
+				OR = {
+					province_id = 50
+					province_id = 85
+					province_id = 1876
+					province_id = 61
+				}
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			}
+			allow = {
+				adm_tech = 10
+				is_free_or_tributary_trigger = yes
+				stability = 1
+				is_at_war = no
+				num_of_owned_provinces_with = {
+					value = 35
+					region = north_german_region
+					NOT = {
+						area = bohemia_area
+						area = erzgebirge_area
+						area = moravia_area
+					}
+				}
+				50 = {
+					owned_by = ROOT
+				}	
+				85 = {
+					owned_by = ROOT
+				}
+				1876 = {
+					owned_by = ROOT
+				}	
+				61 = {
+					owned_by = ROOT
+				}
+			}
+			effect = {
+				set_country_flag = ngc_formed_flag
+				change_tag = NGC
+				add_prestige = 25
+				set_government_rank = 2
+				if = {
+					limit = {
+						has_custom_ideas = no
+					}
+					country_event = { id = ideagroups.1 } #Swap Ideas
+				}
+				add_country_modifier = {
+					name = "centralization_modifier"
+					duration = 7300
+				}
+				custom_tooltip = ngc_form_tooltip
+				north_german_region = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { owned_by = ROOT }
+					}
+					add_permanent_claim = NGC
+				}
+				hidden_effect = {
+					every_subject_country = {
+						limit = {
+							AND = {
+								capital_scope = {
+									region = north_german_region
+								}
+							}
+						}
+						every_owned_province = {
+							limit = {
+								region = north_german_region
+							}
+							cede_province = ROOT
+							add_core = ROOT
+						}
+					}
+				}
+			}
+		}
+}

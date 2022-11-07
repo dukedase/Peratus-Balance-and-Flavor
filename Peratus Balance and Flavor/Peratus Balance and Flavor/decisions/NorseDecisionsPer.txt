@@ -1,0 +1,27 @@
+country_decisions = {
+
+	change_norse_deity_decision = { # Change Norse Deity
+		major = yes
+		potential = {
+			ai = no
+			religion = norse_pagan_reformed
+			NOT = { has_ruler_modifier = per_norse_decision_ruler_modifier }
+		}
+		
+		allow = {
+			adm_power = 50
+		}
+		
+		effect = {
+			add_adm_power = -50
+			ROOT = { country_event = { ID = per_norse_events.7 } }
+			hidden_effect = {
+				add_ruler_modifier = {
+					name = per_norse_decision_ruler_modifier
+					hidden = yes
+					duration = -1
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,532 @@
+# Peratus Modifiers
+
+per_development_reward_modifier = {
+	land_morale = 0.1
+	global_trade_goods_size_modifier = 0.25
+	prestige = 1
+	advisor_cost = -0.25
+}
+
+per_advisor_cooldown_modifier = {
+}
+
+lottery_buying_tickets_modifier = {
+}
+
+lottery_winner_modifier = {
+}
+
+per_norse_decision_ruler_modifier = {
+}
+
+encouraged_colonialism = {
+	colonists = 1
+	global_colonial_growth = 50
+	range = 0.5
+}
+
+per_too_cold_modifier = {
+	local_development_cost = 0.25
+}
+
+# Austria
+
+austrian_investment = {
+	local_development_cost = -0.05
+}
+
+hungarian_autonomy = {
+	min_local_autonomy = 50
+}
+
+# Italian Kingdom Modifiers
+
+italian_dev_cost_buff = {
+	development_cost = -0.10
+}
+
+florence_early_buff = { 
+	shock_damage = 0.10
+	land_morale = 0.10
+	manpower_recovery_speed = 0.20
+}
+
+# Great North Italian War Modifiers
+
+italian_war_backdown_end = {
+	global_unrest = 8
+	prestige = -2
+	army_tradition_decay = 0.01
+	stability_cost_modifier = 0.25
+}
+
+italian_war_major_start = {
+	land_morale = 0.05
+	army_tradition_from_battle = 1
+	global_unrest = -2
+	prestige = 1
+	manpower_recovery_speed = 0.25
+}
+
+italian_war_major_start_defender = {
+	land_morale = 0.05
+	army_tradition_from_battle = 1
+	global_unrest = -2
+	prestige = 1
+	manpower_recovery_speed = 0.25
+}
+
+italian_war_tax_increase = {
+	global_tax_modifier = 0.20
+}
+
+italian_war_major_join_start = {
+	prestige = 1
+}
+
+# Various Events
+## French Events
+
+per_french_exploration = {
+	range = 1.5
+	prestige = 0.5
+}
+
+per_french_land_colonization = {
+	colonists = 1
+	global_colonial_growth = 25
+	native_assimilation = 0.50
+}
+
+## Muscovy Events
+
+per_muscovy_early_help = {
+	global_regiment_cost = -0.10
+	global_tax_modifier = 0.1
+}
+
+per_muscovy_mid_help = {
+	global_tax_modifier = 0.10
+	global_trade_goods_size_modifier = 0.10 
+}
+
+per_muscovy_missionaries = {
+	missionaries = 1
+	global_missionary_strength = 0.02
+}
+
+per_muscovy_streltsy = {
+	fire_damage = 0.05
+	manpower_recovery_speed = 0.05
+}
+
+# Religious Modifiers, Catholic
+
+per_papal_sanction_for_church_taxes = {
+	global_tax_modifier = 0.2
+}
+
+per_papal_blessing = {
+	infantry_power = 0.10
+}
+
+per_carolingian_capital_modifier = {
+	local_tax_modifier = 0.5
+	local_manpower_modifier = 0.5
+	local_development_cost = -0.25
+	local_defensiveness = 1.0
+	max_attrition = 2
+	local_hostile_attrition = 2
+}
+
+# Armenian Modifiers
+
+armenian_empire_modifier = {
+	prestige = 1
+	legitimacy = 1
+	republican_tradition = 0.5
+	manpower_in_own_culture_provinces = 0.25
+}
+
+# Religious Events, Generic
+
+per_missionary_help = {
+	missionaries = 1
+	global_missionary_strength = 0.3
+}
+
+# Idea Group Events
+
+state_ideas_goods_produced_modifier_good_per = {
+	global_trade_goods_size_modifier = 0.15
+}
+
+state_ideas_goods_produced_modifier_bad_per = {
+	global_trade_goods_size_modifier = -0.1
+}
+
+state_ideas_diplomatic_rep_good_per = {
+	diplomatic_reputation = 1
+	diplomatic_annexation_cost = -0.25
+}
+
+state_ideas_diplomatic_rep_bad_per = {
+	diplomatic_reputation = -1
+}
+
+state_ideas_prestige_good_per = {
+	prestige = 1
+}
+
+state_ideas_ae_good_per = {
+	ae_impact = -0.2
+}
+
+government_ideas_dip_good_per = {
+	country_diplomatic_power = 1
+}
+
+government_ideas_dip_bad_per = {
+	country_diplomatic_power = -1
+}
+
+government_ideas_mil_good_per = {
+	country_military_power = 1
+}
+
+government_ideas_mil_bad_per = {
+	country_military_power = -1
+}
+
+government_ideas_legitimacy_good_per = {
+	legitimacy = 1
+	horde_unity = 1
+	devotion = 1
+	republican_tradition = 0.5
+}
+
+government_ideas_corruption_good_per = {
+	yearly_corruption = -0.15
+}
+
+professionalism_ideas_professionalism_good_per = {
+	yearly_army_professionalism = 0.01
+}
+
+professionalism_ideas_professionalism_bad_per = {
+	yearly_army_professionalism = -0.005
+}
+
+professionalism_ideas_discipline_good_per = {
+	discipline = 0.03
+}
+
+professionalism_ideas_discipline_bad_per = {
+	discipline = -0.02
+}
+
+professionalism_ideas_tradition_good_per = {
+	army_tradition = 0.5
+}
+
+mercenary_ideas_maintenance_good_per = {
+	merc_maintenance_modifier = -0.25
+}
+
+mercenary_ideas_maintenance_bad_per = {
+	merc_maintenance_modifier = 0.15
+}
+
+mercenary_ideas_discipline_good_per = {
+	mercenary_discipline = 0.05
+}
+
+mercenary_ideas_discipline_bad_per = {
+	mercenary_discipline = -0.025
+}
+
+mercenary_ideas_manpower_good_per = {
+	mercenary_manpower = 0.5
+}
+
+# Ottoman Events Modifiers
+
+ottoman_mamluk_autonomy_modifier_per = {
+	min_local_autonomy = 100
+	trade_goods_size = -1.5
+	province_trade_power_modifier = -1.5
+	
+}
+
+ottoman_mamluk_autonomy_modifier_first_per = {
+	min_local_autonomy = 80
+	trade_goods_size = -1
+	province_trade_power_modifier = -1.2
+}
+
+ottoman_mamluk_autonomy_modifier_second_per = {
+	min_local_autonomy = 60
+	trade_goods_size = -0.6
+	province_trade_power_modifier = -0.8
+}
+
+ottoman_mamluk_autonomy_modifier_third_per = {
+	min_local_autonomy = 40
+	trade_goods_size = -0.3
+	province_trade_power_modifier = -0.6
+}
+
+per_ottoman_punishment = {
+	diplomatic_annexation_cost = 0.5
+	advisor_cost = 0.25
+}
+
+per_ottoman_caliphate_modifier = {
+	monthly_piety = 0.001
+	legitimacy = 0.5
+	warscore_cost_vs_other_religion  = -0.05
+	prestige_per_development_from_conversion = 0.25
+}
+
+per_ottoman_mamluk_integration_ae = {
+	ae_impact = 0.2
+}
+
+# Estate Change Cossacks
+
+estate_cossacks_prime_herding_rights_mod_peratus = {
+	local_manpower_modifier = 0.25
+	local_tax_modifier = -0.5
+}
+
+# Fate of Pomerania
+
+per_brandenburg_pomerania_compensation_modifier = {
+	global_tax_income = 6
+}
+
+per_brandenburg_fighting_pomerania = {
+	land_morale = 0.1
+}
+
+pomeranian_autonomy_compensation_per = {
+	min_local_autonomy = 50
+}
+
+# Hanseatic Events 
+
+per_cologne_hansa_modifier = {
+	trade_efficiency = 0.1
+	improve_relation_modifier = 0.1
+	global_tax_modifier = -0.2
+}
+
+per_cologne_province_hansa_modifier = {
+	province_trade_power_modifier = 0.6
+	trade_value_modifier = 1
+	local_tax_modifier = -0.2
+	local_manpower_modifier = -0.1
+}
+
+per_cologne_left_hansa_modifier = {
+	trade_efficiency = -0.1
+	improve_relation_modifier = -0.1
+	global_tax_modifier = 0.2
+}
+
+per_cologne_left_hansa_seize_modifier = {
+	trade_efficiency = -0.2
+	improve_relation_modifier = -0.2
+	global_tax_modifier = 0.4
+}
+
+# Dual Monarchy
+
+per_british_events_claim_france_modifier = {
+	ae_impact = -0.25
+}
+
+# Idea Group Decisions
+
+per_colonization_policy_modifier = {
+	colonist_placement_chance = 0.1
+	native_assimilation = 0.5
+}
+
+per_economic_policy_modifier = {
+	build_time = -0.15
+	build_cost = -0.15
+}
+
+per_government_policy_modifier = {
+	governing_capacity_modifier = 0.2
+}
+
+per_culture_policy_modifier = {
+	culture_conversion_cost = -0.1
+	advisor_pool = 1
+	same_culture_advisor_cost = -0.1
+}
+
+per_mercantilism_policy_modifier = {
+	trade_steering = 0.15
+	merchants = 1
+	ship_power_propagation = 0.15
+}
+
+per_standingarmy_policy_modifier = {
+	land_forcelimit_modifier = 0.2
+	manpower_recovery_speed = 0.2
+}
+
+per_grandarmy_policy_modifier = {
+	discipline = 0.05
+}
+
+# Story Events
+
+per_disgruntled_general_tradition_modifier = {
+	army_tradition = 1.0
+}
+
+# Relic Events
+
+per_jarngreipr_modifier = {
+	shock_damage = 0.1
+	army_tradition_decay = -0.02
+	prestige = 0.5
+}
+
+per_jarngreipr_activate_modifier = {
+	infantry_power = 0.1
+}
+
+per_achilles_modifier = {
+	land_morale = 0.1
+	global_manpower_modifier = 0.2
+	prestige = 0.5
+}
+
+per_achilles_activate_modifier = {
+	shock_damage_received = -0.1
+}
+
+per_ankh_modifier = {
+	prestige = 0.5
+	monarch_admin_power = 1
+	monarch_diplomatic_power = 1
+	monarch_military_power = 1
+}
+
+per_ankh_activate_modifier = {
+	advisor_pool = 1
+	advisor_cost = -0.25
+}
+
+per_andvaranaut_modifier = {
+	prestige = 0.5
+	global_trade_goods_size_modifier = 0.2
+}
+
+per_andvaranaut_activate_modifier = {
+	development_cost = -0.1
+}
+
+recent_relic_modifier = {
+}
+
+per_jarn_engraved_axe_modifier = {
+	infantry_power = 0.025
+}
+
+per_jarn_scrolls_modifier = {
+	idea_cost = -0.2
+}
+
+per_reward_the_soldiers_modifier = {
+	land_morale = 0.025
+}
+
+# Misc Province Modifiers 
+
+aalborg_strait = {
+	province_trade_power_value = 15
+}
+
+per_stora_kopparberget_modifier = {
+	trade_goods_size = 2.5
+}
+
+# Danish Events 
+
+per_converted_to_norse_modifier = {
+	missionaries = 1
+	global_missionary_strength = 0.05
+	global_unrest = 2
+}
+
+# Timed Modifiers
+
+recent_odin_demands_war_modifier = {
+}
+
+# Hungary Events 
+
+per_hungary_permanent_fort_modifier = {
+	fort_maintenance_modifier = -0.2
+	garrison_size = 0.1
+}
+
+per_hungary_temp_fort_modifier = {
+	fort_maintenance_modifier = -0.5
+	garrison_size = 0.25
+}
+
+per_hungary_brave_modifier = {
+	shock_damage = 0.1
+	reinforce_cost_modifier = -0.25
+	manpower_recovery_speed = 0.25
+}
+
+# Burgundy Events 
+
+per_loyal_subjects_modifier = {
+	reduced_liberty_desire = 50
+	diplomatic_annexation_cost = -0.25
+}
+
+# Afghanistan
+
+per_jihad_modifier = {
+	land_morale = 0.15
+	manpower_in_true_faith_provinces = 0.3
+	all_power_cost = 0.05
+	global_trade_goods_size_modifier = -0.1
+	ae_impact = 0.25
+	diplomatic_reputation = -4
+	diplomatic_upkeep = -4
+}
+
+# Anglican
+
+per_anglican_ica_modifier = {
+	infantry_power = 0.1
+}
+
+per_anglican_navy_modifier = {
+	naval_morale = 0.1
+}
+
+# Muslim Scholars
+
+per_hanafi_school_modifier = {
+	global_tax_modifier = 0.15
+}
+
+per_hanbali_school_modifier = {
+	core_creation = -0.1
+}
+
+per_ismaili_school_modifier = {
+	tolerance_own = 2
+}

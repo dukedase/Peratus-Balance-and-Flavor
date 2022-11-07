@@ -1,0 +1,73 @@
+#### Islamic State Events ###
+### By Peratus ###
+
+
+namespace = per_islamic_state_events
+normal_or_historical_nations = yes
+
+### Islamic State Events
+
+country_event = { # Become a Theocracy/Islamic State?
+	id = per_islamic_state_events.1
+	title = "per_islamic_state_events.1.t"
+	desc = "per_islamic_state_events.1.desc"
+	picture = RELIGIOUS_WARS_eventPicture
+	
+	major = yes
+	fire_only_once = yes
+	
+	
+	trigger = {
+		tag = AFG
+	}
+	
+	mean_time_to_happen = {
+		months = 6
+	}
+	
+	option = { # Yes
+		name = "per_islamic_state_events.1.a"
+		ai_chance = { factor = 10 }
+		change_tag = IST
+		change_government = theocracy
+		add_government_reform = islamic_state_reform
+		swap_non_generic_missions = yes
+		add_piety = -1.0
+	}
+	option = { # No
+		name = "per_islamic_state_events.1.b"
+		ai_chance = { factor = 90 }
+		add_piety = 1.0
+	}
+}
+
+country_event = { # Islamic State destroys Vatican, declare war?
+	id = per_islamic_state_events.2
+	title = "per_islamic_state_events.2.t"
+	desc = "per_islamic_state_events.2.desc"
+	picture = RELIGIOUS_WARS_eventPicture
+	
+	major = yes
+	fire_only_once = no
+	is_triggered_only = yes
+	
+	
+	option = { # Yes
+		name = "per_islamic_state_events.2.a"
+		ai_chance = { factor = 10 }
+		declare_war_with_cb = {
+			who = IST
+			casus_belli = cb_crusade
+		}
+		add_prestige = 25
+		add_legitimacy = 25
+		add_devotion = 25
+	}
+	option = { # No
+		name = "per_islamic_state_events.2.b"
+		ai_chance = { factor = 90 }
+		add_prestige = -25
+		add_legitimacy = -25
+		add_devotion = -25
+	}
+}

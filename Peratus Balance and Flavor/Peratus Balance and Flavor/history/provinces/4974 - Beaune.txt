@@ -1,0 +1,21 @@
+#4947 - Beaune
+
+owner = BUR
+controller = BUR
+culture = burgundian
+religion = catholic
+capital = "Beaune"
+hre = no
+base_tax = 3
+base_production = 2
+trade_goods = wine
+base_manpower = 2
+is_city = yes
+add_core = BUR
+fort_15th = yes
+
+
+discovered_by = western
+discovered_by = eastern
+discovered_by = muslim
+discovered_by = ottoman

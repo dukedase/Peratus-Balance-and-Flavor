@@ -1,0 +1,91 @@
+#### Ottoman Events ###
+### By Peratus ###
+
+
+namespace = per_ottoman_events
+normal_or_historical_nations = yes
+
+### Ottoman Events
+
+country_event = { # Ottoman Integration of Mamluks Begins
+	id = per_ottoman_events.1
+	title = "per_ottoman_events.1.t"
+	desc = "per_ottoman_events.1.desc"
+	picture = CONQUEST_eventPicture
+	
+	major = yes
+	fire_only_once = yes
+	
+	trigger = {
+		tag = TUR
+		ai = no 
+		MAM = {
+			ai = yes
+		}
+		OR = {
+			is_in_war = {
+				attacker_leader = ROOT
+				defender_leader = MAM
+				war_score = 30
+			}
+			is_in_war = {
+				attacker_leader = MAM
+				defender_leader = ROOT
+				war_score = 30
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = "per_ottoman_events.1.a"
+		set_country_flag = per_got_mamluk_collapse
+		custom_tooltip = per_collapse_of_mamluks_tooltip
+		hidden_effect = {
+			MAM = {
+				every_owned_province = {
+					change_controller = TUR
+				}
+			}
+		}
+	}
+}
+
+country_event = { # Ottomans Claim the Caliphate
+	id = per_ottoman_events.7
+	title = "per_ottoman_events.7.t"
+	desc = "per_ottoman_events.7.desc"
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+	major = yes
+	fire_only_once = yes
+	
+	trigger = {
+		tag = TUR
+		NOT = {
+			exists = MAM
+		}
+		has_country_flag = per_got_mamluk_collapse
+	}
+	
+	mean_time_to_happen = {
+		months = 6
+	}
+	
+	immediate = {
+		clr_country_flag = per_got_caliphate
+	}
+	
+	option = {
+		name = "per_ottoman_events.7.a"
+		add_prestige = 25
+		add_legitimacy = 25
+		add_country_modifier = {
+			name = per_ottoman_caliphate_modifier
+			duration = -1
+		}
+	}
+}

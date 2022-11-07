@@ -1,0 +1,532 @@
+per_kol_missions_tree_1 = {
+	slot = 2
+	generic = no
+	ai = yes
+	
+	potential = {
+		OR = {
+			tag = KOL
+			tag = RHI
+		}
+		NOT = { map_setup = map_setup_random }
+	}
+	
+	has_country_shield = yes
+	
+	per_kol_increase_paper_production = {
+		icon = the_emden_company
+		position = 1
+		required_missions = {  }
+		
+		trigger = {
+			85 = {
+				base_production = 12
+				has_building = workshop
+			}	
+		}
+		
+		provinces_to_highlight = {
+			OR = {
+				province_id = 85
+			}
+		}
+		
+		effect = {
+			85 = {
+				add_province_modifier = {
+					name = per_kol_paper_mills_modifier
+					duration = -1
+				}
+			}
+		}
+	}
+	
+	per_kol_control_rhineland_trade = {
+		icon = austria_prospers
+		position = 2
+		required_missions = { per_kol_increase_paper_production }
+		
+		trigger = {
+			1876 = {
+				trade_share = {
+					country = ROOT
+					share = 51
+				}
+			}
+		}
+		
+		provinces_to_highlight = {
+		
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = per_kol_trade_dominance
+				duration = 9125 # 25 years
+			}
+		}
+	}
+	
+	per_kol_cloth_monopoly = {
+		icon = reform_the_monte
+		position = 3
+		required_missions = { per_kol_control_rhineland_trade }
+		
+		trigger = {
+			84 = {
+				base_production = 10
+				has_building = workshop
+				owned_by = ROOT
+			}
+			2975 = {
+				base_production = 10
+				has_building = workshop
+				owned_by = ROOT
+			}
+			69 = {
+				base_production = 10
+				has_building = workshop
+				owned_by = ROOT
+			}
+			86 = {
+				base_production = 10
+				has_building = workshop
+				owned_by = ROOT
+			}
+			4775 = {
+				base_production = 10
+				has_building = workshop
+				owned_by = ROOT
+			}
+			2973 = {
+				base_production = 10
+				has_building = workshop
+				owned_by = ROOT
+			}
+		}
+		
+		provinces_to_highlight = {
+			OR = {
+				province_id = 84
+				province_id = 2975
+				province_id = 69
+				province_id = 86
+				province_id = 4775
+				province_id = 2973
+			}
+		}
+		
+		effect = {
+			84 = {
+				add_province_modifier = {
+					name = per_kol_cloth_monopoly_modifier
+					duration = -1
+				}
+			}
+			2975 = {
+				add_province_modifier = {
+					name = per_kol_cloth_monopoly_modifier
+					duration = -1
+				}
+			}
+			69 = {
+				add_province_modifier = {
+					name = per_kol_cloth_monopoly_modifier
+					duration = -1
+				}
+			}
+			86 = {
+				add_province_modifier = {
+					name = per_kol_cloth_monopoly_modifier
+					duration = -1
+				}
+			}
+			4775 = {
+				add_province_modifier = {
+					name = per_kol_cloth_monopoly_modifier
+					duration = -1
+				}
+			}
+			2973 = {
+				add_province_modifier = {
+					name = per_kol_cloth_monopoly_modifier
+					duration = -1
+				}
+			}
+		}
+	}
+	
+	per_kol_develop_the_rhine = {
+		icon = develop_provence
+		position = 4
+		required_missions = { per_kol_cloth_monopoly }
+		
+		trigger = {
+			development_in_provinces = {
+				value = 100
+				area = north_rhine_area
+			}
+			development_in_provinces = {
+				value = 100
+				area = lower_rhineland_area
+			}
+		}
+
+		
+		provinces_to_highlight = {
+			OR = {
+				area = north_rhine_area
+				area = lower_rhineland_area
+			}
+		}
+		
+		effect = {
+			north_rhine_area = {
+				add_province_modifier = {
+					name = per_kol_develop_the_rhine_modifier
+					duration = -1 # 25 years
+				}
+			}
+			lower_rhineland_area = {
+				add_province_modifier = {
+					name = per_kol_develop_the_rhine_modifier
+					duration = -1 # 25 years
+				}
+			}
+		}
+	}
+}
+
+per_kol_missions_tree_2 = {
+	slot = 3
+	generic = no
+	ai = yes
+	
+	potential = {
+		OR = {
+			tag = KOL
+			tag = RHI
+		}
+		NOT = { map_setup = map_setup_random }
+	}
+	
+	has_country_shield = yes
+	
+	per_kol_prepare_westward_expansion = {
+		icon = a_show_of_strength_but_west
+		position = 1
+		required_missions = {  }
+		
+		trigger = {
+			army_size_percentage = 1.0
+			manpower_percentage = 0.60
+		}
+		
+		effect = {
+			north_rhine_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			define_advisor = {
+				type = army_reformer
+				name = "Hans von August"
+				skill = 2
+				culture = hessian
+				religion = catholic
+				discount = yes
+			}
+		}
+	}
+	
+	per_kol_consolidate_northern_rhineland = {
+		icon = league_of_the_public_weal
+		position = 2
+		required_missions = { per_kol_prepare_westward_expansion }
+		
+		trigger = {
+			north_rhine_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		provinces_to_highlight = {
+			OR = {
+				area = north_rhine_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		
+		effect = {
+			lower_rhineland_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			create_general = {
+				tradition = 25
+				add_shock = 2
+				add_manuever = 1
+				add_siege = 1
+				culture = hessian
+			}
+		}
+	}
+	
+	per_kol_consolidate_southern_rhineland = {
+		icon = mission_italian_condottiere
+		position = 3
+		required_missions = { per_kol_consolidate_northern_rhineland }
+		
+		trigger = {
+			lower_rhineland_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		provinces_to_highlight = {
+			OR = {
+				area = lower_rhineland_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		
+		effect = {
+			palatinate_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			hesse_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			add_prestige = 20
+		}
+	}
+	
+	per_kol_secure_the_south = {
+		icon = negotiate_for_avignon
+		position = 4
+		required_missions = { per_kol_consolidate_southern_rhineland }
+		
+		trigger = {
+			hesse_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			palatinate_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		provinces_to_highlight = {
+			OR = {
+				area = hesse_area
+				area = palatinate_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		
+		effect = {
+			add_prestige = 20
+			add_manpower = 10
+		}
+	}
+	
+	per_kol_unite_the_west = {
+		icon = centralized_empire
+		position = 5
+		required_missions = { 
+			per_kol_secure_the_south
+			per_kol_prepare_ambush
+			per_kol_develop_the_rhine
+		}
+		
+		trigger = {
+			is_great_power = yes
+		}
+		
+		provinces_to_highlight = {
+		}
+		
+		effect = {
+			ROOT = { country_event = { ID = per_cologne_events.10 } }
+		}
+	}
+	
+}
+
+per_kol_missions_tree_3 = {
+	slot = 4
+	generic = no
+	ai = yes
+	
+	potential = {
+		OR = {
+			tag = KOL
+			tag = RHI
+		}
+		NOT = { map_setup = map_setup_random }
+	}
+	
+	has_country_shield = yes
+	
+	per_kol_eastward_expansion = {
+		icon = a_show_of_strength
+		position = 1
+		required_missions = { }
+		
+		trigger = {
+			accepted_culture = hannoverian
+			85 = {
+				owned_by = ROOT
+			}
+			82 = {
+				owned_by = ROOT
+				is_in_capital_area = yes
+			}
+		}
+		
+		effect = {
+			westphalia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			north_westphalia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			define_advisor = {
+				type = diplomat
+				skill = 2
+				culture = hannoverian
+				religion = catholic
+				discount = yes
+			}
+		}
+	}
+	
+	per_kol_continue_conquest = {
+		icon = mission_cannons_firing
+		position = 2
+		required_missions = { per_kol_eastward_expansion }
+		
+		trigger = {
+			westphalia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			north_westphalia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		provinces_to_highlight = {
+			OR = {
+				area = westphalia_area
+				area = north_westphalia_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		
+		effect = {
+			braunschweig_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	per_kol_fortify_east = {
+		icon = fortress_switzerland
+		position = 3
+		required_missions = { per_kol_continue_conquest }
+		
+		trigger = {
+			braunschweig_area = {
+				type = all
+				owned_by = ROOT
+			}
+			57 = {
+				fort_level = 2
+			}
+			2971 = {
+				fort_level = 2
+			}
+		}
+		
+		provinces_to_highlight = {
+			OR = {
+				area = braunschweig_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		
+		effect = {
+			57 = {
+				add_province_modifier = {
+					name = per_kol_fortifications_modifier
+					duration = -1
+				}
+			}
+			2971 = {
+				add_province_modifier = {
+					name = per_kol_fortifications_modifier
+					duration = -1
+				}
+			}
+			add_prestige = 10
+			add_mil_power = 50
+		}
+	}
+	
+	per_kol_prepare_ambush = {
+		icon = support_the_orders
+		position = 4
+		required_missions = { per_kol_fortify_east }
+		
+		trigger = {
+			num_of_infantry = 40
+			army_size_percentage = 1.0
+			num_of_generals = 3
+		}
+		
+		provinces_to_highlight = {
+		}
+		
+		effect = {
+			define_advisor = {
+				type = recruitmaster
+				skill = 3
+				culture = hessian
+				discount = yes
+			}
+			add_prestige = 20
+			add_mil_power = 50
+			add_army_tradition = 20
+		}
+	}
+}

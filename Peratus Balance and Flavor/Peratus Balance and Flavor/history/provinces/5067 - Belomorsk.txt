@@ -1,0 +1,19 @@
+#Belomorsk
+
+owner = NOV
+controller = NOV 
+capital = "Belomorsk"
+culture = karelian
+religion = orthodox
+add_core = NOV
+hre = no
+is_city = yes
+base_tax = 1 
+base_production = 1
+trade_goods = fur
+base_manpower = 1
+
+
+
+discovered_by = western
+discovered_by = eastern

@@ -1,0 +1,22 @@
+#4947 - Prato
+
+owner = LAN
+controller = LAN
+culture = tuscan
+religion = catholic
+capital = "Prato"
+hre = yes
+base_tax = 3
+base_production = 3
+trade_goods = naval_supplies
+base_manpower = 3
+is_city = yes
+add_core = LAN
+fort_15th = yes
+
+
+
+discovered_by = western
+discovered_by = eastern
+discovered_by = muslim
+discovered_by = ottoman

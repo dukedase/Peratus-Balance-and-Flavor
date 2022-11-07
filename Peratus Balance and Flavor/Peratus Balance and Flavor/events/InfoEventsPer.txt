@@ -1,0 +1,73 @@
+#### General Mod Events ###
+### By Peratus ###
+
+
+namespace = per_mod_events
+normal_or_historical_nations = yes
+
+### General Mod Events
+
+country_event = { # General Mod Information
+	id = per_mod_events.1
+	title = "per_mod_events.1.t"
+	desc = "per_mod_events.1.desc"
+	picture = MILITARY_CAMP_eventPicture
+	
+	major = no
+	fire_only_once = no
+	
+	
+	trigger = {
+		is_year = 1444
+		ai = no
+		NOT = {
+			has_country_flag = per_info_event_flag
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "per_mod_events.1.a"
+		set_country_flag = per_info_event_flag
+		add_treasury = -10 
+		add_prestige = -5
+	}
+	
+	option = {
+		name = "per_mod_events.1.b"
+		set_country_flag = per_info_event_flag
+		add_treasury = 10 
+		add_prestige = 5
+	}
+}
+
+country_event = { # Idea Group Information
+	id = per_mod_events.2
+	title = "per_mod_events.2.t"
+	desc = "per_mod_events.2.desc"
+	picture = ADVISOR_eventPicture
+	
+	major = no
+	fire_only_once = no
+	is_triggered_only = yes
+	
+	
+	trigger = {
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = { # Keep showing me the decision and thanks, love u
+		name = "per_mod_events.2.a"
+	}
+	
+	option = { # Stop showing me the decision
+		name = "per_mod_events.2.b"
+		set_country_flag = per_shut_up_flag
+	}
+}

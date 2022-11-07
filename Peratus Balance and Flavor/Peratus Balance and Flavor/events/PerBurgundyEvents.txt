@@ -1,0 +1,35 @@
+#### Burgundy Events ###
+### By Peratus ###
+
+
+namespace = per_burgundy_events
+normal_or_historical_nations = yes
+
+### Burgundy Events
+
+country_event = { 
+	id = per_burgundy_events.1
+	title = "per_burgundy_events.1.t"
+	desc = "per_burgundy_events.1.desc"
+	picture = DIPLOMACY_eventPicture
+	
+	major = no
+	fire_only_once = yes
+	
+	trigger = {
+		tag = BUR
+		is_year = 1444
+	}
+	
+	mean_time_to_happen = {
+		days = 5
+	}
+	
+	option = { # We must plan for the future
+		name = "per_burgundy_events.1.a"
+		add_country_modifier = {
+			name = per_loyal_subjects_modifier
+			duration = 7300 # 20 Years
+		}
+	}
+}

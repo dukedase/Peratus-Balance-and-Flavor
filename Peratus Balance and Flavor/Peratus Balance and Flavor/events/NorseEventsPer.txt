@@ -1,0 +1,206 @@
+#### Norse Events ###
+### By Peratus ###
+
+
+namespace = per_norse_events
+normal_or_historical_nations = yes
+
+### Norse Events
+
+country_event = { # Odin Gives Manpower
+	id = per_norse_events.1
+	title = "per_norse_events.1.t"
+	desc = "per_norse_events.1.desc"
+	picture = LAND_MILITARY_eventPicture
+	
+	major = no
+	fire_only_once = no
+	is_triggered_only = yes
+	
+	trigger = {
+		has_personal_deity = odin
+		is_at_war = no
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "per_norse_events.1.a"
+		add_yearly_manpower = 2.5
+	}	
+}
+
+country_event = { # Freya Gives Dev
+	id = per_norse_events.2
+	title = "per_norse_events.2.t"
+	desc = "per_norse_events.2.desc"
+	picture = ECONOMY_eventPicture
+	
+	major = no
+	fire_only_once = no
+	is_triggered_only = yes
+	
+	trigger = {
+		has_personal_deity = freya
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "per_norse_events.2.a"
+		random_owned_province = {
+			add_base_production = 3
+		}
+	}	
+}
+
+country_event = { # Thor Gives Stability
+	id = per_norse_events.3
+	title = "per_norse_events.3.t"
+	desc = "per_norse_events.3.desc"
+	picture = COURT_eventPicture
+	
+	major = no
+	fire_only_once = no
+	is_triggered_only = yes
+	
+	trigger = {
+		has_personal_deity = tor
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "per_norse_events.3.a"
+		add_stability = 1 
+	}	
+}
+
+country_event = { # Tyr Gives Army Tradition
+	id = per_norse_events.4
+	title = "per_norse_events.4.t"
+	desc = "per_norse_events.4.desc"
+	picture = BATTLE_eventPicture
+	
+	major = no
+	fire_only_once = no
+	is_triggered_only = yes
+	
+	trigger = {
+		has_personal_deity = tyr
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "per_norse_events.4.a"
+		add_army_tradition = 20
+	}	
+}
+
+country_event = { # Njord Gives Money
+	id = per_norse_events.5
+	title = "per_norse_events.5.t"
+	desc = "per_norse_events.5.desc"
+	picture = HARBOUR_eventPicture
+	
+	major = no
+	fire_only_once = no
+	is_triggered_only = yes
+	
+	trigger = {
+		has_personal_deity = njord
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "per_norse_events.5.a"
+		add_years_of_income = 1.0
+	}	
+}
+
+country_event = { # Snotra Gives Monarch Points
+	id = per_norse_events.6
+	title = "per_norse_events.6.t"
+	desc = "per_norse_events.6.desc"
+	picture = INVENTION_eventPicture
+	
+	major = no
+	fire_only_once = no
+	is_triggered_only = yes
+	
+	trigger = {
+		has_personal_deity = snotra
+		NOT = { has_ruler_flag = per_has_had_snotra_flag }
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "per_norse_events.6.a"
+		set_ruler_flag = per_has_had_snotra_flag
+		random_list = {
+			10 = { # Gain 25 Adm +1 Adm Ruler Stat
+				add_adm_power = 25
+				change_adm = 1
+			}
+			10 = { # Gain 25 Dip +1 Dip Ruler Stat
+				add_dip_power = 25
+				change_dip =1 
+			}
+			10 = { # Gain 25 Mil +1 Mil Ruler Stat
+				add_mil_power = 25
+				change_mil = 1
+			}
+		}
+	}	
+}
+
+country_event = { # Change Deity
+	id = per_norse_events.7
+	title = "per_norse_events.7.t"
+	desc = "per_norse_events.7.desc"
+	picture = COMET_SIGHTED_eventPicture
+	
+	major = no
+	fire_only_once = no
+	is_triggered_only = yes
+	
+	option = {
+		name = "per_norse_events.7.a"
+		change_personal_deity = odin
+	}	
+	option = {
+		name = "per_norse_events.7.b"
+		change_personal_deity = freya
+	}	
+	option = {
+		name = "per_norse_events.7.c"
+		change_personal_deity = tor
+	}	
+	option = {
+		name = "per_norse_events.7.d"
+		change_personal_deity = tyr
+	}	
+	option = {
+		name = "per_norse_events.7.e"
+		change_personal_deity = njord
+	}	
+	option = {
+		name = "per_norse_events.7.f"
+		change_personal_deity = snotra
+	}	
+}

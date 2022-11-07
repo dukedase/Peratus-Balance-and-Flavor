@@ -1,0 +1,19 @@
+government = monarchy
+add_government_reform = feudalism_reform
+government_rank = 1
+technology_group = western
+religion = catholic
+primary_culture = belgian
+capital = 90	# Brugge
+
+
+1444.1.1 = {
+	monarch = {
+		name = "Albrecht V"
+		dynasty = "de Bourgogne"
+		birth_date = 1410.8.10
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}

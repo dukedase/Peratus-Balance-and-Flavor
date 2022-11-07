@@ -1,0 +1,1286 @@
+#### Fate of Italy ###
+### By Peratus ###
+
+
+namespace = per_italy_flavor
+normal_or_historical_nations = yes
+
+### Fate of Italy Starts
+
+country_event = { # Fate of Italy
+	id = per_italy_flavor.1
+	title = "per_italy_flavor.1.t"
+	desc = "per_italy_flavor.1.desc"
+	picture = CIVIL_WAR_eventPicture
+	
+	major = yes	
+	fire_only_once = yes
+	
+	trigger = {
+		is_free_or_tributary_trigger = yes
+		NOT = { has_global_flag = fate_of_italy_got }
+		tag = ITA
+		is_year = 1525
+		is_at_war = no
+		tuscany_area = {
+			type = all
+			owned_by = ROOT
+		}
+		lazio_area = {
+			type = all
+			owned_by = ROOT
+		}
+		emilia_romagna_area = {
+			type = all
+			owned_by = ROOT
+		}
+		central_italy_area = {
+			type = all
+			owned_by = ROOT
+		}
+		FRA = {
+			exists = yes
+			is_free_or_tributary_trigger = yes
+		}
+		OR = {
+			HAB = {
+				exists = yes
+				is_free_or_tributary_trigger = yes
+			}
+			AUH = {
+				exists = yes
+				is_free_or_tributary_trigger = yes
+			}
+			AUE = {
+				exists = yes
+				is_free_or_tributary_trigger = yes
+			}
+		}
+	}
+	
+	immediate = {
+		set_global_flag = fate_of_italy_got
+	}
+	
+	mean_time_to_happen = {
+		months = 6
+	}
+	
+	option = { # Italy is Ours
+		name = "per_italy_flavor.1.a"
+		ai_chance = { factor = 90 }
+		IF = {
+			limit = {
+				FRA = {
+					exists = yes
+					is_free_or_tributary_trigger = yes
+				}
+			}
+			FRA = { country_event = { ID = per_italy_flavor.2 } }
+		}
+		IF = {
+			limit = {
+				HAB = {
+					exists = yes
+					is_free_or_tributary_trigger = yes
+				}
+			}
+			HAB = { country_event = { ID = per_italy_flavor.3 } }
+		}
+		else_if = {
+			limit = {
+				AUE = {
+					exists = yes
+					is_free_or_tributary_trigger = yes
+				}
+			}
+			AUE = { country_event = { ID = per_italy_flavor.3 } }
+		}
+		else_if = {
+			limit = {
+				AUH = {
+					exists = yes
+					is_free_or_tributary_trigger = yes
+				}
+			}
+			AUH = { country_event = { ID = per_italy_flavor.3 } }
+		}
+		custom_tooltip = fate_of_italy_ours_tooltip
+		hidden_effect = {
+			every_province = {
+				limit = {
+					region = italy_region
+					culture_group = latin
+					owner = {
+						ai = yes
+					}
+					NOT = {
+						owned_by = ROOT
+						country_or_non_sovereign_subject_holds = HAB
+						country_or_non_sovereign_subject_holds = AUE
+						country_or_non_sovereign_subject_holds = AUH
+						country_or_non_sovereign_subject_holds = FRA
+						country_or_non_sovereign_subject_holds = CAS
+						country_or_non_sovereign_subject_holds = SPA
+					}
+				}
+				add_core = ITA
+				cede_province = ITA
+			}
+		}
+		italy_region = {
+			limit = {
+				NOT = { is_core = ROOT }
+				NOT = { is_permanent_claim = ROOT }
+			}
+			add_permanent_claim = ROOT	
+		}
+	}
+	option = { # Approach the Austrians
+		name = "per_italy_flavor.1.b"
+		ai_chance = { factor = 10 }
+		IF = {
+			limit = {
+				HAB = {
+					exists = yes
+					is_free_or_tributary_trigger = yes
+				}
+			}
+			HAB = { country_event = { ID = per_italy_flavor.4 } }
+		}
+		else_if = {
+			limit = {
+				AUE = {
+					exists = yes
+					is_free_or_tributary_trigger = yes
+				}
+			}
+			AUE = { country_event = { ID = per_italy_flavor.4 } }
+		}
+		else_if = {
+			limit = {
+				AUH = {
+					exists = yes
+					is_free_or_tributary_trigger = yes
+				}
+			}
+			AUH = { country_event = { ID = per_italy_flavor.4 } }
+		}
+		custom_tooltip = fate_of_italy_inherit_austria_tooltip
+		hidden_effect = {
+			every_province = {
+				limit = {
+					region = italy_region
+					culture_group = latin
+					owner = {
+						ai = yes
+					}
+					NOT = {
+						country_or_non_sovereign_subject_holds = ROOT
+						country_or_non_sovereign_subject_holds = HAB
+						country_or_non_sovereign_subject_holds = AUE
+						country_or_non_sovereign_subject_holds = AUH
+						country_or_non_sovereign_subject_holds = FRA
+						country_or_non_sovereign_subject_holds = CAS
+						country_or_non_sovereign_subject_holds = SPA
+					}
+				}
+				add_core = ITA
+				cede_province = ITA
+			}
+			italy_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT	
+			}
+		}
+	}
+	option = { # Approach the French
+		name = "per_italy_flavor.1.c"
+		ai_chance = { factor = 10 }
+		IF = {
+			limit = {
+				FRA = {
+					exists = yes
+					is_free_or_tributary_trigger = yes
+				}
+			}
+			FRA = { country_event = { ID = per_italy_flavor.5 } }
+		}
+		custom_tooltip = fate_of_italy_inherit_french_tooltip
+		hidden_effect = {
+			every_province = {
+				limit = {
+					region = italy_region
+					culture_group = latin
+					owner = {
+						ai = yes
+					}
+					NOT = {
+						country_or_non_sovereign_subject_holds = ROOT
+						country_or_non_sovereign_subject_holds = HAB
+						country_or_non_sovereign_subject_holds = AUE
+						country_or_non_sovereign_subject_holds = AUH
+						country_or_non_sovereign_subject_holds = FRA
+						country_or_non_sovereign_subject_holds = CAS
+						country_or_non_sovereign_subject_holds = SPA
+					}
+				}
+				add_core = ITA
+				cede_province = ITA
+			}
+			italy_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT	
+			}
+		}
+	}
+	option = { # Italy Backs Down
+		name = "per_italy_flavor.1.d"
+		ai_chance = { factor = 10 }
+		IF = {
+			limit = {
+				FRA = {
+					exists = yes
+					is_free_or_tributary_trigger = yes
+				}
+			}
+			FRA = { country_event = { ID = per_italy_flavor.6 } }
+		}
+		IF = {
+			limit = {
+				HAB = {
+					exists = yes
+					is_free_or_tributary_trigger = yes
+				}
+			}
+			HAB = { country_event = { ID = per_italy_flavor.7 } }
+		}
+		else_if = {
+			limit = {
+				AUE = {
+					exists = yes
+					is_free_or_tributary_trigger = yes
+				}
+			}
+			AUE = { country_event = { ID = per_italy_flavor.7 } }
+		}
+		else_if = {
+			limit = {
+				AUH = {
+					exists = yes
+					is_free_or_tributary_trigger = yes
+				}
+			}
+			AUH = { country_event = { ID = per_italy_flavor.7 } }
+		}
+		custom_tooltip = fate_of_italy_backdown_tooltip
+		hidden_effect = {
+			every_province = {
+				limit = {
+					region = italy_region
+					culture_group = latin
+					owner = {
+						ai = yes
+					}
+					NOT = {
+						country_or_non_sovereign_subject_holds = ROOT
+						country_or_non_sovereign_subject_holds = HAB
+						country_or_non_sovereign_subject_holds = AUE
+						country_or_non_sovereign_subject_holds = AUH
+						country_or_non_sovereign_subject_holds = FRA
+						country_or_non_sovereign_subject_holds = CAS
+						country_or_non_sovereign_subject_holds = SPA
+					}
+				}
+				add_core = ITA
+				cede_province = ITA
+			}
+			italy_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT	
+			}
+		}
+	}
+}
+
+country_event = { # Italy is Ours, France
+	id = per_italy_flavor.2
+	title = "per_italy_flavor.2.t"
+	desc = "per_italy_flavor.2.desc"
+	picture = CIVIL_WAR_eventPicture
+	
+	major = yes
+	is_triggered_only = yes
+	
+	
+	option = { # France Demands Land
+		name = "per_italy_flavor.2.a"
+		custom_tooltip = fate_of_italy_french_demands_tooltip
+		ITA = { country_event = { ID = per_italy_flavor.8 } }
+	}
+	option = { # French Apathy
+		name = "per_italy_flavor.2.b"
+	}
+}
+
+country_event = { # Italy is Ours, Austria
+	id = per_italy_flavor.3
+	title = "per_italy_flavor.3.t"
+	desc = "per_italy_flavor.3.desc"
+	picture = CIVIL_WAR_eventPicture
+	
+	major = yes
+	is_triggered_only = yes
+	
+	
+	option = { # Austria Demands Land
+		name = "per_italy_flavor.3.a"
+		custom_tooltip = fate_of_italy_austrian_demands_tooltip
+		ITA = { country_event = { ID = per_italy_flavor.9 } }
+	}
+	option = { # Austrian Apathy
+		name = "per_italy_flavor.3.b"
+	}
+}
+
+country_event = { # Italy Approaches Austria
+	id = per_italy_flavor.4
+	title = "per_italy_flavor.4.t"
+	desc = "per_italy_flavor.4.desc"
+	picture = CONQUEST_eventPicture
+	
+	major = yes
+	is_triggered_only = yes
+	
+	
+	option = { # Accept, Gaining land and allying or protecting Italy
+		name = "per_italy_flavor.4.a"
+		create_guarantee = ITA
+		create_alliance = ITA
+		IF = {
+			limit = {
+				HAB = {
+					exists = yes
+					is_free_or_tributary_trigger = yes
+				}
+			}
+			custom_tooltip = fate_of_italy_austrian_approach_gets_tooltip
+			hidden_effect = {
+				every_province = {
+					limit = {
+						country_or_non_sovereign_subject_holds = ITA
+						OR = {
+							area = venetia_area
+							area = po_valley_area
+							province_id = 113
+						}
+					}
+					add_core = HAB
+					cede_province = HAB
+					remove_core = ITA
+				}
+			}
+			ITA = { country_event = { ID = per_italy_flavor.10 } }
+		}
+		else_if = {
+			limit = {
+				AUE = {
+					exists = yes
+					is_free_or_tributary_trigger = yes
+				}
+			}
+			custom_tooltip = fate_of_italy_austrian_approach_gets_tooltip
+			hidden_effect = {
+				every_province = {
+					limit = {
+						country_or_non_sovereign_subject_holds = ITA
+						OR = {
+							area = venetia_area
+							area = po_valley_area
+							province_id = 113
+						}
+					}
+					add_core = AUE
+					cede_province = AUE
+					remove_core = ITA
+				}
+			}
+			ITA = { country_event = { ID = per_italy_flavor.10 } }
+		}
+		else_if = {
+			limit = {
+				AUH = {
+					exists = yes
+					is_free_or_tributary_trigger = yes
+				}
+			}
+			custom_tooltip = fate_of_italy_austrian_approach_gets_tooltip
+			hidden_effect = {
+				every_province = {
+					limit = {
+						country_or_non_sovereign_subject_holds = ITA
+						OR = {
+							area = venetia_area
+							area = po_valley_area
+							province_id = 113
+						}
+					}
+					add_core = AUH
+					cede_province = AUH
+					remove_core = ITA
+				}
+			}
+			ITA = { country_event = { ID = per_italy_flavor.10 } }
+		}
+	}
+	option = { # Decline
+		name = "per_italy_flavor.4.b"
+		ITA = { country_event = { ID = per_italy_flavor.12 } }
+	}
+}
+
+country_event = { # Italy Approaches France
+	id = per_italy_flavor.5
+	title = "per_italy_flavor.5.t"
+	desc = "per_italy_flavor.5.desc"
+	picture = CONQUEST_eventPicture
+	
+	major = yes
+	is_triggered_only = yes
+	
+	
+	option = { # Accept, Gaining land and allying or protecting Italy
+		name = "per_italy_flavor.5.a"
+		create_guarantee = ITA
+		create_alliance = ITA
+		custom_tooltip = fate_of_italy_france_approach_gets_tooltip
+		hidden_effect = {
+			every_province = {
+				limit = {
+					country_or_non_sovereign_subject_holds = ITA
+					OR = {
+						area = piedmont_area
+						province_id = 2992
+						province_id = 102
+					}
+				}
+				add_core = FRA
+				cede_province = FRA
+				remove_core = ITA
+			}
+		}
+		ITA = { country_event = { ID = per_italy_flavor.11 } }
+	}
+	option = { # Decline
+		name = "per_italy_flavor.5.b"
+		ITA = { country_event = { ID = per_italy_flavor.13 } }
+	}
+}
+
+country_event = { # Italy backs down, France
+	id = per_italy_flavor.6
+	title = "per_italy_flavor.6.t"
+	desc = "per_italy_flavor.6.desc"
+	picture = NOBLE_ESTATE_DEMANDS_eventPicture
+	
+	major = yes
+	is_triggered_only = yes
+	
+	
+	option = { # France Gets Land
+		name = "per_italy_flavor.6.a"
+		custom_tooltip = fate_of_italy_france_approach_gets_tooltip
+		hidden_effect = {
+			every_province = {
+				limit = {
+					country_or_non_sovereign_subject_holds = ITA
+					OR = {
+						area = piedmont_area
+						province_id = 2992
+						province_id = 102
+					}
+				}
+				add_core = FRA
+				cede_province = FRA
+				remove_core = ITA
+			}
+		}
+	}
+	option = {
+		name = "per_italy_flavor.6.b"
+	}
+}
+
+country_event = { # Italy backs down, Austria
+	id = per_italy_flavor.7
+	title = "per_italy_flavor.7.t"
+	desc = "per_italy_flavor.7.desc"
+	picture = NOBLE_ESTATE_DEMANDS_eventPicture
+	
+	major = yes
+	is_triggered_only = yes
+	
+	
+	option = { # Austria Gets Land
+		name = "per_italy_flavor.7.a"
+		IF = {
+			limit = {
+				HAB = {
+					exists = yes
+					is_free_or_tributary_trigger = yes
+				}
+			}
+			custom_tooltip = fate_of_italy_austrian_approach_gets_tooltip
+			hidden_effect = {
+				every_province = {
+					limit = {
+						country_or_non_sovereign_subject_holds = ITA
+						OR = {
+							area = venetia_area
+							area = po_valley_area
+							province_id = 113
+						}
+					}
+					add_core = HAB
+					cede_province = HAB
+					remove_core = ITA
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				AUE = {
+					exists = yes
+					is_free_or_tributary_trigger = yes
+				}
+			}
+			custom_tooltip = fate_of_italy_austrian_approach_gets_tooltip
+			hidden_effect = {
+				every_province = {
+					limit = {
+						country_or_non_sovereign_subject_holds = ITA
+						OR = {
+							area = venetia_area
+							area = po_valley_area
+							province_id = 113
+						}
+					}
+					add_core = AUE
+					cede_province = AUE
+					remove_core = ITA
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				AUH = {
+					exists = yes
+					is_free_or_tributary_trigger = yes
+				}
+			}
+			custom_tooltip = fate_of_italy_austrian_approach_gets_tooltip
+			hidden_effect = {
+				every_province = {
+					limit = {
+						country_or_non_sovereign_subject_holds = ITA
+						OR = {
+							area = venetia_area
+							area = po_valley_area
+							province_id = 113
+						}
+					}
+					add_core = AUH
+					cede_province = AUH
+					remove_core = ITA
+				}
+			}
+		}
+	}
+	option = {
+		name = "per_italy_flavor.7.b"
+	}
+}
+
+country_event = { # France Demands Italian Land
+	id = per_italy_flavor.8
+	title = "per_italy_flavor.8.t"
+	desc = "per_italy_flavor.8.desc"
+	picture = NOBLE_ESTATE_TAKE_OVER_eventPicture
+	
+	major = yes
+	is_triggered_only = yes
+	
+	
+	option = { # Accept
+		name = "per_italy_flavor.8.a"
+		custom_tooltip =  fate_of_italy_french_demands_italy_tooltip
+		hidden_effect = {
+			every_province = {
+				limit = {
+					country_or_non_sovereign_subject_holds = ROOT
+					OR = {
+						area = piedmont_area
+						province_id = 2992
+						province_id = 102
+					}
+				}
+				add_core = FRA
+				cede_province = FRA
+				remove_core = ITA
+			}
+		}
+	}
+	option = { # Decline
+		name = "per_italy_flavor.8.b"
+		FRA = {
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_insult
+			}
+			piedmont_area = {
+				add_permanent_claim = FRA
+			}
+			2992 = {
+				add_permanent_claim = FRA
+			}	
+			102 = {
+				add_permanent_claim = FRA
+			}			
+		}
+	}
+}
+
+country_event = { # Austria Demands Italian Land
+	id = per_italy_flavor.9
+	title = "per_italy_flavor.9.t"
+	desc = "per_italy_flavor.9.desc"
+	picture = NOBLE_ESTATE_TAKE_OVER_eventPicture
+	
+	major = yes
+	is_triggered_only = yes
+	
+	
+	option = { # Accept
+		name = "per_italy_flavor.9.a"
+		IF = {
+			limit = {
+				HAB = {
+					exists = yes
+					is_free_or_tributary_trigger = yes
+				}
+			}
+			custom_tooltip = fate_of_italy_austrian_demands_italy_tooltip
+			hidden_effect = {
+				every_province = {
+					limit = {
+						country_or_non_sovereign_subject_holds = ROOT
+						OR = {
+							area = venetia_area
+							area = po_valley_area
+							province_id = 113
+						}
+					}
+					add_core = HAB
+					cede_province = HAB
+					remove_core = ITA
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				AUE = {
+					exists = yes
+					is_free_or_tributary_trigger = yes
+				}
+			}
+			custom_tooltip = fate_of_italy_austrian_demands_italy_tooltip
+			hidden_effect = {
+				every_province = {
+					limit = {
+						country_or_non_sovereign_subject_holds = ROOT
+						OR = {
+							area = venetia_area
+							area = po_valley_area
+							province_id = 113
+						}
+					}
+					add_core = AUE
+					cede_province = AUE
+					remove_core = ITA
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				AUH = {
+					exists = yes
+					is_free_or_tributary_trigger = yes
+				}
+			}
+			custom_tooltip = fate_of_italy_austrian_demands_italy_tooltip
+			hidden_effect = {
+				every_province = {
+					limit = {
+						country_or_non_sovereign_subject_holds = ROOT
+						OR = {
+							area = venetia_area
+							area = po_valley_area
+							province_id = 113
+						}
+					}
+					add_core = AUH
+					cede_province = AUH
+					remove_core = ITA
+				}
+			}
+		}
+	}
+	option = { # Decline
+		name = "per_italy_flavor.9.b"
+		IF = {
+			limit = {
+				HAB = {
+					exists = yes
+					is_free_or_tributary_trigger = yes
+				}
+			}
+			HAB = {
+				declare_war_with_cb = {
+					who = ROOT
+					casus_belli = cb_insult 
+				}
+				venetia_area = {
+					add_permanent_claim = HAB
+				}
+				po_valley_area = {
+					add_permanent_claim = HAB
+				}
+				113 = {
+					add_permanent_claim = HAB
+				}	
+			}
+		}
+		else_if = {
+			limit = {
+				AUE = {
+					exists = yes
+					is_free_or_tributary_trigger = yes
+				}
+			}
+			AUE = {
+				declare_war_with_cb = {
+					who = ROOT
+					casus_belli = cb_insult 
+				}
+				venetia_area = {
+					add_permanent_claim = AUE
+				}
+				po_valley_area = {
+					add_permanent_claim = AUE
+				}
+				113 = {
+					add_permanent_claim = AUE
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				AUH = {
+					exists = yes
+					is_free_or_tributary_trigger = yes
+				}
+			}
+			AUH = {
+				declare_war_with_cb = {
+					who = ROOT
+					casus_belli = cb_insult 
+				}
+				venetia_area = {
+					add_permanent_claim = AUH
+				}
+				po_valley_area = {
+					add_permanent_claim = AUH
+				}
+				113 = {
+					add_permanent_claim = AUH
+				}
+			}
+		}
+	}
+}
+
+country_event = { # Austria Accepts Approach, Italy Gets This Event
+	id = per_italy_flavor.10
+	title = "per_italy_flavor.10.t"
+	desc = "per_italy_flavor.10.desc"
+	picture = ECONOMY_eventPicture
+	
+	major = no
+	is_triggered_only = yes
+	
+	
+	option = { # Okay lol
+		name = "per_italy_flavor.10.a"	
+		IF = {
+			limit = {
+				FRA = {
+					exists = yes
+					is_free_or_tributary_trigger = yes
+				}
+			}
+			FRA = { country_event = { ID = per_italy_flavor.14 } }
+		}
+	}
+}
+
+country_event = { # France Accepts Approach, Italy Gets This Event
+	id = per_italy_flavor.11
+	title = "per_italy_flavor.11.t"
+	desc = "per_italy_flavor.11.desc"
+	picture = ECONOMY_eventPicture
+	
+	major = no
+	is_triggered_only = yes
+	
+	
+	option = { # Okay lol
+		name = "per_italy_flavor.11.a"		
+		IF = {
+			limit = {
+				HAB = {
+					exists = yes
+					is_free_or_tributary_trigger = yes
+				}
+			}
+			HAB = { country_event = { ID = per_italy_flavor.15 } }
+		}
+		else_if = {
+			limit = {
+				AUE = {
+					exists = yes
+					is_free_or_tributary_trigger = yes
+				}
+			}
+			AUE = { country_event = { ID = per_italy_flavor.15 } }
+		}
+		else_if = {
+			limit = {
+				AUH = {
+					exists = yes
+					is_free_or_tributary_trigger = yes
+				}
+			}
+			AUH = { country_event = { ID = per_italy_flavor.15 } }
+		}
+	}
+}
+
+country_event = { # Austria Declines, Italy Gets This
+	id = per_italy_flavor.12
+	title = "per_italy_flavor.12.t"
+	desc = "per_italy_flavor.12.desc"
+	picture = NOBLE_ESTATE_eventPicture
+	
+	major = yes
+	is_triggered_only = yes
+	
+	
+	option = { # Approach France?
+		name = "per_italy_flavor.12.a"		
+		IF = {
+			limit = {
+				FRA = {
+					exists = yes
+					is_free_or_tributary_trigger = yes
+				}
+			}
+			FRA = { country_event = { ID = per_italy_flavor.19 } }	
+		}
+	}
+	option = { # Decline to Approach France, Giving them possibility of Attack
+		name = "per_italy_flavor.12.b"
+		IF = {
+			limit = {
+				FRA = {
+					exists = yes
+					is_free_or_tributary_trigger = yes
+				}
+			}
+			FRA = { country_event = { ID = per_italy_flavor.16 } }	
+		}
+	}
+}
+
+country_event = { # France Declines, Italy Gets This
+	id = per_italy_flavor.13
+	title = "per_italy_flavor.13.t"
+	desc = "per_italy_flavor.13.desc"
+	picture = NOBLE_ESTATE_eventPicture
+	
+	major = yes
+	is_triggered_only = yes
+	
+	
+	option = { # Approach Austria?
+		name = "per_italy_flavor.13.a"	
+		IF = {
+			limit = {
+				HAB = {
+					exists = yes
+					is_free_or_tributary_trigger = yes
+				}
+			}
+			HAB = { country_event = { ID = per_italy_flavor.18 } }
+		}
+		else_if = {
+			limit = {
+				AUE = {
+					exists = yes
+					is_free_or_tributary_trigger = yes
+				}
+			}
+			AUE = { country_event = { ID = per_italy_flavor.18 } }
+		}
+		else_if = {
+			limit = {
+				AUH = {
+					exists = yes
+					is_free_or_tributary_trigger = yes
+				}
+			}
+			AUH = { country_event = { ID = per_italy_flavor.18 } }
+		}		
+	}
+	option = { # Decline to Approach Austria, Giving them possibility of Attack
+		name = "per_italy_flavor.13.b"
+		IF = {
+			limit = {
+				HAB = {
+					exists = yes
+					is_free_or_tributary_trigger = yes
+				}
+			}
+			HAB = { country_event = { ID = per_italy_flavor.17 } }
+		}
+		else_if = {
+			limit = {
+				AUE = {
+					exists = yes
+					is_free_or_tributary_trigger = yes
+				}
+			}
+			AUE = { country_event = { ID = per_italy_flavor.17 } }
+		}
+		else_if = {
+			limit = {
+				AUH = {
+					exists = yes
+					is_free_or_tributary_trigger = yes
+				}
+			}
+			AUH = { country_event = { ID = per_italy_flavor.17 } }
+		}		
+	}
+}
+
+country_event = { # France Demands Italian Land after Austria Protects
+	id = per_italy_flavor.14
+	title = "per_italy_flavor.14.t"
+	desc = "per_italy_flavor.14.desc"
+	picture = CONQUEST_eventPicture
+	
+	major = yes
+	is_triggered_only = yes
+	
+	
+	option = { # Demand Land
+		name = "per_italy_flavor.14.a"
+		ITA = { country_event = { ID = per_italy_flavor.8 } }
+	}
+	option = { # Decline
+		name = "per_italy_flavor.14.b"
+	}
+}
+
+country_event = { # Austria Demands Italian Land after France Protects
+	id = per_italy_flavor.15
+	title = "per_italy_flavor.15.t"
+	desc = "per_italy_flavor.15.desc"
+	picture = CONQUEST_eventPicture
+	
+	major = yes
+	is_triggered_only = yes
+	
+	
+	option = { # Demand Land
+		name = "per_italy_flavor.15.a"
+		ITA = { country_event = { ID = per_italy_flavor.9 } }
+	}
+	option = { # Decline
+		name = "per_italy_flavor.15.b"
+	}
+}
+
+country_event = { # France Demands Italian Land after Austria Declines to Protect and Italy Doesn't Approach
+	id = per_italy_flavor.16
+	title = "per_italy_flavor.16.t"
+	desc = "per_italy_flavor.16.desc"
+	picture = CONQUEST_eventPicture
+	
+	major = yes
+	is_triggered_only = yes
+	
+	
+	option = { # Demand Land
+		name = "per_italy_flavor.16.a"
+		ITA = { country_event = { ID = per_italy_flavor.8 } }
+	}
+	option = { # Decline
+		name = "per_italy_flavor.16.b"
+	}
+}
+
+country_event = { # Austria Demands Italian Land after France Declines to Protect and Italy Doesn't Approach
+	id = per_italy_flavor.17
+	title = "per_italy_flavor.17.t"
+	desc = "per_italy_flavor.17.desc"
+	picture = CONQUEST_eventPicture
+	
+	major = yes
+	is_triggered_only = yes
+	
+	
+	option = { # Demand Land
+		name = "per_italy_flavor.17.a"
+		ITA = { country_event = { ID = per_italy_flavor.9 } }
+	}
+	option = { # Decline
+		name = "per_italy_flavor.17.b"
+	}
+}
+
+country_event = { # Italy Approaches Austria After France Says No
+	id = per_italy_flavor.18
+	title = "per_italy_flavor.18.t"
+	desc = "per_italy_flavor.18.desc"
+	picture = NOBLE_ESTATE_DEMANDS_eventPicture
+	
+	major = yes
+	is_triggered_only = yes
+	
+	
+	option = { # Accept, Gaining land and allying or protecting Italy
+		name = "per_italy_flavor.18.a"
+		create_guarantee = ITA
+		create_alliance = ITA
+		IF = {
+			limit = {
+				HAB = {
+					exists = yes
+					is_free_or_tributary_trigger = yes
+				}
+			}
+			custom_tooltip = fate_of_italy_austrian_approach_gets_tooltip
+			hidden_effect = {
+				every_province = {
+					limit = {
+						country_or_non_sovereign_subject_holds = ITA
+						OR = {
+							area = venetia_area
+							area = po_valley_area
+							province_id = 113
+						}
+					}
+					add_core = HAB
+					cede_province = HAB
+					remove_core = ITA
+				}
+			}
+			ITA = { country_event = { ID = per_italy_flavor.10 } }
+		}
+		else_if = {
+			limit = {
+				AUE = {
+					exists = yes
+					is_free_or_tributary_trigger = yes
+				}
+			}
+			custom_tooltip = fate_of_italy_austrian_approach_gets_tooltip
+			hidden_effect = {
+				every_province = {
+					limit = {
+						country_or_non_sovereign_subject_holds = ITA
+						OR = {
+							area = venetia_area
+							area = po_valley_area
+							province_id = 113
+						}
+					}
+					add_core = AUE
+					cede_province = AUE
+					remove_core = ITA
+				}
+			}
+			ITA = { country_event = { ID = per_italy_flavor.10 } }
+		}
+		else_if = {
+			limit = {
+				AUH = {
+					exists = yes
+					is_free_or_tributary_trigger = yes
+				}
+			}
+			custom_tooltip = fate_of_italy_austrian_approach_gets_tooltip
+			hidden_effect = {
+				every_province = {
+					limit = {
+						country_or_non_sovereign_subject_holds = ITA
+						OR = {
+							area = venetia_area
+							area = po_valley_area
+							province_id = 113
+						}
+					}
+					add_core = AUH
+					cede_province = AUH
+					remove_core = ITA
+				}
+			}
+			ITA = { country_event = { ID = per_italy_flavor.10 } }
+		}
+	}
+	option = { # Decline
+		name = "per_italy_flavor.18.b"
+		ITA = { country_event = { ID = per_italy_flavor.20 } }
+	}
+}
+
+country_event = { # Italy Approaches France After Austria Says No
+	id = per_italy_flavor.19
+	title = "per_italy_flavor.19.t"
+	desc = "per_italy_flavor.19.desc"
+	picture = NOBLE_ESTATE_DEMANDS_eventPicture
+	
+	major = yes
+	is_triggered_only = yes
+	
+	
+	option = { # Accept, Gaining land and allying or protecting Italy
+		name = "per_italy_flavor.19.a"
+		create_guarantee = ITA
+		create_alliance = ITA
+		custom_tooltip = fate_of_italy_france_approach_gets_tooltip
+		hidden_effect = {
+			every_province = {
+				limit = {
+					country_or_non_sovereign_subject_holds = ITA
+					OR = {
+						area = piedmont_area
+						province_id = 2992
+						province_id = 102
+					}
+				}
+				add_core = FRA
+				cede_province = FRA
+				remove_core = ITA
+			}
+		}
+		ITA = { country_event = { ID = per_italy_flavor.11 } }
+	}
+	option = { # Decline
+		name = "per_italy_flavor.19.b"
+		ITA = { country_event = { ID = per_italy_flavor.20 } }
+	}
+}
+
+country_event = { # Italy is Denied Twice
+	id = per_italy_flavor.20
+	title = "per_italy_flavor.20.t"
+	desc = "per_italy_flavor.20.desc"
+	picture = OVEREXTENSION_eventPicture
+	
+	major = yes
+	is_triggered_only = yes
+	
+	
+	option = { # :(
+		name = "per_italy_flavor.20.a"
+		FRA = { country_event = { ID = per_italy_flavor.22 } }
+		IF = {
+			limit = {
+				HAB = {
+					exists = yes
+					is_free_or_tributary_trigger = yes
+				}
+			}
+			HAB = { country_event = { ID = per_italy_flavor.21 } }
+		}
+		else_if = {
+			limit = {
+				AUE = {
+					exists = yes
+					is_free_or_tributary_trigger = yes
+				}
+			}
+			AUE = { country_event = { ID = per_italy_flavor.21 } }
+		}
+		else_if = {
+			limit = {
+				AUH = {
+					exists = yes
+					is_free_or_tributary_trigger = yes
+				}
+			}
+			AUH = { country_event = { ID = per_italy_flavor.21 } }
+		}			
+	}
+}
+
+country_event = { # Austria Informed Italy Stands Alone After Denial
+	id = per_italy_flavor.21
+	title = "per_italy_flavor.21.t"
+	desc = "per_italy_flavor.21.desc"
+	picture = MILITARY_CAMP_eventPicture
+	
+	major = yes
+	is_triggered_only = yes
+	
+	
+	option = { # France Demands Land
+		name = "per_italy_flavor.21.a"
+		custom_tooltip = fate_of_italy_french_demands_tooltip
+		ITA = { country_event = { ID = per_italy_flavor.9 } }
+	}
+	option = { # French Apathy
+		name = "per_italy_flavor.21.b"
+	}
+}
+
+country_event = { # France Informed Italy Stands Alone After Denial
+	id = per_italy_flavor.22
+	title = "per_italy_flavor.22.t"
+	desc = "per_italy_flavor.22.desc"
+	picture = MILITARY_CAMP_eventPicture
+	
+	major = yes
+	is_triggered_only = yes
+	
+	
+	option = { # France Demands Land
+		name = "per_italy_flavor.22.a"
+		custom_tooltip = fate_of_italy_french_demands_tooltip
+		ITA = { country_event = { ID = per_italy_flavor.8 } }
+	}
+	option = { # French Apathy
+		name = "per_italy_flavor.22.b"
+	}
+}

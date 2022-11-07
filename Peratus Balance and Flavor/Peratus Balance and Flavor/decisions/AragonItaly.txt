@@ -1,0 +1,129 @@
+country_decisions = {
+
+		ari_form_decision = {
+			major = yes
+			potential = {
+				tag = ARA
+				NOT = { has_country_flag = ari_form_flag }
+				NOT = {
+					exists = ARI
+				}
+			}
+			provinces_to_highlight = {
+				OR = {
+					area = corsica_sardinia_area
+					area = western_sicily_area
+					area = sicily_area
+					area = naples_area
+					area = calabria_area
+					area = apulia_area
+					area = lazio_area
+					area = tuscany_area
+					area = central_italy_area
+					area = per_spoleto_area
+					area = per_pisa_area
+					area = per_sardinia_area
+				}
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			}
+			allow = {
+				adm_tech = 10
+				is_free_or_tributary_trigger = yes
+				stability = 1
+				is_at_war = no
+				IF = {
+					limit = {
+						senior_union_with = NAP
+					}
+					NAP = {
+						NOT = { num_of_cities = 30 }
+					}
+				}
+				corsica_sardinia_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				per_sardinia_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				western_sicily_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				sicily_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				naples_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				calabria_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				apulia_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				lazio_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				tuscany_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				central_italy_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				per_pisa_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				per_spoleto_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+			}
+			effect = {
+				set_country_flag = ari_form_flag
+				change_tag = ARI
+				IF = {
+					limit = {
+						senior_union_with = NAP
+					}
+					inherit = NAP
+				}
+				change_primary_culture = umbrian
+				add_prestige = 50
+				IF = {
+					limit = {
+						NOT = {
+							government_rank = 3
+						}
+					}
+					set_government_rank = 3
+				}
+				IF = {
+					limit = {
+						has_custom_ideas = no
+					}
+					country_event = { id = ideagroups.1 } #Swap Ideas
+				}
+				add_country_modifier = {
+					name = "centralization_modifier"
+					duration = 7300
+				}
+				italy_region = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { owned_by = ROOT }
+					}
+					add_permanent_claim = ARI
+				}
+			}
+		}
+}

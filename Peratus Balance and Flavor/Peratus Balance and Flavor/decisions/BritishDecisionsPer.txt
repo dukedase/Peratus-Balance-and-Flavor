@@ -1,0 +1,270 @@
+country_decisions = {
+
+		per_integrate_english_nobility = {
+			major = yes
+			potential = {
+				has_country_flag = started_integration_chain_per
+				NOT = { has_country_flag = started_english_noble_integration_flag_per }
+				NOT = { has_country_flag = english_nobility_integrated_flag_per }
+				tag = ENG
+				senior_union_with = FRA
+				NOT = {
+					check_variable = {
+						which = myEnglishNoblesIntegrationVariable
+						value = 5
+					}
+				}
+			}
+			allow = {
+				NOT = {
+					check_variable = {
+						which = myEnglishNoblesIntegrationVariable
+						value = 5
+					}
+				}
+			}
+			effect = {
+				set_country_flag = started_english_noble_integration_flag_per
+				custom_tooltip = per_integration_decisions_tooltip
+				hidden_effect = {
+					set_variable = {
+						which = myEnglishNoblesIntegrationVariable
+						value = 1
+					}
+				}
+			}
+		}
+		
+		per_integrate_english_peasants = {
+			major = yes
+			potential = {
+				has_country_flag = started_integration_chain_per
+				has_country_flag = english_nobility_integrated_flag_per
+				NOT = { has_country_flag = started_english_peasant_integration_flag_per }
+				NOT = { has_country_flag = english_peasants_integrated_flag_per }
+				tag = ENG
+				senior_union_with = FRA
+				NOT = {
+					check_variable = {
+						which = myEnglishPeasantsIntegrationVariable
+						value = 5
+					}
+				}
+			}
+			allow = {
+				NOT = {
+					check_variable = {
+						which = myEnglishPeasantsIntegrationVariable
+						value = 5
+					}
+				}
+			}
+			effect = {
+				set_country_flag = started_english_peasant_integration_flag_per
+				custom_tooltip = per_integration_decisions_tooltip
+				hidden_effect = {
+					set_variable = {
+						which = myEnglishPeasantsIntegrationVariable
+						value = 1
+					}
+				}
+			}
+		}
+		
+		per_integrate_french_nobles = {
+			major = yes
+			potential = {
+				has_country_flag = started_integration_chain_per
+				has_country_flag = english_peasants_integrated_flag_per
+				NOT = { has_country_flag = started_french_nobles_integration_flag_per }
+				NOT = { has_country_flag = french_nobles_integrated_flag_per }
+				tag = ENG
+				senior_union_with = FRA
+				NOT = {
+					check_variable = {
+						which = myFrenchNoblesIntegrationVariable
+						value = 5
+					}
+				}
+			}
+			allow = {
+				NOT = {
+					check_variable = {
+						which = myFrenchNoblesIntegrationVariable
+						value = 5
+					}
+				}
+			}
+			effect = {
+				set_country_flag = started_french_nobles_integration_flag_per
+				custom_tooltip = per_integration_decisions_tooltip
+				hidden_effect = {
+					set_variable = {
+						which = myFrenchNoblesIntegrationVariable
+						value = 1
+					}
+				}
+			}
+		}
+		
+		per_integrate_french_peasants = {
+			major = yes
+			potential = {
+				has_country_flag = started_integration_chain_per
+				has_country_flag = french_nobles_integrated_flag_per
+				NOT = { has_country_flag = started_french_peasants_integration_flag_per }
+				NOT = { has_country_flag = french_peasants_integrated_flag_per }
+				tag = ENG
+				senior_union_with = FRA
+				NOT = {
+					check_variable = {
+						which = myFrenchPeasantsIntegrationVariable
+						value = 5
+					}
+				}
+			}
+			allow = {
+				NOT = {
+					check_variable = {
+						which = myFrenchPeasantsIntegrationVariable
+						value = 5
+					}
+				}
+				normandy_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				brittany_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+			}
+			effect = {
+				set_country_flag = started_french_peasants_integration_flag_per
+				custom_tooltip = per_integration_decisions_tooltip
+				hidden_effect = {
+					set_variable = {
+						which = myFrenchPeasantsIntegrationVariable
+						value = 1
+					}
+				}
+			}
+		}
+		
+		per_integrate_francien_decision = {
+			major = yes
+			potential = {
+				has_country_flag = french_peasants_integrated_flag_per
+				NOT = { has_country_flag = per_integrated_francien_flag }
+			}
+			provinces_to_highlight = {
+				OR = {
+					culture = cosmopolitan_french
+				}
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			}
+			allow = {
+				ile_de_france_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}	
+				orleans_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}	
+				loire_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}	
+				poitou_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				champagne_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				186 = {
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				4390 = {
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				190 = {
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				89 = {
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+			}
+			effect = {
+				set_country_flag = per_integrated_francien_flag
+				every_owned_province = {
+					limit = {
+						culture = cosmopolitan_french
+					}
+					change_culture = south_anglois
+				}
+				FRA = {
+					add_liberty_desire = -25
+					every_owned_province = {
+						limit = {
+							culture = cosmopolitan_french
+						}
+						change_culture = south_anglois
+					}
+					change_primary_culture = south_anglois
+				}
+				ROOT = { country_event = { ID = per_british_events.19 } }
+			}
+		}
+		
+		per_integrate_wallonia_decision = {
+			major = yes
+			potential = {
+				has_country_flag = per_integrated_francien_flag
+				NOT = { has_country_flag = per_integrated_wallonia_flag }
+			}
+			provinces_to_highlight = {
+				OR = {
+					area = wallonia_area
+					area = picardy_area
+					area = champagne_area
+					province_id = 4769
+				}
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			}
+			allow = {
+				wallonia_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}	
+				picardy_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}	
+				champagne_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}	
+				4769 = {
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+			}
+			effect = {
+				set_country_flag = per_integrated_wallonia_flag
+				wallonia_area = {
+					change_culture = south_anglois
+				}
+				picardy_area = {
+					change_culture = south_anglois
+				}
+				champagne_area = {
+					change_culture = south_anglois
+				}
+				4769 = {
+					change_culture = south_anglois
+				}
+			}
+		}
+}

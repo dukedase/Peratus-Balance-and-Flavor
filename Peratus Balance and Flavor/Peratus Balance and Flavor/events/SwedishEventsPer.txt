@@ -1,0 +1,30 @@
+#### Swedish Events ###
+### By Peratus ###
+
+
+namespace = per_swedish_events
+normal_or_historical_nations = yes
+
+### Swedish Events
+
+
+country_event = { # Swedish King of All Scandinavia
+	id = per_swedish_events.1
+	title = "per_swedish_events.1.t"
+	desc = "per_swedish_events.1.desc"
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+	major = yes
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "per_swedish_events.1.a"
+		add_prestige = 25
+		add_legitimacy = 25
+		add_country_modifier = {
+			name = per_swedish_king_of_scandinavia_modifier
+			duration = -1
+		}
+	}
+}

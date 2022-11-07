@@ -1,0 +1,19 @@
+government = monarchy
+add_government_reform = iqta 
+government_rank = 1
+technology_group = muslim
+religion = sunni
+primary_culture = algerian
+capital = 338 # Al-Djazair
+religious_school = maliki_school
+
+1444.1.1 = {
+	monarch = {
+		name = "Salim"
+		dynasty = "Al-Tumi"
+		adm = 3
+		dip = 4
+		mil = 3
+		birth_date = 1405.3.6
+	}
+}

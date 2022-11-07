@@ -1,0 +1,21 @@
+#4947 - Bayeux
+
+owner = ENG
+controller = ENG
+culture = normand
+religion = catholic
+capital = "Bayeux"
+hre = no
+base_tax = 3
+base_production = 3
+trade_goods = wool
+base_manpower = 4
+is_city = yes
+add_core = ENG
+add_core = NRM
+
+
+discovered_by = western
+discovered_by = eastern
+discovered_by = muslim
+discovered_by = ottoman

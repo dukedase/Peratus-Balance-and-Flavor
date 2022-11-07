@@ -1,0 +1,62 @@
+country_decisions = {
+
+		dua_form_decision = {
+			major = yes
+			potential = {
+				tag = ENG
+				NOT = { exists = DUA }
+				NOT = { exists = GBR }
+				NOT = { has_country_flag = dua_form_flag }
+			}
+			provinces_to_highlight = {
+				OR = {
+					region = france_region
+					region = british_isles_region
+				}
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			}
+			allow = {
+				adm_tech = 10
+				is_free_or_tributary_trigger = yes
+				stability = 1
+				primary_culture = anglois
+				senior_union_with = FRA
+				AND = {
+					FRA = {
+						NOT = { num_of_cities = 70 }
+					}
+				}
+				is_at_war = no
+				france_region = {
+					type = all
+					OR = {
+						country_or_non_sovereign_subject_holds = FRA
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+				}	
+				british_isles_region = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+			}
+			effect = {
+				set_country_flag = dua_form_flag
+				inherit = FRA
+				change_tag = DUA
+				set_government_rank = 3
+				add_government_reform = dual_monarchy
+				add_legitimacy = 100
+				add_prestige = 50
+				if = {
+					limit = {
+						has_custom_ideas = no
+					}
+					country_event = { id = ideagroups.1 } #Swap Ideas
+				}
+				add_country_modifier = {
+					name = "centralization_modifier"
+					duration = 7300
+				}
+			}
+		}
+}

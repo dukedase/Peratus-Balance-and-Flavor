@@ -1,0 +1,134 @@
+country_decisions = {
+	
+	search_for_jarngreipr_decision = {
+		major = yes
+		potential = {
+			ai = no
+			has_global_flag = per_search_for_thors_gauntlets_began_flag
+			NOT = { has_country_flag = per_searching_for_jarngreipr_flag }
+			NOT = { has_global_flag = per_found_jarngreipr_flag }
+		}
+		
+		provinces_to_highlight = {
+		}
+		
+		allow = {
+		}
+		
+		effect = {
+			ROOT = { country_event = { ID = per_relic_events.2 } }
+		}
+	}
+	
+	activate_jarngreipr_decision = {
+		major = no
+		potential = {
+			ai = no
+			has_country_modifier = per_jarngreipr_modifier
+			NOT = { has_country_modifier = per_jarngreipr_activate_modifier }
+		}
+		
+		provinces_to_highlight = {
+		}
+		
+		allow = {
+			custom_trigger_tooltip = {
+				tooltip = owns_jarngreipr_ct
+				has_country_modifier = per_jarngreipr_modifier
+			}
+		}
+		
+		effect = {
+			add_adm_power = -25
+			add_mil_power = -75
+			add_country_modifier = {
+				name = per_jarngreipr_activate_modifier
+				duration = 3650 # 10 Years
+			}
+		}
+	}
+	
+	activate_achilles_decision = {
+		major = no
+		potential = {
+			ai = no
+			has_country_modifier = per_achilles_modifier
+			NOT = { has_country_modifier = per_achilles_activate_modifier }
+		}
+		
+		provinces_to_highlight = {
+		}
+		
+		allow = {
+			custom_trigger_tooltip = {
+				tooltip = owns_achilles_ct
+				has_country_modifier = per_achilles_modifier
+			}
+		}
+		
+		effect = {
+			add_adm_power = -50
+			add_mil_power = -50
+			add_country_modifier = {
+				name = per_achilles_activate_modifier
+				duration = 3650 # 10 Years
+			}
+		}
+	}
+	
+	activate_ankh_decision = {
+		major = no
+		potential = {
+			ai = no
+			has_country_modifier = per_ankh_modifier
+			NOT = { has_country_modifier = per_ankh_activate_modifier }
+		}
+		
+		provinces_to_highlight = {
+		}
+		
+		allow = {
+			custom_trigger_tooltip = {
+				tooltip = owns_ankh_ct
+				has_country_modifier = per_ankh_modifier
+			}
+		}
+		
+		effect = {
+			add_adm_power = -50
+			add_dip_power = -50
+			add_country_modifier = {
+				name = per_ankh_activate_modifier
+				duration = 7300 # 20 Years
+			}
+		}
+	}
+	
+	activate_andvaranaut_decision = {
+		major = no
+		potential = {
+			ai = no
+			has_country_modifier = per_andvaranaut_modifier
+			NOT = { has_country_modifier = per_andvaranaut_activate_modifier }
+		}
+		
+		provinces_to_highlight = {
+		}
+		
+		allow = {
+			custom_trigger_tooltip = {
+				tooltip = owns_andvaranaut_ct
+				has_country_modifier = per_andvaranaut_modifier
+			}
+		}
+		
+		effect = {
+			add_adm_power = -25
+			add_dip_power = -75
+			add_country_modifier = {
+				name = per_andvaranaut_activate_modifier
+				duration = 3650 # 10 Years
+			}
+		}
+	}
+}

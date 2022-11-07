@@ -1,0 +1,671 @@
+#### Mod Idea Group Events ###
+### By Peratus ###
+
+
+namespace = per_ideagroup_events
+normal_or_historical_nations = yes
+
+### Mod Idea Group Events
+
+country_event = { # State Events Goods Produced
+	id = per_ideagroup_events.1
+	title = "per_ideagroup_events.1.t"
+	desc = "per_ideagroup_events.1.desc"
+	picture = MILITARY_CAMP_eventPicture
+	
+	major = no
+	fire_only_once = no
+	is_triggered_only = yes
+	
+	
+	trigger = {
+		has_idea_group = state_ideas
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "per_ideagroup_events.1.a"
+		add_country_modifier = {
+			name = state_ideas_goods_produced_modifier_good_per
+			duration = 3650
+		}	
+	}
+}
+
+country_event = { # State Events Negative Goods Produced
+	id = per_ideagroup_events.2
+	title = "per_ideagroup_events.2.t"
+	desc = "per_ideagroup_events.2.desc"
+	picture = MILITARY_CAMP_eventPicture
+	
+	major = no
+	fire_only_once = no
+	is_triggered_only = yes
+	
+	
+	trigger = {
+		has_idea_group = state_ideas
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "per_ideagroup_events.2.a"
+		add_country_modifier = {
+			name = state_ideas_goods_produced_modifier_bad_per
+			duration = 3650
+		}	
+	}
+}
+
+country_event = { # State Events Good Diplomatic Reputation
+	id = per_ideagroup_events.3
+	title = "per_ideagroup_events.3.t"
+	desc = "per_ideagroup_events.3.desc"
+	picture = MILITARY_CAMP_eventPicture
+	
+	major = no
+	fire_only_once = no
+	is_triggered_only = yes
+	
+	
+	trigger = {
+		has_idea_group = state_ideas
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "per_ideagroup_events.3.a"
+		add_country_modifier = {
+			name = state_ideas_diplomatic_rep_good_per
+			duration = 3650
+		}	
+	}
+}
+
+country_event = { # State Events Bad Diplomatic Reputation
+	id = per_ideagroup_events.4
+	title = "per_ideagroup_events.4.t"
+	desc = "per_ideagroup_events.4.desc"
+	picture = MILITARY_CAMP_eventPicture
+	
+	major = no
+	fire_only_once = no
+	is_triggered_only = yes
+	
+	
+	trigger = {
+		has_idea_group = state_ideas
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "per_ideagroup_events.4.a"
+		add_country_modifier = {
+			name = state_ideas_diplomatic_rep_bad_per
+			duration = 3650
+		}	
+	}
+}
+
+country_event = { # State Events Good Prestige
+	id = per_ideagroup_events.5
+	title = "per_ideagroup_events.5.t"
+	desc = "per_ideagroup_events.5.desc"
+	picture = MILITARY_CAMP_eventPicture
+	
+	major = no
+	fire_only_once = no
+	is_triggered_only = yes
+	
+	
+	trigger = {
+		has_idea_group = state_ideas
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "per_ideagroup_events.5.a"
+		add_country_modifier = {
+			name = state_ideas_prestige_good_per
+			duration = 3650
+		}	
+	}
+}
+
+country_event = { # State Events Good AE
+	id = per_ideagroup_events.6
+	title = "per_ideagroup_events.6.t"
+	desc = "per_ideagroup_events.6.desc"
+	picture = MILITARY_CAMP_eventPicture
+	
+	major = no
+	fire_only_once = no
+	is_triggered_only = yes
+	
+	
+	trigger = {
+		has_idea_group = state_ideas
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "per_ideagroup_events.6.a"
+		add_country_modifier = {
+			name = state_ideas_ae_good_per
+			duration = 3650
+		}	
+	}
+}
+
+country_event = { # Government Events Good Dip Modifier
+	id = per_ideagroup_events.7
+	title = "per_ideagroup_events.7.t"
+	desc = "per_ideagroup_events.7.desc"
+	picture = MILITARY_CAMP_eventPicture
+	
+	major = no
+	fire_only_once = no
+	is_triggered_only = yes
+	
+	
+	trigger = {
+		has_idea_group = monarch_ideas
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "per_ideagroup_events.7.a"
+		add_country_modifier = {
+			name = government_ideas_dip_good_per
+			duration = 3650
+		}	
+	}
+}
+
+country_event = { # Government Events Bad Dip Modifier
+	id = per_ideagroup_events.8
+	title = "per_ideagroup_events.8.t"
+	desc = "per_ideagroup_events.8.desc"
+	picture = MILITARY_CAMP_eventPicture
+	
+	major = no
+	fire_only_once = no
+	is_triggered_only = yes
+	
+	
+	trigger = {
+		has_idea_group = monarch_ideas
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "per_ideagroup_events.8.a"
+		add_country_modifier = {
+			name = government_ideas_dip_bad_per
+			duration = 3650
+		}	
+	}
+}
+
+country_event = { # Government Events Good Mil Modifier
+	id = per_ideagroup_events.9
+	title = "per_ideagroup_events.9.t"
+	desc = "per_ideagroup_events.9.desc"
+	picture = MILITARY_CAMP_eventPicture
+	
+	major = no
+	fire_only_once = no
+	is_triggered_only = yes
+	
+	
+	trigger = {
+		has_idea_group = monarch_ideas
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "per_ideagroup_events.9.a"
+		add_country_modifier = {
+			name = government_ideas_mil_good_per
+			duration = 3650
+		}	
+	}
+}
+
+country_event = { # Government Events Bad Mil Modifier
+	id = per_ideagroup_events.10
+	title = "per_ideagroup_events.10.t"
+	desc = "per_ideagroup_events.10.desc"
+	picture = MILITARY_CAMP_eventPicture
+	
+	major = no
+	fire_only_once = no
+	is_triggered_only = yes
+	
+	
+	trigger = {
+		has_idea_group = monarch_ideas
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "per_ideagroup_events.10.a"
+		add_country_modifier = {
+			name = government_ideas_mil_bad_per
+			duration = 3650
+		}	
+	}
+}
+
+country_event = { # Government Events Good Legitimacy Modifier
+	id = per_ideagroup_events.11
+	title = "per_ideagroup_events.11.t"
+	desc = "per_ideagroup_events.11.desc"
+	picture = MILITARY_CAMP_eventPicture
+	
+	major = no
+	fire_only_once = no
+	is_triggered_only = yes
+	
+	
+	trigger = {
+		has_idea_group = monarch_ideas
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "per_ideagroup_events.11.a"
+		add_country_modifier = {
+			name = government_ideas_legitimacy_good_per
+			duration = 3650
+		}	
+	}
+}
+
+country_event = { # Government Events Good Corruption Modifier
+	id = per_ideagroup_events.12
+	title = "per_ideagroup_events.12.t"
+	desc = "per_ideagroup_events.12.desc"
+	picture = MILITARY_CAMP_eventPicture
+	
+	major = no
+	fire_only_once = no
+	is_triggered_only = yes
+	
+	
+	trigger = {
+		has_idea_group = monarch_ideas
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "per_ideagroup_events.12.a"
+		add_country_modifier = {
+			name = government_ideas_corruption_good_per
+			duration = 3650
+		}	
+	}
+}
+
+country_event = { # Professionalism Events Good Professionalism 
+	id = per_ideagroup_events.13
+	title = "per_ideagroup_events.13.t"
+	desc = "per_ideagroup_events.13.desc"
+	picture = MILITARY_CAMP_eventPicture
+	
+	major = no
+	fire_only_once = no
+	is_triggered_only = yes
+	
+	
+	trigger = {
+		has_idea_group = professionalism_ideas
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "per_ideagroup_events.13.a"
+		add_country_modifier = {
+			name = professionalism_ideas_professionalism_good_per
+			duration = 3650
+		}	
+	}
+}
+
+country_event = { # Professionalism Events Bad Professionalism 
+	id = per_ideagroup_events.14
+	title = "per_ideagroup_events.14.t"
+	desc = "per_ideagroup_events.14.desc"
+	picture = MILITARY_CAMP_eventPicture
+	
+	major = no
+	fire_only_once = no
+	is_triggered_only = yes
+	
+	
+	trigger = {
+		has_idea_group = professionalism_ideas
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "per_ideagroup_events.14.a"
+		add_country_modifier = {
+			name = professionalism_ideas_professionalism_bad_per
+			duration = 3650
+		}	
+	}
+}
+
+country_event = { # Professionalism Events Bad Manpower
+	id = per_ideagroup_events.15
+	title = "per_ideagroup_events.15.t"
+	desc = "per_ideagroup_events.15.desc"
+	picture = MILITARY_CAMP_eventPicture
+	
+	major = no
+	fire_only_once = no
+	is_triggered_only = yes
+	
+	
+	trigger = {
+		has_idea_group = professionalism_ideas
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "per_ideagroup_events.15.a"
+		add_yearly_manpower = -2
+	}
+}
+
+country_event = { # Professionalism Events Good Discipline
+	id = per_ideagroup_events.16
+	title = "per_ideagroup_events.16.t"
+	desc = "per_ideagroup_events.16.desc"
+	picture = MILITARY_CAMP_eventPicture
+	
+	major = no
+	fire_only_once = no
+	is_triggered_only = yes
+	
+	
+	trigger = {
+		has_idea_group = professionalism_ideas
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "per_ideagroup_events.16.a"
+		add_country_modifier = {
+			name = professionalism_ideas_discipline_good_per
+			duration = 3650
+		}	
+	}
+}
+
+country_event = { # Professionalism Events Bad Discipline
+	id = per_ideagroup_events.17
+	title = "per_ideagroup_events.17.t"
+	desc = "per_ideagroup_events.17.desc"
+	picture = MILITARY_CAMP_eventPicture
+	
+	major = no
+	fire_only_once = no
+	is_triggered_only = yes
+	
+	
+	trigger = {
+		has_idea_group = professionalism_ideas
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "per_ideagroup_events.17.a"
+		add_country_modifier = {
+			name = professionalism_ideas_discipline_bad_per
+			duration = 3650
+		}	
+	}
+}
+
+country_event = { # Professionalism Events Good Tradition
+	id = per_ideagroup_events.18
+	title = "per_ideagroup_events.18.t"
+	desc = "per_ideagroup_events.18.desc"
+	picture = MILITARY_CAMP_eventPicture
+	
+	major = no
+	fire_only_once = no
+	is_triggered_only = yes
+	
+	
+	trigger = {
+		has_idea_group = professionalism_ideas
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "per_ideagroup_events.18.a"
+		add_army_tradition = 25
+	}
+}
+
+country_event = { # Mercenary Events Good Merc Maint
+	id = per_ideagroup_events.19
+	title = "per_ideagroup_events.19.t"
+	desc = "per_ideagroup_events.19.desc"
+	picture = MILITARY_CAMP_eventPicture
+	
+	major = no
+	fire_only_once = no
+	is_triggered_only = yes
+	
+	
+	trigger = {
+		has_idea_group = mercenary_ideas
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "per_ideagroup_events.19.a"
+		add_country_modifier = {
+			name = mercenary_ideas_maintenance_good_per
+			duration = 3650
+		}	
+	}
+}
+
+country_event = { # Mercenary Events Bad Merc Maint
+	id = per_ideagroup_events.20
+	title = "per_ideagroup_events.20.t"
+	desc = "per_ideagroup_events.20.desc"
+	picture = MILITARY_CAMP_eventPicture
+	
+	major = no
+	fire_only_once = no
+	is_triggered_only = yes
+	
+	
+	trigger = {
+		has_idea_group = mercenary_ideas
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "per_ideagroup_events.20.a"
+		add_country_modifier = {
+			name = mercenary_ideas_maintenance_bad_per
+			duration = 3650
+		}	
+	}
+}
+
+country_event = { # Mercenary Events Good Merc Discipline
+	id = per_ideagroup_events.21
+	title = "per_ideagroup_events.21.t"
+	desc = "per_ideagroup_events.21.desc"
+	picture = MILITARY_CAMP_eventPicture
+	
+	major = no
+	fire_only_once = no
+	is_triggered_only = yes
+	
+	
+	trigger = {
+		has_idea_group = mercenary_ideas
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "per_ideagroup_events.21.a"
+		add_country_modifier = {
+			name = mercenary_ideas_discipline_good_per
+			duration = 3650
+		}	
+	}
+}
+
+country_event = { # Mercenary Events Bad Merc Discipline
+	id = per_ideagroup_events.22
+	title = "per_ideagroup_events.22.t"
+	desc = "per_ideagroup_events.22.desc"
+	picture = MILITARY_CAMP_eventPicture
+	
+	major = no
+	fire_only_once = no
+	is_triggered_only = yes
+	
+	
+	trigger = {
+		has_idea_group = mercenary_ideas
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "per_ideagroup_events.22.a"
+		add_country_modifier = {
+			name = mercenary_ideas_discipline_bad_per
+			duration = 3650
+		}	
+	}
+}
+
+country_event = { # Mercenary Events Good Merc Manpower
+	id = per_ideagroup_events.23
+	title = "per_ideagroup_events.23.t"
+	desc = "per_ideagroup_events.23.desc"
+	picture = MILITARY_CAMP_eventPicture
+	
+	major = no
+	fire_only_once = no
+	is_triggered_only = yes
+	
+	
+	trigger = {
+		has_idea_group = mercenary_ideas
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "per_ideagroup_events.23.a"
+		add_country_modifier = {
+			name = mercenary_ideas_manpower_good_per
+			duration = 3650
+		}	
+	}
+}
+
+country_event = { # Mercenary Events Good Mercenary Money
+	id = per_ideagroup_events.24
+	title = "per_ideagroup_events.24.t"
+	desc = "per_ideagroup_events.24.desc"
+	picture = MILITARY_CAMP_eventPicture
+	
+	major = no
+	fire_only_once = no
+	is_triggered_only = yes
+	
+	
+	trigger = {
+		has_idea_group = mercenary_ideas
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "per_ideagroup_events.24.a"
+		add_years_of_income = 0.75
+	}
+}

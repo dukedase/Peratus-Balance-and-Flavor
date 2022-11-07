@@ -1,0 +1,452 @@
+per_islamic_state_missions_tree_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	
+	potential = {
+		tag = IST
+		NOT = { map_setup = map_setup_random }
+	}
+	
+	has_country_shield = yes
+	
+	per_eradicate_idolatry_in_afghanistan = {
+		icon = mission_steppe_warriors
+		position = 1
+		required_missions = {  }
+		
+		provinces_to_highlight = {
+			province_id = 2225
+		}
+		
+		trigger = {
+			2225 = {
+				owned_by = ROOT
+				religion = sunni
+				has_great_project = {
+					type = buddha_statues
+				}
+			}
+		}
+		
+		effect = {
+			add_prestige = 10
+			add_devotion = 1000
+			add_piety = -0.5
+			destroy_great_project = {
+				type = buddha_statues
+			}
+		}
+	}
+	
+	per_destroy_armenian_monuments = {
+		icon = mission_steppe_warriors
+		position = 1
+		required_missions = { per_eradicate_idolatry_in_afghanistan }
+		
+		provinces_to_highlight = {
+			province_id = 419
+		}
+		
+		trigger = {
+			419 = {
+				owned_by = ROOT
+				religion = sunni
+				has_great_project = {
+					type = mount_ararat
+				}
+				has_great_project = {
+					type = etchimiadzin_cathedral
+				}
+			}
+		}
+		
+		effect = {
+			add_prestige = 10
+			add_devotion = 1000
+			add_piety = -0.5
+			destroy_great_project = {
+				type = mount_ararat
+			}
+			destroy_great_project = {
+				type = etchimiadzin_cathedral
+			}
+		}
+	}
+	
+	per_destroy_the_fire_temple = {
+		icon = mission_steppe_warriors
+		position = 1
+		required_missions = { per_destroy_armenian_monuments }
+		
+		provinces_to_highlight = {
+			province_id = 421
+		}
+		
+		trigger = {
+			421 = {
+				owned_by = ROOT
+				religion = sunni
+				has_great_project = {
+					type = fire_temple_of_ateshgah
+				}
+			}
+		}
+		
+		effect = {
+			add_prestige = 10
+			add_devotion = 1000
+			add_piety = -0.5
+			destroy_great_project = {
+				type = fire_temple_of_ateshgah
+			}
+		}
+	}
+	
+	per_destroy_the_pyramids = {
+		icon = mission_steppe_warriors
+		position = 1
+		required_missions = { per_destroy_the_fire_temple }
+		
+		provinces_to_highlight = {
+			province_id = 361
+		}
+		
+		trigger = {
+			361 = {
+				owned_by = ROOT
+				religion = sunni
+				has_great_project = {
+					type = pyramid_of_cheops
+				}
+			}
+		}
+		
+		effect = {
+			add_prestige = 10
+			add_devotion = 1000
+			add_piety = -0.5
+			destroy_great_project = {
+				type = pyramid_of_cheops
+			}
+		}
+	}
+	
+	per_annihilate_christ = {
+		icon = mission_steppe_warriors
+		position = 1
+		required_missions = { per_destroy_the_pyramids }
+		
+		provinces_to_highlight = {
+			province_id = 118
+		}
+		
+		trigger = {
+			118 = {
+				owned_by = ROOT
+				religion = sunni
+				has_great_project = {
+					type = stpeters_cathedral
+				}
+			}
+		}
+		
+		effect = {
+			add_prestige = 1000
+			add_devotion = 1000
+			add_piety = -5000
+			destroy_great_project = {
+				type = stpeters_cathedral
+			}
+			every_country = {
+				limit = {
+					religion_group = christian
+				}
+				country_event = { 
+					id = per_islamic_state_events.2
+				}
+			}
+		}
+	}
+}
+
+per_islamic_state_missions_tree_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	
+	potential = {
+		tag = IST
+		NOT = { map_setup = map_setup_random }
+	}
+	
+	has_country_shield = yes
+	
+	per_exterminate_heresy_in_persia = {
+		icon = mission_impaled_soldies
+		position = 3
+		required_missions = { per_conquer_khorasan }
+		
+		provinces_to_highlight = {
+			region = persia_region
+		}
+		
+		trigger = {
+			persia_region = {
+				owned_by = ROOT
+				religion = sunni
+				type = all
+			}
+		}
+		
+		effect = {
+			add_prestige = 25
+			add_piety = -0.5
+			add_country_modifier = {
+				name = per_exterminate_persian_heresy_modifier
+				duration = -1
+			}
+		}
+	}
+	
+	per_export_the_christians = {
+		icon = mission_non-western_soldiers
+		position = 4
+		required_missions = { per_exterminate_heresy_in_persia }
+		
+		provinces_to_highlight = {
+			OR = {
+				area = armenia_area
+				area = north_kurdistan_area
+				area = erzurum_area
+				area = samtskhe_area
+				area = kartli_kakheti_area
+				area = imereti_area
+			}
+		}
+		
+		trigger = {
+			armenia_area = {
+				type = all
+				religion = sunni
+			}
+			north_kurdistan_area = {
+				type = all
+				religion = sunni
+			}
+			erzurum_area = {
+				type = all
+				religion = sunni
+			}
+			samtskhe_area = {
+				type = all
+				religion = sunni
+			}
+			kartli_kakheti_area = {
+				type = all
+				religion = sunni
+			}
+			imereti_area = {
+				type = all
+				religion = sunni
+			}
+		}
+		
+		effect = {
+			add_prestige = 25
+			add_piety = -0.5
+			add_treasury = 2000
+		}
+	}
+}
+
+per_islamic_state_missions_tree_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	
+	potential = {
+		tag = IST
+		NOT = { map_setup = map_setup_random }
+	}
+	
+	has_country_shield = yes
+	
+	per_prepare_jihad = {
+		icon = mission_fatimid_caliphate
+		position = 1
+		required_missions = {  }
+		
+		trigger = {
+			army_size_percentage = 0.80
+			manpower_percentage = 0.5
+		}
+		
+		effect = {
+			khorasan_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	per_conquer_khorasan = {
+		icon = mission_conquer_tunisia
+		position = 2
+		required_missions = { per_prepare_jihad }
+		
+		provinces_to_highlight = {
+			OR = {
+				region = khorasan_region
+			}
+		}
+		
+		trigger = {
+			khorasan_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		effect = {
+			add_prestige = 10
+			add_devotion = 10
+			add_mil_power = 100
+			persia_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = {
+				name = per_exterminate_persian_heresy_modifier
+				duration = 7300
+			}
+		}
+	}
+	
+	per_conquer_persia = {
+		icon = mission_into_persia_2
+		position = 3
+		required_missions = { per_conquer_khorasan }
+		
+		provinces_to_highlight = {
+			region = persia_region
+		}
+		
+		trigger = {
+			persia_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		effect = {
+			add_prestige = 25
+			add_devotion = 25
+			add_piety = -0.5
+			arabia_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	per_retake_holy_land = {
+		icon = mission_into_arabia
+		position = 4
+		required_missions = { per_conquer_persia }
+		
+		provinces_to_highlight = {
+			OR = {
+				area = medina_area
+				area = mecca_area
+			}
+		}
+		
+		trigger = {
+			medina_area = {
+				type = all
+				owned_by = ROOT
+			}
+			mecca_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		
+		effect = {
+			add_prestige = 50
+			add_devotion = 50
+			add_mil_power = 150
+			mashriq_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			egypt_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			maghreb_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	per_reestablish_the_caliphate = {
+		icon = mission_empire
+		position = 5
+		required_missions = { per_retake_holy_land }
+		
+		provinces_to_highlight = {
+			OR = {
+				region = mashriq_region
+				region = egypt_region
+				region = maghreb_region
+			}
+		}
+		
+		trigger = {
+			mashriq_region = {
+				type = all
+				owned_by = ROOT
+			}
+			egypt_region = {
+				type = all
+				owned_by = ROOT
+			}
+			maghreb_region = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		
+		effect = {
+			add_prestige = 50
+			add_adm_power = 250
+			add_mil_power = 250
+			add_country_modifier = {
+				name = per_islamic_caliphate_reclaimed_modifier
+				duration = -1
+			}
+		}
+	}
+	
+}

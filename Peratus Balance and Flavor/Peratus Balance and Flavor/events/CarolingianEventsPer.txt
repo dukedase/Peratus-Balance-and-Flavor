@@ -1,0 +1,53 @@
+#### Carolingian Events ###
+### By Peratus ###
+
+
+namespace = per_carolingian_events
+normal_or_historical_nations = yes
+
+### Carolingian Events
+
+country_event = { # Carolingian Move Capital to Aachen
+	id = per_carolingian_events.2
+	title = "per_carolingian_events.2.t"
+	desc = "per_carolingian_events.2.desc"
+	picture = GREAT_BUILDING_eventPicture
+	
+	major = no
+	fire_only_once = yes
+	
+	
+	trigger = {
+		tag = CRL
+	}
+	
+	mean_time_to_happen = {
+		months = 3
+	}
+	
+	option = {
+		name = "per_carolingian_events.2.a"
+		1878 = {
+			move_capital_effect = yes
+		}
+		1878 = {
+			add_base_tax = 3
+			add_base_production = 3
+			add_base_manpower = 3
+		}
+		1878 = {
+			add_province_modifier = {
+				name = per_carolingian_capital_modifier
+				duration = -1
+			}
+		}
+	}
+	option = {
+		name = "per_carolingian_events.2.b"
+		capital_scope = {
+			add_base_tax = 3
+			add_base_production = 3
+			add_base_manpower = 3
+		}
+	}
+}

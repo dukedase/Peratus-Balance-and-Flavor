@@ -1,0 +1,241 @@
+#country_decisions = {
+#
+##		sne_form_decision = {
+##			major = yes
+##			potential = {
+##				tag = DAN
+##				NOT = { has_country_flag = scandinavian_empire_flag }
+##				NOT = { exists = SNE }
+##			}
+##			provinces_to_highlight = {
+##				OR = {
+##					area = eastern_norway
+##					area = western_norway
+##					area = northern_norway
+##					area = ostra_svealand_area
+##					area = gotaland_area
+##					area = vastra_gotaland_area
+##					area = norrland_area
+##					area = svealand_area
+##					area = denmark_area
+##					area = skaneland_area
+##					area = jutland_area
+##					area = finland_area
+##					area = bothnia_area
+##					area = per_fyn_area
+##					area = per_jonkoping_area
+##					area = per_tavastland_area
+##				}
+##				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+##			}
+##			allow = {
+##				adm_tech = 10 
+##				is_free_or_tributary_trigger = yes
+##				stability = 1
+##				is_at_war = no
+##				senior_union_with = SWE
+##				eastern_norway = {
+##					type = all
+##					owned_by = ROOT
+##				}
+##				western_norway = {
+##					type = all
+##					owned_by = ROOT
+##				}
+##				northern_norway = {
+##					type = all
+##					country_or_non_sovereign_subject_holds = ROOT
+##				}
+##				ostra_svealand_area = {
+##					type = all
+##					country_or_non_sovereign_subject_holds = ROOT
+##				}
+##				gotaland_area = {
+##					type = all
+##					country_or_non_sovereign_subject_holds = ROOT
+##				}
+##				vastra_gotaland_area = {
+##					type = all
+##					country_or_non_sovereign_subject_holds = ROOT
+##				}
+##				norrland_area = {
+##					type = all
+##					country_or_non_sovereign_subject_holds = ROOT
+##				}
+##				svealand_area = {
+##					type = all
+##					country_or_non_sovereign_subject_holds = ROOT
+##				}
+##				denmark_area = {
+##					type = all
+##					country_or_non_sovereign_subject_holds = ROOT
+##				}
+##				skaneland_area = {
+##					type = all
+##					country_or_non_sovereign_subject_holds = ROOT
+##				}
+##				jutland_area = {
+##					type = all
+##					country_or_non_sovereign_subject_holds = ROOT
+##				}
+##				finland_area = {
+##					type = all
+##					country_or_non_sovereign_subject_holds = ROOT
+##				}
+##				bothnia_area = {
+##					type = all
+##					country_or_non_sovereign_subject_holds = ROOT
+##				}
+##				per_fyn_area = {
+##					type = all
+##					country_or_non_sovereign_subject_holds = ROOT
+##				}
+##				per_jonkoping_area = {
+##					type = all
+##					country_or_non_sovereign_subject_holds = ROOT
+##				}
+##				per_tavastland_area = {
+##					type = all
+##					country_or_non_sovereign_subject_holds = ROOT
+##				}
+##				AND = {
+##					SWE = {
+##						NOT = { num_of_cities = 40 }
+##					}
+##				}
+##			}
+##			effect = {
+##				set_country_flag = scandinavian_empire_flag
+##				change_tag = SNE
+##				inherit = SWE
+##				add_legitimacy = 25
+##				add_prestige = 25
+##				set_government_rank = 3
+##				if = {
+##					limit = {
+##						has_custom_ideas = no
+##					}
+##				country_event = { id = ideagroups.1 } #Swap Ideas
+##				}
+##				add_country_modifier = {
+##					name = "centralization_modifier"
+##					duration = 7300
+##				}
+##			}
+##		}
+#		
+#		sne_form_decision_militarily = {
+#			major = yes
+#			potential = {
+#				culture_group = scandinavian
+#				NOT = { exists = SNE }
+#				NOT = { has_country_flag = scandinavian_empire_flag }
+#			}
+#			provinces_to_highlight = {
+#				OR = {
+#					area = eastern_norway
+#					area = western_norway
+#					area = northern_norway
+#					area = ostra_svealand_area
+#					area = gotaland_area
+#					area = vastra_gotaland_area
+#					area = norrland_area
+#					area = svealand_area
+#					area = denmark_area
+#					area = skaneland_area
+#					area = jutland_area
+#					area = finland_area
+#					area = bothnia_area
+#					area = per_fyn_area
+#					area = per_jonkoping_area
+#					area = per_tavastland_area
+#				}
+#				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+#			}
+#			allow = {
+#				is_free_or_tributary_trigger = yes
+#				stability = 1
+#				is_at_war = no
+#				eastern_norway = {
+#					type = all
+#					owned_by = ROOT
+#				}
+#				western_norway = {
+#					type = all
+#					owned_by = ROOT
+#				}
+#				northern_norway = {
+#					type = all
+#					owned_by = ROOT
+#				}
+#				ostra_svealand_area = {
+#					type = all
+#					owned_by = ROOT
+#				}
+#				svealand_area = {
+#					type = all
+#					owned_by = ROOT
+#				}
+#				gotaland_area = {
+#					type = all
+#					owned_by = ROOT
+#				}
+#				vastra_gotaland_area = {
+#					type = all
+#					owned_by = ROOT
+#				}
+#				norrland_area = {
+#					type = all
+#					owned_by = ROOT
+#				}
+#				denmark_area = {
+#					type = all
+#					owned_by = ROOT
+#				}
+#				skaneland_area = {
+#					type = all
+#					owned_by = ROOT
+#				}
+#				jutland_area = {
+#					type = all
+#					owned_by = ROOT
+#				}
+#				finland_area = {
+#					type = all
+#					owned_by = ROOT
+#				}
+#				bothnia_area = {
+#					type = all
+#					owned_by = ROOT
+#				}
+#				per_fyn_area = {
+#					type = all
+#					owned_by = ROOT
+#				}
+#				per_jonkoping_area = {
+#					type = all
+#					owned_by = ROOT
+#				}
+#				per_tavastland_area = {
+#					type = all
+#					owned_by = ROOT
+#				}
+#			}
+#			effect = {
+#				set_country_flag = scandinavian_empire_flag
+#				change_tag = SNE
+#				add_prestige = 25
+#				set_government_rank = 3
+#				if = {
+#					limit = {
+#						has_custom_ideas = no
+#					}
+#					country_event = { id = ideagroups.1 } #Swap Ideas
+#				}
+#				add_country_modifier = {
+#					name = "centralization_modifier"
+#					duration = 7300
+#				}
+#			}
+#		}
+#}

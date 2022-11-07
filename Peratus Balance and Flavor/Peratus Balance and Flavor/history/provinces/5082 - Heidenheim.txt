@@ -1,0 +1,19 @@
+#Heidenheim
+
+owner = WUR
+controller = WUR
+add_core = WUR
+culture = swabian
+religion = catholic
+hre = yes
+base_tax = 3
+base_production = 3
+trade_goods = grain
+base_manpower = 2
+capital = "Heidenheim"
+is_city = yes
+
+discovered_by = eastern
+discovered_by = western
+discovered_by = muslim
+discovered_by = ottoman

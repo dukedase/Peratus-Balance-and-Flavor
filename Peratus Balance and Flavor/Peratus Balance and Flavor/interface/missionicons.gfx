@@ -1,0 +1,9 @@
+spriteTypes = {	
+	
+	
+	spriteType = {
+		name = "a_show_of_strength_but_west"
+		texturefile = "gfx//interface//missions/a_show_of_strength_but_west.dds"
+	}
+
+}

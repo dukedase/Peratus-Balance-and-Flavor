@@ -1,0 +1,21 @@
+#4947 - Lecce
+
+owner = NAP
+controller = NAP
+culture = neapolitan
+religion = catholic
+capital = "Lecce"
+hre = no
+base_tax = 2
+base_production = 1
+trade_goods = grain
+base_manpower = 2
+is_city = yes
+add_core = NAP
+center_of_trade = 1
+
+
+discovered_by = western
+discovered_by = eastern
+discovered_by = muslim
+discovered_by = ottoman
