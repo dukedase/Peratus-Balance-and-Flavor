@@ -1,0 +1,7 @@
+government = monarchy
+add_government_reform = feudalism_reform
+primary_culture = umbrian
+religion = catholic
+technology_group = western
+capital = 220 # Valencia
+add_army_professionalism = 0.05

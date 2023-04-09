@@ -1,0 +1,122 @@
+#### Armenia Events ###
+### By Peratus ###
+
+
+namespace = per_armenia_events
+normal_or_historical_nations = yes
+
+### Armenia Events
+
+
+country_event = { # Men Answer The Call
+	id = per_armenia_events.1
+	title = "per_armenia_events.1.t"
+	desc = "per_armenia_events.1.desc"
+	picture = LAND_MILITARY_eventPicture
+	
+	major = no
+	fire_only_once = no
+	is_triggered_only = yes
+	
+	trigger = {
+	}
+	
+	immediate = {
+	}	
+	
+	option = {
+		name = "per_armenia_events.1.a" # Ashot Leads the Army
+		define_ruler_to_general = {
+			fire = 2
+			shock = 4
+			manuever = 3
+			siege = 3
+		}
+		add_manpower = 10
+		add_mil_power = 100
+	}
+	
+	option = {
+		name = "per_armenia_events.1.b" # Leave it to the Generals
+		create_general = {
+			tradition = 50
+			add_siege = 1
+		}
+		add_manpower = 10
+		add_adm_power = 100
+	}
+}
+
+country_event = { # Our Greek Brothers
+	id = per_armenia_events.2
+	title = "per_armenia_events.2.t"
+	desc = "per_armenia_events.2.desc"
+	picture = HARBOUR_eventPicture
+	
+	major = no
+	fire_only_once = no
+	is_triggered_only = yes
+	
+	trigger = {
+	}
+	
+	immediate = {
+	}	
+	
+	option = {
+		name = "per_armenia_events.2.a" # Grant Them Privileges
+		330 = {
+			add_province_modifier = {
+				name = per_arm_greek_brothers_modifier
+				duration = -1
+			}
+		}
+	}
+	
+	option = {
+		name = "per_armenia_events.2.b" # They Are No Different
+		330 = {
+			change_culture = armenian
+			add_base_tax = -1
+			add_base_production = -1
+			add_base_manpower = -1
+		}
+	}
+}
+
+country_event = { # Caucas Gold
+	id = per_armenia_events.3
+	title = "per_armenia_events.3.t"
+	desc = "per_armenia_events.3.desc"
+	picture = TRADE_GOODS_METALS_AND_MINING_EQUIPENT_eventPicture
+	
+	major = no
+	fire_only_once = no
+	is_triggered_only = yes
+	
+	trigger = {
+	}
+	
+	immediate = {
+	}	
+	
+	option = {
+		name = "per_armenia_events.3.a" # A Stable Mine
+		422 = {
+			add_province_modifier = {
+				name = per_arm_stable_mine
+				duration = -1
+			}
+		}
+	}
+	
+	option = {
+		name = "per_armenia_events.3.b" # Dig Deep and Greedily
+		422 = {
+			add_province_modifier = {
+				name = per_arm_deep_and_greedily
+				duration = -1
+			}
+		}
+	}
+}

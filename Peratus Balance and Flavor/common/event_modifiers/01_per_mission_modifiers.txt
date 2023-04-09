@@ -1,0 +1,792 @@
+# Peratus Modifiers
+
+per_lan_affable_leadership = {
+	improve_relation_modifier = 0.20
+	ae_impact = -0.20
+	global_tax_modifier = 0.20
+}
+
+fortify_the_core = {
+	local_defensiveness = 1.0
+}
+
+italian_unification_buff = {
+	land_morale = 0.15
+	global_trade_goods_size_modifier = 0.10 
+}
+
+# Persia
+
+per_tabriz_capital = {
+	local_defensiveness = 0.50
+	local_development_cost = -0.10
+	province_trade_power_modifier = 0.15
+}
+
+per_ottoman_conquest = {
+	land_morale = 0.10
+	manpower_recovery_speed = 0.1
+	global_unrest = -2
+	development_cost = -0.10
+}
+
+# Peratus Missions
+## Danish Missions
+
+per_danish_northern_empire = {
+	prestige = 1.0
+	legitimacy = 0.5
+	land_morale = 0.1
+}
+
+per_sjaelland_goods_produced = {
+	trade_goods_size = 0.5
+}
+
+per_danish_development_modifier = {
+	local_production_efficiency = 0.2
+}
+
+per_denmark_state_goods_produced = {
+	trade_goods_size_modifier = 0.1
+}
+
+per_denmark_production_modifier = {
+	production_efficiency = 0.10
+}
+
+per_danish_defense = {
+	local_defensiveness = 0.25
+	local_defender_dice_roll_bonus = 1
+}
+
+per_consolidated_north_sea = {
+	trade_efficiency = 0.1
+	global_trade_power = 0.1
+}
+
+per_danish_colonization_modifier = {
+	colonists = 1 
+}
+
+per_danish_vinland_modifier = {
+	colonist_placement_chance = 0.15
+	global_colonial_growth = 25
+}
+
+danish_investment = {
+	local_development_cost = -0.10
+}
+
+per_denmark_empire_modifier = {
+	manpower_recovery_speed = 0.25
+	infantry_power = 0.1
+}
+
+per_danish_military_modifier = {
+	land_morale = 0.1
+	global_regiment_cost = -0.1
+}
+
+# Swedish Missions 
+
+per_swedish_king_of_scandinavia_modifier = {
+	legitimacy = 1
+	advisor_cost = -0.1
+}
+
+per_swedish_fur_trade_modifier = {
+	local_production_efficiency = 0.5
+	trade_value_modifier = 0.5
+}
+
+per_swedish_iron_modifier = {
+	infantry_cost = -0.1
+}
+
+per_swedish_trade_dominance_modifier = {
+	trade_efficiency = 0.2
+}
+
+per_fur_trade_market = {
+	province_trade_power_value = 15
+}
+
+per_swedish_professional_army_modifier = {
+	fire_damage = 0.1
+}
+
+per_swe_warscore_cost_modifier = {
+	province_warscore_cost = -0.25
+}
+
+per_swe_protestant_modifier = {
+	missionaries = 1 
+}
+
+per_swedish_caroleans_modifier = {
+	infantry_power = 0.1
+}
+
+# Kologne Missions 
+
+per_kol_fortifications_modifier = {
+	local_defensiveness = 0.25
+}
+
+per_kol_rhineland_unified_modifier = {
+	all_power_cost = -0.01
+	prestige = 1
+	legitimacy = 1
+}
+
+per_kol_paper_mills_modifier = {
+	trade_goods_size = 0.25
+	local_great_project_upgrade_cost = -0.25
+}
+
+per_kol_trade_dominance = {
+	trade_efficiency = 0.1
+	mercantilism_cost = -0.2
+	center_of_trade_upgrade_cost = -0.2
+}
+
+per_kol_cloth_monopoly_modifier = {
+	trade_goods_size_modifier = 0.1
+}
+
+per_kol_develop_the_rhine_modifier = {
+	local_production_efficiency = 0.1
+}
+
+# Armenia Missions 
+
+per_arm_fortifications_modifier = {
+	local_garrison_size = 0.5
+}
+
+per_arm_culture_modifier = {
+	culture_conversion_cost = -0.25
+}
+
+per_arm_roman_legacy_modifier = {
+	prestige = 1
+	legitimacy = 1
+	all_power_cost = -0.05
+}
+
+per_arm_enough_is_enough_modifier = {
+	morale_damage = 0.2
+	land_maintenance_modifier = -0.2
+	recover_army_morale_speed = 0.1
+}
+
+per_arm_greek_brothers_modifier = {
+	local_tax_modifier = 0.5
+	local_production_efficiency = 0.5
+	local_manpower_modifier = 0.5
+	local_unrest = -10
+	min_local_autonomy = 25
+}
+
+per_arm_stable_mine = {
+	trade_goods_size_modifier = -0.1
+	local_gold_depletion_chance_modifier = -0.25
+}
+
+per_arm_deep_and_greedily = {
+	trade_goods_size_modifier = 0.25
+	local_gold_depletion_chance_modifier = 0.1
+}
+
+per_arm_yerevan_developed_modifier = {
+	allowed_num_of_buildings = 1
+	allowed_num_of_manufactories = 1
+	institution_growth = 3
+	prestige = 0.5
+}
+
+per_arm_separate_shrivan_diplomacy = {
+	improve_relation_modifier = 0.1
+	diplomatic_reputation = 1
+}
+
+per_arm_dev_cost_modifier = {
+	development_cost = -0.1
+}
+
+per_arm_iraq_conquered_modifier = {
+	tolerance_heathen = 2
+	global_autonomy = -0.1
+}
+
+per_arm_advisor_mission_modifier = {
+	advisor_cost = -0.07
+}
+
+per_arm_low_autonomy_modifier = {
+	global_tax_modifier = 0.07
+}
+
+per_arm_develop_modifier = {
+	global_trade_goods_size_modifier = 0.07
+}
+
+# Afghanistan
+
+per_exterminate_persian_heresy_modifier = {
+	global_heretic_missionary_strength = 0.02
+}
+
+# Carthage
+
+per_carthage_conquer_italy_modifier = {
+	trade_efficiency = 0.15
+	manpower_recovery_speed = 0.15
+}
+
+per_crg_lamancha_modifier = {
+	trade_goods_size = 0.5
+}
+
+per_crg_colonize_modifier = {
+	colonists = 1 
+	global_colonial_growth = 25
+}
+
+per_crg_homelands_modifier = {
+	prestige = 1
+	land_morale = 0.1
+}
+
+per_carthage_rise_of_carthage_modifier = {
+	development_cost = -0.05
+	idea_cost = -0.05
+	legitimacy = 1
+}
+
+per_crg_iron_mines_modifier = {
+	local_production_efficiency = 0.2
+}
+
+per_crg_spicy_slaves_modifier = {
+	trade_goods_size_modifier = 0.5
+}
+
+per_crg_oyo_monopoly_crushed = {
+	global_trade_power = 0.1
+	global_unrest = -2
+	manpower_recovery_speed = 0.1
+}
+
+per_crg_colonial_range_modifier = {
+	range = 0.25 
+}
+
+per_crg_colonial_brazil_modifier = {
+	global_colonial_growth = 50
+}
+
+per_crg_coast_modifiers = {
+	province_trade_power_modifier = 0.33
+}
+
+per_crg_cav_cost_india_modifier = {
+	cavalry_cost = -0.1
+}
+
+# Swiss
+
+per_swiss_zurich_modifier = {
+	trade_goods_size_modifier = 0.25
+}
+
+# Arbadil
+
+per_arl_zoroastrian_kingdom_modifier = {
+	missionaries = 1
+	global_missionary_strength = 0.02
+}
+
+per_arl_spread_the_faith_modifier = {
+	global_tax_modifier = 0.2
+	global_unrest = -1
+}
+
+per_arl_zoroastrian_court = {
+	advisor_cost = -0.05
+	legitimacy = 0.5
+}
+
+per_arl_war_with_ajam_modifier = {
+	land_morale = 0.15
+	manpower_recovery_speed = 0.25
+}
+
+# Persia
+
+per_restore_baghdad_modifier = {
+	prestige = 0.5
+	institution_growth = 10
+	local_tax_modifier = 0.5
+	trade_goods_size_modifier = 0.5 
+}
+
+per_imereti_gold_modifier = {
+	trade_goods_size = 1
+	local_autonomy = -0.5
+}
+
+per_develop_persepolis_modifier = {
+	local_development_cost = -0.25
+	local_build_cost = -0.25
+}
+
+per_shining_capital_modifier = {
+	local_tax_modifier = 1.0
+	local_manpower_modifier = 1.0
+	allowed_num_of_buildings = 3
+}
+
+per_persia_dominate_trade_modifier = {
+	trade_efficiency = 0.15
+	placed_merchant_power = 10
+}
+
+per_new_silk_road_modifier = {
+	global_trade_goods_size_modifier = 0.1
+}
+
+per_silk_road_province_modifier = {
+	province_trade_power_modifier = 0.2
+	institution_growth = 1
+	supply_limit_modifier = 0.5
+	local_development_cost_modifier = -0.1
+}
+
+# Shun
+
+conquest_of_central_china_shun_modifier = {
+	land_morale = 0.1
+}
+
+# Brandenburg
+
+per_bra_military_court_modifier = {
+	land_morale = 0.1
+	ae_impact = -0.15
+}
+
+per_bra_pom_vassal_modifier = {
+	diplomatic_reputation = 1
+	improve_relation_modifier = 0.2
+	diplomatic_annexation_cost = -0.2
+}
+
+per_bra_int_pom_conquest_modifier = {
+	local_tax_modifier = 0.25
+	local_unrest = -2
+}
+
+per_bra_lub_vassal_bra_modifier = {
+	trade_efficiency = 0.2
+}
+
+per_bra_lub_vassal_modifier = {
+	province_trade_power_modifier = 0.25
+}
+
+per_bra_lub_owned_modifier = {
+	province_trade_power_modifier = 1.0
+}
+
+per_brandenburg_renovate_1_modifier = {
+	prestige = 0.5
+	local_production_efficiency = 0.5
+}
+
+per_brandenburg_renovate_2_modifier = {
+	prestige = 0.5
+	local_manpower_modifier = 0.5
+}
+
+per_bra_ngc_modifier = {
+	diplomats = 1
+	ae_impact = -0.1
+	core_creation = -0.1
+	infantry_power = 0.1
+}
+
+per_bra_vassalized_cologne_modifier = {
+	prestige = 1
+	diplomatic_reputation = 1
+	shock_damage = 0.1
+	vassal_forcelimit_bonus = 0.5
+}
+
+per_bra_owns_cologne_modifier = {
+	land_morale = 0.05
+	land_forcelimit_modifier = 0.1
+}
+
+per_bra_birth_year_modifier = {
+	development_cost = -0.05
+	global_tax_modifier = 0.2
+}
+
+per_bra_develop_mil_modifier = {
+	global_manpower_modifier = 0.2
+}
+
+per_bra_develop_dip_modifier = {
+	global_trade_goods_size_modifier = 0.15
+}
+
+per_bra_all_roads_modifier = {
+	build_cost = -0.1
+	build_time = -0.2
+}
+
+# Milan
+
+per_mlo_military_readiness_modifier = {
+	core_creation = -0.15
+}
+
+per_mlo_savoy_march_modifier = {
+	vassal_forcelimit_bonus = 0.25
+	mil_advisor_cost = -0.1
+	global_manpower = 5
+}
+
+per_mlo_savoy_march_subject_modifier = {
+	discipline = 0.05
+	defensiveness = 0.25
+	garrison_size = 0.25
+}
+
+per_mlo_saluzzo_fort_modifier = {
+	local_garrison_size = 0.15
+	local_defensiveness = 0.15
+}
+
+per_mlo_emilia_consolidate_modifier = {
+	local_production_efficiency = 0.25
+}
+
+per_mlo_owns_venetia_personally_modifier = {
+	trade_efficiency = 0.1
+	prestige = 0.5
+}
+
+per_mlo_austria_owns_venetia_allied_modifier = {
+	diplomatic_reputation = 1
+	dip_advisor_cost = -0.1
+}
+
+per_mlo_renaissance_court_ruler_modifier = {
+	technology_cost = -0.05
+	idea_cost = -0.05
+	advisor_cost = -0.1
+}
+
+per_mlo_renaissance_court_second_modifier = {
+	advisor_cost = -0.1
+}
+
+per_mlo_owns_liguria_modifier = {
+	naval_morale = 0.15
+	global_trade_goods_size_modifier = 0.15
+}
+
+per_mlo_milan_trade_modifier = {
+	trade_efficiency = 0.1
+	trade_steering = 0.25
+	mercantilism_cost = -0.2
+}
+
+per_po_estuary_modifier = {
+	province_trade_power_value = 20
+}
+
+per_mlo_como_fort_modifier = {
+	local_defender_dice_roll_bonus = 1
+}
+
+per_mlo_exceptional_republicanism_max_modifier = {
+	development_cost_modifier = -0.05
+	global_tax_modifier = 0.1
+	global_trade_goods_size_modifier = 0.1
+}
+
+per_mlo_exceptional_republicanism_modifier = {
+	global_tax_modifier = 0.1
+}
+
+per_mlo_vassalized_florence_modifier = {
+	land_morale = 0.1
+	republican_tradition = 1
+}
+
+per_mlo_conquered_florence_modifier = {
+	discipline = 0.05
+}
+
+per_mlo_fortress_italy_modifier = {
+	fort_maintenance_modifier = -0.15
+	global_garrison_growth = 0.15
+}
+
+per_mlo_western_islands_modifier = {
+	trade_goods_size_modifier = 0.1
+	local_manpower_modifier = 0.1
+	local_development_cost = -0.05
+}
+
+per_mlo_vassalized_pope_catholic_modifier = {
+	papal_influence = 3
+}
+
+per_mlo_conquered_pope_catholic_modifier = {
+	prestige = 1
+	papal_influence = 2
+}
+
+per_mlo_conquered_pope_not_catholic_modifier = {
+	church_power_modifier = 0.25
+	monthly_fervor_increase = 1
+	devotion = 1
+	prestige = 0.5
+}
+
+per_mlo_master_of_italy_modifier = {
+	global_tax_modifier = 0.1
+	global_manpower_modifier = 0.1
+}
+
+per_mlo_overlord_of_italy_modifier = {
+	vassal_forcelimit_bonus = 0.25
+	vassal_income = 0.1
+	manpower_recovery_speed = 0.1
+}
+
+# Russia
+
+per_invade_novgorod_mission_modifier = {
+	core_creation = -0.15
+	province_warscore_cost = -0.33
+}
+
+per_rus_church_tithe_province_modifier = {
+	local_tax_modifier = 0.2
+}
+
+per_rus_church_tithe_country_modifier = {
+	global_tax_modifier = 0.1
+}
+
+per_rus_one_faith_full_orthodox_modifier = {
+	local_production_efficiency = 0.1
+	local_manpower_modifier = 0.1
+}
+
+per_rus_one_faith_standard_orthodox_modifier = {
+	local_production_efficiency = 0.1
+}
+
+per_rus_third_rome_c_modifier = {
+	tolerance_own = 1
+	global_missionary_strength = 0.02
+	missionaries = 1
+	yearly_patriarch_authority = 0.02
+	relation_with_same_religion = 20
+	manpower_in_true_faith_provinces = 0.2
+}
+
+per_rus_third_rome_s_modifier = {
+	global_missionary_strength = 0.02
+	missionaries = 1
+	yearly_patriarch_authority = 0.01
+	relation_with_same_religion = 10
+	manpower_in_true_faith_provinces = 0.1
+}
+
+per_rus_finnish_march_modifier = {
+	discipline = 0.1
+	manpower_recovery_speed = 0.25
+}
+
+per_rus_finnish_march_rus_modifier = {
+	manpower_recovery_speed = 0.1
+}
+
+per_rus_finnish_conquered_modifier = {
+	global_own_trade_power = 0.1
+}
+
+per_rus_finnish_conquered_p_modifier = {
+	local_tax_modifier = 0.1
+	local_manpower_modifier = 0.1
+	trade_goods_size = 0.1
+}
+
+per_rus_many_principalities_march_modifier = {
+	diplomatic_upkeep = 1
+	manpower_recovery_speed = 0.1
+	infantry_power = 0.05
+}
+
+per_rus_many_principalities_modifier = {
+	prestige = 0.5
+	global_tax_modifier = 0.15
+}
+
+per_rus_unite_eastern_slavs_province_modifier = {
+	local_manpower_modifier = 0.1
+	local_tax_modifier = 0.1
+	local_development_cost_modifier = -0.05
+}
+
+per_rus_one_army_modifier = {
+	core_creation = -0.15
+	province_warscore_cost = -0.15
+}
+
+per_rus_unite_russia_modifier = {
+	prestige = 0.5
+	legitimacy = 1
+	global_autonomy = -0.05
+}
+
+per_rus_ica_path_modifier = {
+	infantry_power = 0.1
+	land_morale = 0.05
+}
+
+per_rus_cca_path_modifier = {
+	cavalry_power = 0.1
+	land_morale = 0.05
+}
+
+per_rus_aca_path_modifier = {
+	artillery_power = 0.1
+	land_morale = 0.05
+}
+
+per_rus_dis_path_modifier = {
+	discipline = 0.03
+	land_morale = 0.05
+}
+
+per_rus_mp_path_modifier = {
+	global_manpower_modifier = 0.25
+	reinforce_speed = 0.1
+	recover_army_morale_speed = 0.05
+}
+
+per_rus_mpr_path_modifier = {
+	manpower_recovery_speed = 0.25
+	reinforce_speed = 0.1
+	recover_army_morale_speed = 0.05
+}
+
+per_rus_fl_path_modifier = {
+	land_forcelimit_modifier = 0.25
+	reinforce_speed = 0.1
+	recover_army_morale_speed = 0.05
+}
+
+per_rus_kazan_vassal_rus_modifier = {
+	manpower_recovery_speed = 0.1
+	land_maintenance_modifier = -0.1
+}
+
+per_rus_kazan_vassal_modifier = {
+	missionaries = 1
+	global_missionary_strength = 0.03
+	manpower_recovery_speed = -0.1
+}
+
+per_rus_kazan_owned_modifier = {
+	missionaries = 1
+	global_missionary_strength = 0.03
+	land_maintenance_modifier = -0.1
+}
+
+per_rus_accepts_mishary_culture_modifier = {
+	num_accepted_cultures = 1
+}
+
+per_rus_accepts_kazani_culture_modifier = {
+	num_accepted_cultures = 1
+}
+
+per_rus_accepts_astrakhani_culture_modifier = {
+	num_accepted_cultures = 1
+}
+
+per_rus_accepts_nogaybak_culture_modifier = {
+	num_accepted_cultures = 1
+}
+
+per_rus_accepts_crimean_culture_modifier = {
+	num_accepted_cultures = 1
+}
+
+per_rus_accepts_bashkir_culture_modifier = {
+	num_accepted_cultures = 1
+}
+
+per_rus_accepts_siberian_culture_modifier = {
+	num_accepted_cultures = 1
+}
+
+per_rus_tartar_conquest_modifier = {
+	trade_company_investment_cost = -0.25
+}
+
+per_rus_tartar_conquest_province_modifier = {
+	trade_goods_size_modifier = 0.1
+}
+
+per_rus_crown_court_expand_modifier = {
+	core_creation = -0.1
+}
+
+per_rus_crown_court_mil_modifier = {
+	global_manpower_modifier = 0.1
+}
+
+per_rus_crown_court_advisor_modifier = {
+	advisor_cost = -0.05
+}
+
+per_rus_farm_estate_bonus_modifier = {
+	local_development_cost = -0.1
+	trade_goods_size_modifier = 0.1
+}
+
+per_rus_farm_estate_modifier = {
+	trade_goods_size_modifier = 0.1
+}
+
+per_rus_disgruntled_bonus_province_modifier = {
+	max_attrition = 1
+}
+
+per_rus_disgruntled_country_modifier = {
+	army_tradition = 0.25
+}
+
+per_rus_disgruntled_bonus_country_modifier = {
+	army_tradition = 0.25
+	hostile_attrition = 1
+}
+
+per_rus_crimea_and_caucasus_trade_bonus_modifier = {
+	merchants = 1
+}
+
+per_rus_crimea_and_caucasus_trade_modifier = {
+	trade_efficiency = 0.15
+}

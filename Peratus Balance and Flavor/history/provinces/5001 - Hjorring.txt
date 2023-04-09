@@ -1,0 +1,18 @@
+# 5000 - Hjorring
+owner = DAN
+controller = DAN
+culture = danish
+religion = catholic
+capital = "Hjorring"
+hre = no # Anything typed here will be added to all selected province history files
+base_tax = 4
+base_production = 5
+trade_goods = glass
+base_manpower = 3
+is_city = yes
+add_core = DAN
+discovered_by = western
+discovered_by = eastern
+discovered_by = muslim
+discovered_by = ottoman
+add_permanent_province_modifier = { name = aalborg_strait duration = -1 } 

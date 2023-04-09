@@ -1,0 +1,47 @@
+country_decisions = {
+
+	per_release_armenia_decision = {
+		potential = {
+			ai = no
+			NOT = { is_year = 1445 }
+			tag = QAR
+		}
+		
+		provinces_to_highlight = {
+		}
+		
+		allow = {
+		}
+		
+		effect = {
+			release = ARM
+			switch_tag = ARM
+		}
+	}
+	
+	per_build_armenian_starting_troops = {
+		major = yes
+		potential = {
+			NOT = { is_year = 1446 }
+			NOT = { has_country_flag = built_armenian_starting_troops_flag }
+			tag = ARM
+		}
+		
+		provinces_to_highlight = {
+		}
+		
+		allow = {
+		}
+		
+		effect = {
+			set_country_flag = built_armenian_starting_troops_flag
+			add_yearly_manpower = 2.0
+			capital_scope = {
+				build_to_forcelimit = {
+					infantry = 0.8
+					cavalry = 0.2
+				}
+			}
+		}
+	}
+}

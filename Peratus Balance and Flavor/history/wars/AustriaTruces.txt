@@ -1,0 +1,20 @@
+name = "War of Austrian Aggression"
+war_goal = {
+	type = take_claim
+	casus_belli = cb_conquest
+	province = 4760 
+}
+
+1440.1.1 = {
+	add_attacker = HAB
+	add_defender = LBV
+	add_defender = ING
+	add_defender = UBV
+}
+
+1444.1.1 = {
+	rem_attacker = HAB
+	rem_defender = LBV
+	add_defender = ING
+	add_defender = UBV
+}

@@ -1,0 +1,7 @@
+government = monarchy
+add_government_reform = feudal_theocracy
+primary_culture = persian
+religion = zoroastrian
+technology_group = eastern
+capital = 416 # Tabriz
+add_army_professionalism = 0.1

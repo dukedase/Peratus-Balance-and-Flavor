@@ -1,0 +1,19 @@
+# 2137 - Daming
+
+owner = YAN
+controller = YAN
+culture = chihan
+religion = confucianism
+capital = "Daming"
+trade_goods = grain
+hre = no
+base_tax = 3 
+base_production = 3
+base_manpower = 2
+is_city = yes
+add_core = YAN
+
+
+
+discovered_by = chinese
+discovered_by = nomad_group

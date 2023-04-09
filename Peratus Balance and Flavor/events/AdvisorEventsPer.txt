@@ -1,0 +1,755 @@
+#### Advisor Events ###
+### By Peratus ###
+
+
+namespace = per_advisor_events
+normal_or_historical_nations = yes
+
+### Advisor Events
+
+country_event = { # Advisor Event Page
+	id = per_advisor_events.1
+	title = "per_advisor_events.1.t"
+	desc = "per_advisor_events.1.desc"
+	picture = ADVISOR_eventPicture
+	
+	major = no
+	fire_only_once = no
+	is_triggered_only = yes
+	
+	
+	trigger = {
+	
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = { # Admin
+		name = "per_advisor_events.1.a"
+		ROOT = { country_event = { ID = per_advisor_events.2 } }
+	}
+	option = { # Diplo
+		name = "per_advisor_events.1.b"
+		ROOT = { country_event = { ID = per_advisor_events.3 } }
+	}
+	option = { # Mil
+		name = "per_advisor_events.1.c"
+		ROOT = { country_event = { ID = per_advisor_events.4 } }
+	}
+}
+
+country_event = { # Admin Advisors
+	id = per_advisor_events.2
+	title = "per_advisor_events.2.t"
+	desc = "per_advisor_events.2.desc"
+	picture = ADVISOR_eventPicture
+	
+	major = no
+	fire_only_once = no
+	is_triggered_only = yes
+	
+	
+	trigger = {
+	
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "per_advisor_events.2.a"
+		create_advisor = philosopher
+	}
+	option = {
+		name = "per_advisor_events.2.b"
+		create_advisor = natural_scientist
+	}
+	option = {
+		name = "per_advisor_events.2.c"
+		create_advisor = artist
+	}
+	option = {
+		name = "per_advisor_events.2.d"
+		create_advisor = treasurer
+	}
+	option = {
+		name = "per_advisor_events.2.e"
+		create_advisor = theologian
+	}
+	option = {
+		name = "per_advisor_events.2.f"
+		create_advisor = master_of_mint
+	}
+	option = {
+		name = "per_advisor_events.2.g"
+		create_advisor = inquisitor
+	}
+}
+
+country_event = { # Diplo Advisors
+	id = per_advisor_events.3
+	title = "per_advisor_events.3.t"
+	desc = "per_advisor_events.3.desc"
+	picture = ADVISOR_eventPicture
+	
+	major = no
+	fire_only_once = no
+	is_triggered_only = yes
+	
+	
+	trigger = {
+	
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "per_advisor_events.3.a"
+		create_advisor = statesman
+	}
+	option = {
+		name = "per_advisor_events.3.b"
+		create_advisor = naval_reformer
+	}
+	option = {
+		name = "per_advisor_events.3.c"
+		create_advisor = trader
+	}
+	option = {
+		name = "per_advisor_events.3.d"
+		create_advisor = spymaster
+	}
+	option = {
+		name = "per_advisor_events.3.e"
+		create_advisor = colonial_governor
+	}
+	option = {
+		name = "per_advisor_events.3.f"
+		create_advisor = diplomat
+	}
+	option = {
+		name = "per_advisor_events.3.g"
+		create_advisor = navigator
+	}
+}
+
+country_event = { # Advisor Event Page
+	id = per_advisor_events.4
+	title = "per_advisor_events.4.t"
+	desc = "per_advisor_events.4.desc"
+	picture = ADVISOR_eventPicture
+	
+	major = no
+	fire_only_once = no
+	is_triggered_only = yes
+	
+	
+	trigger = {
+	
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "per_advisor_events.4.a"
+		create_advisor = army_reformer
+	}
+	option = {
+		name = "per_advisor_events.4.b"
+		create_advisor = army_organiser
+	}
+	option = {
+		name = "per_advisor_events.4.c"
+		create_advisor = commandant
+	}
+	option = {
+		name = "per_advisor_events.4.d"
+		create_advisor = quartermaster
+	}
+	option = {
+		name = "per_advisor_events.4.e"
+		create_advisor = recruitmaster
+	}
+	option = {
+		name = "per_advisor_events.4.f"
+		create_advisor = fortification_expert
+	}
+	option = {
+		name = "per_advisor_events.4.g"
+		create_advisor = grand_captain
+	}
+	option = {
+		name = "per_advisor_events.4.h"
+		create_advisor = infantry_officer
+	}
+	option = {
+		name = "per_advisor_events.4.i"
+		create_advisor = cavalry_officer
+	}
+	option = {
+		name = "per_advisor_events.4.j"
+		create_advisor = artillery_officer
+	}
+	option = {
+		name = "per_advisor_events.4.k"
+		create_advisor = charge_officer
+	}
+	option = {
+		name = "per_advisor_events.4.l"
+		create_advisor = gunpowder_officer
+	}
+	option = {
+		name = "per_advisor_events.4.m"
+		create_advisor = stalwart_defender
+	}
+	option = {
+		name = "per_advisor_events.4.n"
+		create_advisor = formation_officer
+	}
+}
+
+country_event = { # Infantry Officer
+	id = per_advisor_events.5
+	title = "per_advisor_events.5.t"
+	desc = "per_advisor_events.5.desc"
+	picture = ADVISOR_eventPicture
+	
+	trigger = {
+		infantry_officer = 3
+		NOT = { has_country_flag = per_infantry_officer_flag }
+	}
+	
+	mean_time_to_happen = {
+		months = 300
+		
+		
+		modifier = {
+			factor = 0.9
+			innovativeness_ideas = 4
+		}
+		modifier = {
+			factor = 0.9
+			innovativeness_ideas = 6
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { innovativeness_ideas = 4 }
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { innovativeness_ideas = 2 }
+		}
+	}
+	
+	option = {
+		name = "per_advisor_events.5.a"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				stability = 2
+			}
+		}
+		add_meritocracy_effect = yes
+		add_stability_or_adm_power = yes
+		add_country_modifier = {
+			name = "infantry_officer_boost"
+			duration = 2190
+		}		
+		set_country_flag = per_infantry_officer_flag
+	}
+
+	option = {
+		name = "per_advisor_events.5.b"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				stability = 2
+			}
+		}
+		add_meritocracy_effect = yes
+		add_prestige = 50
+		add_country_modifier = {
+			name = "infantry_officer_boost"
+			duration = 2190
+		}		
+		set_country_flag = per_infantry_officer_flag
+	}
+
+	option = {
+		name = "per_advisor_events.5.c"
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+country_event = { # Cavalry Officer
+	id = per_advisor_events.6
+	title = "per_advisor_events.6.t"
+	desc = "per_advisor_events.6.desc"
+	picture = ADVISOR_eventPicture
+	
+	trigger = {
+		cavalry_officer = 3
+		NOT = { has_country_flag = per_cavalry_officer_flag }
+	}
+	
+	mean_time_to_happen = {
+		months = 300
+		
+		
+		modifier = {
+			factor = 0.9
+			innovativeness_ideas = 4
+		}
+		modifier = {
+			factor = 0.9
+			innovativeness_ideas = 6
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { innovativeness_ideas = 4 }
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { innovativeness_ideas = 2 }
+		}
+	}
+	
+	option = {
+		name = "per_advisor_events.5.a"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				stability = 2
+			}
+		}
+		add_meritocracy_effect = yes
+		add_stability_or_adm_power = yes
+		add_country_modifier = {
+			name = "cavalry_officer_boost"
+			duration = 2190
+		}		
+		set_country_flag = per_cavalry_officer_flag
+	}
+
+	option = {
+		name = "per_advisor_events.5.b"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				stability = 2
+			}
+		}
+		add_meritocracy_effect = yes
+		add_prestige = 50
+		add_country_modifier = {
+			name = "cavalry_officer_boost"
+			duration = 2190
+		}		
+		set_country_flag = per_cavalry_officer_flag
+	}
+
+	option = {
+		name = "per_advisor_events.5.c"
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+country_event = { # Artillery Officer
+	id = per_advisor_events.7
+	title = "per_advisor_events.7.t"
+	desc = "per_advisor_events.7.desc"
+	picture = ADVISOR_eventPicture
+	
+	trigger = {
+		artillery_officer = 3
+		NOT = { has_country_flag = per_artillery_officer_flag }
+	}
+	
+	mean_time_to_happen = {
+		months = 300
+		
+		
+		modifier = {
+			factor = 0.9
+			innovativeness_ideas = 4
+		}
+		modifier = {
+			factor = 0.9
+			innovativeness_ideas = 6
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { innovativeness_ideas = 4 }
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { innovativeness_ideas = 2 }
+		}
+	}
+	
+	option = {
+		name = "per_advisor_events.5.a"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				stability = 2
+			}
+		}
+		add_meritocracy_effect = yes
+		add_stability_or_adm_power = yes
+		add_country_modifier = {
+			name = "artillery_officer_boost"
+			duration = 2190
+		}		
+		set_country_flag = per_artillery_officer_flag
+	}
+
+	option = {
+		name = "per_advisor_events.5.b"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				stability = 2
+			}
+		}
+		add_meritocracy_effect = yes
+		add_prestige = 50
+		add_country_modifier = {
+			name = "artillery_officer_boost"
+			duration = 2190
+		}		
+		set_country_flag = per_artillery_officer_flag
+	}
+
+	option = {
+		name = "per_advisor_events.5.c"
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+country_event = { # Charge Officer
+	id = per_advisor_events.8
+	title = "per_advisor_events.8.t"
+	desc = "per_advisor_events.8.desc"
+	picture = ADVISOR_eventPicture
+	
+	trigger = {
+		charge_officer = 3
+		NOT = { has_country_flag = per_charge_officer_flag }
+	}
+	
+	mean_time_to_happen = {
+		months = 300
+		
+		
+		modifier = {
+			factor = 0.9
+			innovativeness_ideas = 4
+		}
+		modifier = {
+			factor = 0.9
+			innovativeness_ideas = 6
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { innovativeness_ideas = 4 }
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { innovativeness_ideas = 2 }
+		}
+	}
+	
+	option = {
+		name = "per_advisor_events.5.a"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				stability = 2
+			}
+		}
+		add_meritocracy_effect = yes
+		add_stability_or_adm_power = yes
+		add_country_modifier = {
+			name = "charge_officer_boost"
+			duration = 2190
+		}		
+		set_country_flag = per_charge_officer_flag
+	}
+
+	option = {
+		name = "per_advisor_events.5.b"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				stability = 2
+			}
+		}
+		add_meritocracy_effect = yes
+		add_prestige = 50
+		add_country_modifier = {
+			name = "charge_officer_boost"
+			duration = 2190
+		}		
+		set_country_flag = per_charge_officer_flag
+	}
+
+	option = {
+		name = "per_advisor_events.5.c"
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+country_event = { # Gunpowder Officer
+	id = per_advisor_events.9
+	title = "per_advisor_events.9.t"
+	desc = "per_advisor_events.9.desc"
+	picture = ADVISOR_eventPicture
+	
+	trigger = {
+		gunpowder_officer = 3
+		NOT = { has_country_flag = per_gunpowder_officer_flag }
+	}
+	
+	mean_time_to_happen = {
+		months = 300
+		
+		
+		modifier = {
+			factor = 0.9
+			innovativeness_ideas = 4
+		}
+		modifier = {
+			factor = 0.9
+			innovativeness_ideas = 6
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { innovativeness_ideas = 4 }
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { innovativeness_ideas = 2 }
+		}
+	}
+	
+	option = {
+		name = "per_advisor_events.5.a"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				stability = 2
+			}
+		}
+		add_meritocracy_effect = yes
+		add_stability_or_adm_power = yes
+		add_country_modifier = {
+			name = "gunpowder_officer_boost"
+			duration = 2190
+		}		
+		set_country_flag = per_gunpowder_officer_flag
+	}
+
+	option = {
+		name = "per_advisor_events.5.b"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				stability = 2
+			}
+		}
+		add_meritocracy_effect = yes
+		add_prestige = 50
+		add_country_modifier = {
+			name = "gunpowder_officer_boost"
+			duration = 2190
+		}		
+		set_country_flag = per_gunpowder_officer_flag
+	}
+
+	option = {
+		name = "per_advisor_events.5.c"
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+country_event = { # Stalwart Defender
+	id = per_advisor_events.10
+	title = "per_advisor_events.10.t"
+	desc = "per_advisor_events.10.desc"
+	picture = ADVISOR_eventPicture
+	
+	trigger = {
+		stalwart_defender = 3
+		NOT = { has_country_flag = per_stalwart_defender_flag }
+	}
+	
+	mean_time_to_happen = {
+		months = 300
+		
+		
+		modifier = {
+			factor = 0.9
+			innovativeness_ideas = 4
+		}
+		modifier = {
+			factor = 0.9
+			innovativeness_ideas = 6
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { innovativeness_ideas = 4 }
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { innovativeness_ideas = 2 }
+		}
+	}
+	
+	option = {
+		name = "per_advisor_events.5.a"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				stability = 2
+			}
+		}
+		add_meritocracy_effect = yes
+		add_stability_or_adm_power = yes
+		add_country_modifier = {
+			name = "stalwart_defender_boost"
+			duration = 2190
+		}		
+		set_country_flag = per_stalwart_defender_flag
+	}
+
+	option = {
+		name = "per_advisor_events.5.b"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				stability = 2
+			}
+		}
+		add_meritocracy_effect = yes
+		add_prestige = 50
+		add_country_modifier = {
+			name = "stalwart_defender_boost"
+			duration = 2190
+		}		
+		set_country_flag = per_stalwart_defender_flag
+	}
+
+	option = {
+		name = "per_advisor_events.5.c"
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+country_event = { # Formation Officer
+	id = per_advisor_events.11
+	title = "per_advisor_events.11.t"
+	desc = "per_advisor_events.11.desc"
+	picture = ADVISOR_eventPicture
+	
+	trigger = {
+		formation_officer = 3
+		NOT = { has_country_flag = per_formation_officer_flag }
+	}
+	
+	mean_time_to_happen = {
+		months = 300
+		
+		
+		modifier = {
+			factor = 0.9
+			innovativeness_ideas = 4
+		}
+		modifier = {
+			factor = 0.9
+			innovativeness_ideas = 6
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { innovativeness_ideas = 4 }
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { innovativeness_ideas = 2 }
+		}
+	}
+	
+	option = {
+		name = "per_advisor_events.5.a"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				stability = 2
+			}
+		}
+		add_meritocracy_effect = yes
+		add_stability_or_adm_power = yes
+		add_country_modifier = {
+			name = "formation_officer_boost"
+			duration = 2190
+		}		
+		set_country_flag = per_formation_officer_flag
+	}
+
+	option = {
+		name = "per_advisor_events.5.b"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				stability = 2
+			}
+		}
+		add_meritocracy_effect = yes
+		add_prestige = 50
+		add_country_modifier = {
+			name = "formation_officer_boost"
+			duration = 2190
+		}		
+		set_country_flag = per_formation_officer_flag
+	}
+
+	option = {
+		name = "per_advisor_events.5.c"
+		ai_chance = {
+			factor = 0
+		}
+	}
+}

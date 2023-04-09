@@ -1,0 +1,100 @@
+estate_court = {
+	icon = 12
+
+	# If true, country will get estate
+	trigger = {
+		#NOT = { has_government_attribute = is_merchant_republic }
+		#NOT = { has_reform = pirate_republic_reform }
+		#NOT = { has_reform = veche_republic }
+		#NOT = { has_reform = cossacks_reform }
+		NOT = { government = native }
+		#NOT = { has_estate = estate_vaisyas }
+		#NOT = { has_estate = estate_jains }
+		#NOT = { has_reform = trading_city }
+		#NOT = { has_reform = siberian_tribe }
+		#NOT = { is_revolutionary_republic_trigger = yes }
+		#NOT = { has_reform = revolutionary_empire_reform }
+		#NOT = { has_reform = peasants_republic }
+		#NOT = { has_reform = kongsi_federation }
+		#NOT = { has_reform = american_republic }
+		#NOT = { has_reform = federal_republic }
+		is_nomad = no
+		is_colonial_nation = no
+	}
+
+	country_modifier_happy = {
+		legitimacy = 1 
+		republican_tradition = 0.25
+		devotion = 1
+		horde_unity = 1
+		global_autonomy = -0.05
+		advisor_cost = -0.15
+	}
+	country_modifier_neutral = {
+		legitimacy = 0.5
+		republican_tradition = 0.1
+		devotion = 0.5
+		horde_unity = 0.5
+		global_autonomy = -0.025
+		advisor_cost = -0.075
+	}	
+	country_modifier_angry = {
+		legitimacy = -1 
+		republican_tradition = -0.25
+		devotion = -1
+		horde_unity = -1
+		global_autonomy = 0.05
+		advisor_cost = 0.15
+	}
+	land_ownership_modifier = {
+		court_loyalty_modifier = 0.2
+	}
+
+	province_independence_weight = {
+		factor = 1
+		modifier = {
+			factor = 1.5
+			culture_group = owner
+			religion_group = owner
+		}
+		modifier = {
+			factor = 1.5
+			base_manpower = 5
+		}
+		modifier = {
+			factor = 0.75
+			development = 20
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { is_state_core = owner }
+		}
+	}
+
+	# Influence modifiers
+	base_influence = 10
+	
+	color = { 84 33 122 }
+	
+	privileges = {
+		estate_fund_construction_works
+		estate_military_investment
+		estate_production_economy
+		estate_military_complex
+		estate_wood_for_ships
+		estate_seek_court_support
+		estate_implement_toll_taxes
+		estate_decreased_taxes
+		estate_import_tariffs
+		estate_export_tariffs
+		estate_lower_recruitment_standards
+		estate_lower_recruitment_standards_navy
+		estate_focus_on_metalwork
+		estate_focus_on_farming
+	}
+
+	agendas = {
+	}
+	
+	influence_from_dev_modifier = 1.0
+}

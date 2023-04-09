@@ -1,0 +1,329 @@
+age_of_revolutions = {
+	start = 1710
+	
+	can_start = {
+		is_institution_enabled = enlightenment
+	}
+	
+	papacy = 2.0
+	absolutism = {
+		harsh_treatment = 1
+		stability = 1
+		decrease_autonomy_command = 1
+		strengthen_government = 2
+		
+		increase_autonomy_command = -2
+		debase_currency = -1
+		execute_rebel_acceptance_command = -10
+		seat_in_parliament = -3
+		war_exhaustion = -1
+	}
+	
+	
+	objectives = {
+		obj_md_is_emperor = {
+			st_md_is_emperor = yes
+		}
+		obj_md_colonial_empire = {
+			st_md_colonial_empire = yes
+		}
+		obj_md_cultures_accepted = {
+			st_md_cultures_accepted = yes
+		}
+		obj_md_has_universities = {
+			st_md_has_universities = yes
+		}
+
+		# Great General -------------------------------------------------------------------
+
+		obj_md_great_general_europe = {
+			allow = { st_md_capital_in_christian_europe = yes }
+			has_commanding_three_star = yes
+		}
+		obj_md_great_general_muslim = {
+			allow = { religion_group = muslim }
+			has_commanding_three_star = yes
+		}
+		obj_md_great_general_indian = {
+			allow = { st_md_capital_in_india = yes NOT = { religion_group = muslim } }
+			has_commanding_three_star = yes
+		}
+		obj_md_great_general_indochina = {
+			allow = { st_md_capital_in_civilized_eastindies = yes NOT = { religion_group = muslim } }
+			has_commanding_three_star = yes
+		}
+		obj_md_great_general_asian = {
+			allow = { st_md_capital_in_eastasia = yes NOT = { religion_group = muslim } }
+			has_commanding_three_star = yes
+		}
+		obj_md_great_general_oceania = {
+			allow = { st_md_capital_in_uncivilized_eastindies_or_oceania = yes NOT = { religion_group = muslim } }
+			has_commanding_three_star = yes
+		}
+		obj_md_great_general_steppe = {
+			allow = { st_md_capital_in_tartary = yes NOT = { religion_group = muslim } }
+			has_commanding_three_star = yes
+		}
+		obj_md_great_general_african = {
+			allow = { st_md_capital_in_africa_not_muslim = yes }
+			has_commanding_three_star = yes
+		}
+		obj_md_great_general_americas = {
+			allow = { st_md_capital_in_americas = yes NOT = { religion_group = muslim } }
+			has_commanding_three_star = yes
+		}
+
+		# End Great General -------------------------------------------------------------------
+
+		obj_md_has_disciplined_army = {
+			st_md_has_disciplined_army = yes
+		}
+		obj_md_american_supply = {
+			st_md_american_supply = yes
+		}
+		obj_md_control_multiple_markets = {
+			st_md_control_multiple_markets = yes
+		}
+	}
+
+	abilities = {
+		ab_md_1700s_allow_anti_revolutionary_zeal = {
+			modifier = {
+				liberty_desire_from_subject_development = -0.33
+			}
+			ai_will_do = {
+				factor = 15
+				modifier = {
+					factor = 0
+					NOT = {
+						any_subject_country = {
+							liberty_desire = 30
+						}
+					}
+				}
+			}
+			effect = {
+				se_md_refund_splendor = { flagName = liberty_desire_from_subject_development flagCategory = liberty_desire }
+			}
+		}
+		ab_md_1700s_siege_blockades = {
+			modifier = {
+				siege_blockade_progress = 1
+			}
+			ai_will_do = {
+				factor = 10
+				modifier = {
+					factor = 0
+					NOT = {
+							num_of_ports = 5
+					}
+				}
+			}
+			effect = {
+				se_md_refund_splendor = { flagName = siege_blockade_progress flagCategory = siege_blockade }
+			}
+		}
+		ab_md_1700s_napoleonic_warfare = {
+			modifier = {
+				artillery_levels_available_vs_fort = 1
+			}
+			ai_will_do = {
+				factor = 15
+			}
+			effect = {
+				se_md_add_or_upgrade_bonus = { bonusName = siege flagName = artillery_levels_3 abilityName = ab_md_1700s_napoleonic_warfare showTooltip = true }
+			}
+		}
+		ab_md_1700s_force_march = {
+			modifier = {
+				force_march_free = yes
+			}
+			ai_will_do = {
+				factor = 10
+			}
+			effect = {
+				se_md_refund_splendor = { flagName = has_had_force_march flagCategory = force_march }
+			}
+		}
+		ab_md_1700s_more_ships_can_fire = {
+			modifier = {
+				global_naval_engagement_modifier = 0.20
+			}
+			ai_will_do = {
+				factor = 10
+			}
+			effect = {
+				se_md_add_or_upgrade_bonus = { bonusName = navy flagName = global_naval_engagement_modifier abilityName = ab_md_1700s_more_ships_can_fire showTooltip = true }
+			}
+		}
+		ab_md_1700s_no_distance_for_core = {
+			modifier = {
+				ignore_coring_distance = yes
+			}
+			effect = {
+				se_md_refund_splendor = { flagName = has_had_conquest flagCategory = ignore_coring_distance }
+			}
+			ai_will_do = {
+				factor = 15
+				modifier = {
+					# AI peace code relies on being limited by coring range, or it will create crazy border gore where it can't reach its new lands
+					factor = 0
+					OR = {
+						is_subject = no
+						overlord = {
+							ai = yes
+						}
+					}
+				}
+			}
+		}
+		ab_md_1700s_backrow_artillery = {
+			modifier = {
+				backrow_artillery_damage = 0.20
+			}
+			ai_will_do = {
+				factor = 15
+			}
+			effect = {
+				se_md_refund_splendor = { flagName = backrow_artillery_damage flagCategory = artillery_damage }
+			}
+		}
+		ab_md_1700s_manifest_destiny = {
+			modifier = {
+				colonists = 1
+				global_colonial_growth = 20
+			}
+			ai_will_do = {
+				factor = 0
+			}
+			effect = {
+				se_md_add_or_upgrade_bonus = { bonusName = colonization flagName = colonist_and_colonial_growth abilityName = ab_md_1700s_manifest_destiny showTooltip = true }
+			}
+		}
+		ab_md_1700s_scurvy_cured = {
+			modifier = {
+				transport_attrition = -0.5
+				naval_attrition = -0.2
+			}
+			ai_will_do = {
+				factor = 100
+				modifier = {
+					factor = 0
+					NOT = { num_of_colonists = 1 }
+				}
+			}
+			effect = {
+				se_md_refund_splendor = { flagName = naval_and_transport_attrition flagCategory = naval_attrition }
+			}
+		}
+		ab_md_1700s_raise_taxes = {
+			modifier = {
+				global_tax_modifier = 0.15
+			}
+			ai_will_do = {
+				factor = 10
+			}
+			effect = {
+				se_md_add_or_upgrade_bonus = { bonusName = economy flagName = raise_taxes abilityName = ab_md_1700s_raise_taxes showTooltip = true }
+			}
+		}
+		ab_md_1700s_imperial_projects = {
+			modifier = {
+				great_project_upgrade_cost = -0.5
+			}
+			ai_will_do = {
+				factor = 10
+			}
+			effect = {
+				se_md_add_or_upgrade_bonus = { bonusName = monarchy flagName = great_project_upgrade_cost abilityName = ab_md_1700s_imperial_projects showTooltip = true }
+			}
+		}
+		ab_md_1700s_additional_diplomat = {
+			modifier = {
+				diplomats = 1
+			}
+			ai_will_do = {
+				factor = 10
+			}
+			effect = {
+				se_md_add_or_upgrade_bonus = { bonusName = diplomacy flagName = diplomat abilityName = ab_md_1700s_additional_diplomat showTooltip = true }
+			}
+		}
+		ab_md_1700s_royal_navy = {
+			modifier = {
+				navy_tradition = 1
+				heavy_ship_cost = -0.15
+			}
+			ai_will_do = {
+				factor = 100
+				modifier = {
+					factor = 0
+					NOT = { num_of_colonists = 1 }
+				}
+			}
+			effect = {
+				se_md_refund_splendor = { flagName = navy_tradition_and_heavy_ship_cost flagCategory = navy_tradition_and_heavy_ship_cost }
+			}
+		}
+		ab_md_1700s_quick_landings = {
+			modifier = {
+				movement_speed_onto_off_boat_modifier = 0.5
+			}
+			ai_will_do = {
+				factor = 100
+				modifier = {
+					factor = 0
+					NOT = { num_of_colonists = 1 }
+				}
+			}
+			effect = {
+				se_md_refund_splendor = { flagName = movement_speed_onto_off_boat_modifier flagCategory = amphibious_assault }
+			}
+		}
+		ab_md_1700s_large_empire = {
+			modifier = {
+				governing_capacity = 200
+			}
+			ai_will_do = {
+				factor = 10
+			}
+			effect = {
+				se_md_refund_splendor = { flagName = governing_capacity flagCategory = governing_capacity }
+			}
+		}
+		ab_md_1700s_tolerant_people = {
+			modifier = {
+				num_accepted_cultures = 2
+			}
+			ai_will_do = {
+				factor = 10
+			}
+			effect = {
+				se_md_refund_splendor = { flagName = num_accepted_cultures flagCategory = accepted_cultures }
+			}
+		}
+		ab_md_1700s_international_missions = {
+			modifier = {
+				missionaries = 1
+				global_heathen_missionary_strength = 0.02
+			}
+			ai_will_do = {
+				factor = 10
+			}
+			effect = {
+				se_md_add_or_upgrade_bonus = { bonusName = religion flagName = missionary_and_missionary_strength_vs_heathens abilityName = ab_md_1700s_international_missions showTooltip = true }
+			}
+		}
+		ab_md_1700s_scientific_academies = {
+			modifier = {
+				global_institution_spread = 0.2
+			}
+			ai_will_do = {
+				factor = 10
+			}
+			effect = {
+				se_md_add_or_upgrade_bonus = { bonusName = science flagName = institution_spread abilityName = ab_md_1700s_scientific_academies showTooltip = true }
+			}
+		}
+	}
+}

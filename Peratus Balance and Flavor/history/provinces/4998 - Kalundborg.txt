@@ -1,0 +1,17 @@
+# 4947 - Kalundborg
+owner = DAN
+controller = DAN
+culture = danish
+religion = catholic
+capital = "Kalundborg"
+hre = no # Anything typed here will be added to all selected province history files
+base_tax = 4
+base_production = 4
+trade_goods = cloth
+base_manpower = 3
+is_city = yes
+add_core = DAN
+discovered_by = western
+discovered_by = eastern
+discovered_by = muslim
+discovered_by = ottoman

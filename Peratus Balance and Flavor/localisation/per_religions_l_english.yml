@@ -1,0 +1,31 @@
+﻿l_english:
+# Armenian Apostolic Church
+ apostolic:0 "Apostolic"
+ apostolic_religion_desc:0 "Officially the Armenian Apostolic Church, it is one of the oldest Christian institutions in the world.  The Kingdom of Armenia was the first state to adopt Christianity as its official religion under King Tridates III in the early 4th century."
+ apostolic_rebels_demand:0 "Convert $COUNTRYNAME$"
+ apostolic_rebels_demand_desc:0 "The religious rebels fight for the $RELIGION$ religion.  They demand we recognize its supremacy or at the very least cease our efforts to convert them and let them worship in peace."
+ apostolic_rebels_title:0 "Religious"
+ apostolic_rebels_name:0 "$RELIGION$ Zealots"
+ apostolic_rebels_desc:0 "Religious fanatics tend to rise up in proinces controlled by nations of a different faith.  They seek to spread their faith and smite all unbelievers."
+ apostolic_rebels_army:0 "$RELIGION$ Army"
+# Icons
+ icon_vardan:0 "Icon of St. Vardan"
+ icon_vardan_desc:0 "St. Vardan, or Vardan Mamikonian was an Armenian military leader, a martyr and a saint of the Armenian Church.  He is best known for leading the Armenian army at the Battle of Avarayr in 451, which ultimately secured the Armenians' right to practice Christianity."
+ icon_mesrop:0 "Icon of St. Mesrop"
+ icon_mesrop_desc:0 "St. Mesrop, or Mesrop Mashtots, was an Armenian linguist, composer, thelogian, statesmen and hymnologist.  He is best known for inventing the Armenian alphabet in 405CE, which was a fundamental step in strengthening Armenian national identity."
+ icon_gregory:0 "Icon of St. Gregory"
+ icon_gregory_desc:0 "St. Gregory, or Gregory the Illuminator, is the patron saint and first official head of the Armenian Apostolic Church.  He was a religious leader who is credited with converting Armenia from paganism to Christianity in 301CE."
+ icon_isaac:0 "Icon of St. Isaac"
+ icon_isaac_desc:0 "St. Isaac, or Sahak of Armenia, and sometimes referred to as "Isaac the Great," was Catholicos of the Armenian Apostolic Church.  A man of enlightened piety and of very austere life, he owed his deposition by the king in 426 to his great independence of character.  In 430, he was allowed to resume his patriarchal throne, eventually dying at the age of 110."
+ icon_shushanik:0 "Icon of St. Shushanik"
+ icon_shushanik_desc:0 "St Shushanik was a devoted Armenian Christian.  Regarded as a martyr, she died defending her Christianity.  Refusing to convert, she was tortured to death by her own husband.  Her husband was put to death by King Vakhtang in 483."
+# Anglican
+ per_naval_morale_aspect:0 "§RChurch Rations§!"
+ desc_per_naval_morale_aspect:0 "By having the church pay for increased rations on our ships we can ensure that our sailors will stay in a better mood, even if they aren't sober."
+ per_ica_aspect:0 "§RRedcoats§!"
+ desc_per_ica_aspect:0 "The Church shall aid our military recruitment and training to swell our infantry corps with fresh Redcoats."
+# Muslim Privileges
+ estate_religious_legalism:0 "Religious Legalism"
+ estate_religious_legalism_desc:0 "Religious Legalism"
+ estate_religious_mysticism:0 "Religious Mysticism"
+ estate_religious_mysticism_desc:0 "Religious Mysticism"

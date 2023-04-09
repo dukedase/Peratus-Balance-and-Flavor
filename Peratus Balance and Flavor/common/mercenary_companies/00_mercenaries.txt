@@ -1,0 +1,100 @@
+merc_free_swiss_guard = {
+    regiments_per_development = 0.025
+    home_province = 165 # Bern
+	cost_modifier = 1.5
+	sprites = {  dlc103_swi_sprite_pack westerngfx_sprite_pack }
+    trigger = {
+		is_allowed_to_recruit_mercenaries = yes 
+		OR = {
+			capital_scope = { superregion = europe_superregion }
+			any_owned_province = {
+				OR = {
+					area = switzerland_area
+					area = romandie_area
+				}
+			}
+			has_country_modifier = mercenaries_to_the_standard
+			has_country_modifier = glut_of_mercs
+		}
+		NOT = { tag = PAP }
+		NOT = { total_development = 1000 }
+		tag = SWI
+		was_tag = SWI
+	}
+	modifier = {
+        discipline = 0.05
+	}
+}
+
+# Black Army (Hungary)
+merc_black_army = {
+	regiments_per_development = 0.04
+	mercenary_desc_key = FREE_OF_ARMY_PROFESSIONALISM_COST
+	cavalry_weight = 0.2
+    artillery_weight = 0.4
+	cavalry_cap = 4
+	home_province = 153
+	sprites = { dlc102_hun_sprite_pack easterngfx_sprite_pack }
+    trigger = {
+		is_allowed_to_recruit_mercenaries = yes
+		OR = {
+			has_country_modifier = hun_black_army
+			has_reform = black_army_reform
+		}
+		NOT = { total_development = 1000 }
+	}
+	cost_modifier = 0.75
+	modifier = {
+		discipline = 0.05
+	}
+}
+
+# Mesopotamian Mamluks
+merc_mesopotamian_mamluks = {
+    regiments_per_development = 0.05
+    cavalry_weight = 0.4
+    artillery_weight = 0.2
+	cavalry_cap = 6
+	home_province = 410
+	cost_modifier = 1.1
+	sprites = { dlc080_alh_sprite_pack muslimgfx_sprite_pack }
+    trigger = {
+		is_allowed_to_recruit_mercenaries = yes
+		OR = {
+			capital_scope = {
+				region = mashriq_region
+			}
+			accepted_culture = al_iraqiya_arabic
+			AND = {
+				religion_group = muslim
+				any_owned_province = {
+					region = mashriq_region
+				}
+			}
+		}
+		NOT = { total_development = 1000 }
+	}
+    modifier = {
+        cavalry_shock = 1.0
+    }
+}
+
+merc_hakkapeliita_cavalry = {
+    regiments_per_development = 0.02
+	mercenary_desc_key = FREE_OF_ARMY_PROFESSIONALISM_COST
+	cost_modifier = 0.25
+	cavalry_weight = 1
+    home_province = 28 # Nyland
+	sprites = { dlc116_FIN_sprite_pack dlc054_swe_sprite_pack dlc028_swe_sprite_pack swe_base_sprite_pack westerngfx_sprite_pack }
+    trigger = {
+		is_allowed_to_recruit_mercenaries = yes
+		has_unlocked_merc_company = {
+			merc_company = merc_hakkapeliita_cavalry
+		}
+	}
+    modifier = {
+		cavalry_shock = 0.5
+		#cav_to_inf_ratio = 1 
+		movement_speed = 0.2
+	}
+}

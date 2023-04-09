@@ -1,0 +1,31 @@
+# Denmark-Norway
+#union = {
+#	first = DAN
+#	second = NOR
+#	start_date = 1444.1.1
+#	end_date = 1536.5.3
+#}
+
+# Denmark-Sweden
+#union = {
+#	first = DAN
+#	second = SWE
+#	start_date = 1444.1.1
+#	end_date = 1536.5.3
+#}
+
+# Denmark-SHL
+vassal = {
+	first = DAN
+	second = SHL 
+	start_date = 1444.1.1
+	end_date = 1821.1.1
+}
+
+# Sweden-Finland
+vassal = {
+	first = SWE
+	second = FIN 
+	start_date = 1444.1.1
+	end_date = 1821.1.1
+}

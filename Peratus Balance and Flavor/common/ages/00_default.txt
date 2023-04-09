@@ -1,0 +1,3 @@
+# Intentionally left empty to ensure the original is overwritten. Replaced with separate files.
+# Age Order: Discovery -> Reformation -> Absolutism -> Revolutions
+# Number used in name prefix due to the fact that the ages are ordered in game according to alphabetical order.

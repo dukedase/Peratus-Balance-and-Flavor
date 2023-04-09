@@ -1,0 +1,18 @@
+#Define estate loyalty and influence modifiers here
+
+estate_court = {
+	modifier_definition = {
+		type = loyalty
+		key = court_loyalty_modifier
+		trigger = {
+			has_estate = estate_court
+		}
+	}
+	modifier_definition = {
+		type = influence
+		key = court_influence_modifier
+		trigger = {
+			has_estate = estate_court
+		}
+	}
+}

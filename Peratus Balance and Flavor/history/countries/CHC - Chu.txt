@@ -1,0 +1,18 @@
+government = monarchy
+add_government_reform = chinese_warlord
+government_rank = 1
+technology_group = chinese
+religion = confucianism
+primary_culture = xiang
+capital = 682	#Wuchang
+
+1429.11.1 = {
+	monarch = {
+		name = "Zhang"
+		dynasty = "Chu"
+		adm = 5
+		dip = 3
+		mil = 5
+		birth_date = 1403.12.11
+	}
+}

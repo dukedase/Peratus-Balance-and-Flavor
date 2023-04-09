@@ -1,0 +1,19 @@
+government = monarchy
+add_government_reform = armenian_monarchy_reform 
+primary_culture = armenian
+religion = apostolic
+technology_group = eastern
+capital = 419	# Yerevan
+add_treasury = 100
+add_manpower = 10
+
+1444.1.1 = {
+	monarch = {
+		name = "Ashot"
+		dynasty = "Mamikonian"
+		birth_date = 1421.4.3
+		adm = 5
+		dip = 5
+		mil = 5
+	}
+}

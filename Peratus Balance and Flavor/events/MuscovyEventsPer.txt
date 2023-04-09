@@ -1,0 +1,292 @@
+#### Muscovy Events ###
+### By Peratus ###
+
+
+namespace = per_muscovy_events
+normal_or_historical_nations = yes
+
+### Muscovy Events
+
+country_event = { # Musocvy Economic Reform 1
+	id = per_muscovy_events.1
+	title = "per_muscovy_events.1.t"
+	desc = "per_muscovy_events.1.desc"
+	picture = CORRUPTION_eventPicture
+	
+	major = no
+	fire_only_once = yes
+	
+	trigger = {
+		tag = MOS
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = "per_muscovy_events.1.a"
+		add_country_modifier = {
+			name = per_muscovy_early_help
+			duration = 14600 # 40 years
+		}
+	}
+}
+
+country_event = { # Musocvy Missionaries
+	id = per_muscovy_events.3
+	title = "per_muscovy_events.3.t"
+	desc = "per_muscovy_events.3.desc"
+	picture = CHURCH_ESTATE_1_eventPicture
+	
+	major = no
+	fire_only_once = yes
+	
+	trigger = {
+		OR = {
+			tag = MOS
+			tag = RUS
+		}
+		is_year = 1550
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+		name = "per_muscovy_events.3.a"
+		add_country_modifier = {
+			name = per_muscovy_missionaries
+			duration = 3650 # 10 years
+		}
+	}
+}
+
+country_event = { # Russia Streltsy Reform
+	id = per_muscovy_events.4
+	title = "per_muscovy_events.4.t"
+	desc = "per_muscovy_events.4.desc"
+	picture = CONQUEST_eventPicture
+	
+	major = no
+	fire_only_once = yes
+	
+	trigger = {
+		OR = {
+			tag = RUS
+		}
+		is_year = 1615
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+		name = "per_muscovy_events.4.a"
+		add_country_modifier = {
+			name = per_muscovy_streltsy
+			duration = 3650 # 10 years
+		}
+	}
+}
+
+country_event = { # Future of Russia
+	id = per_muscovy_events.5
+	title = "per_muscovy_events.5.t"
+	desc = "per_muscovy_events.5.desc"
+	picture = HRE_eventPicture
+	
+	major = yes
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "per_muscovy_events.5.a"
+		set_country_flag = per_rus_went_west_flag
+		custom_tooltip = per_rus_future_of_russia_event_a_tt
+		ruthenia_region = {
+			limit = {
+				NOT = { owned_by = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
+		baltic_region = {
+			limit = {
+				NOT = { owned_by = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
+		finland_area = {
+			limit = {
+				NOT = { owned_by = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
+		per_tavastland_area = {
+			limit = {
+				NOT = { owned_by = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
+		bothnia_area = {
+			limit = {
+				NOT = { owned_by = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
+	}
+
+	option = {
+		name = "per_muscovy_events.5.b"
+		set_country_flag = per_rus_went_east_flag
+		custom_tooltip = per_rus_future_of_russia_event_b_tt
+		crimea_region = {
+			limit = {
+				NOT = { owned_by = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
+		central_asia_region = {
+			limit = {
+				NOT = { owned_by = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
+		west_siberia_region = {
+			limit = {
+				NOT = { owned_by = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
+	}
+}
+
+country_event = { # Royal Russian Military
+	id = per_muscovy_events.6
+	title = "per_muscovy_events.6.t"
+	desc = "per_muscovy_events.6.desc"
+	picture = MILITARY_CAMP_eventPicture
+	
+	major = no
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "per_muscovy_events.6.a"
+		set_country_flag = per_rus_quality_path_flag
+		custom_tooltip = per_rus_royal_russian_military_a_tt
+	}
+
+	option = {
+		name = "per_muscovy_events.6.b"
+		custom_tooltip = per_rus_royal_russian_military_b_tt
+	}
+}
+
+country_event = { # Russian Army Reform
+	id = per_muscovy_events.7
+	title = "per_muscovy_events.7.t"
+	desc = "per_muscovy_events.7.desc"
+	picture = MILITARY_CAMP_eventPicture
+	
+	major = yes
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "per_muscovy_events.7.a"
+		add_country_modifier = {
+			name = per_rus_ica_path_modifier
+			duration = -1
+		}
+	}
+	option = {
+		name = "per_muscovy_events.7.b"
+		add_country_modifier = {
+			name = per_rus_cca_path_modifier
+			duration = -1
+		}
+	}
+	option = {
+		name = "per_muscovy_events.7.c"
+		add_country_modifier = {
+			name = per_rus_aca_path_modifier
+			duration = -1
+		}
+	}
+	option = {
+		name = "per_muscovy_events.7.d"
+		add_country_modifier = {
+			name = per_rus_dis_path_modifier
+			duration = -1
+		}
+	}
+}
+
+country_event = { # Russian Army Reform
+	id = per_muscovy_events.8
+	title = "per_muscovy_events.8.t"
+	desc = "per_muscovy_events.8.desc"
+	picture = MILITARY_CAMP_eventPicture
+	
+	major = yes
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "per_muscovy_events.8.a"
+		add_country_modifier = {
+			name = per_rus_mp_path_modifier
+			duration = -1
+		}
+	}
+	option = {
+		name = "per_muscovy_events.8.b"
+		add_country_modifier = {
+			name = per_rus_mpr_path_modifier
+			duration = -1
+		}
+	}
+	option = {
+		name = "per_muscovy_events.7.c"
+		add_country_modifier = {
+			name = per_rus_fl_path_modifier
+			duration = -1
+		}
+	}
+}
+
+country_event = { # Crown Court
+	id = per_muscovy_events.9
+	title = "per_muscovy_events.9.t"
+	desc = "per_muscovy_events.9.desc"
+	picture = ADVISOR_eventPicture
+	
+	major = no
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "per_muscovy_events.9.a"
+		add_country_modifier = {
+			name = per_rus_crown_court_expand_modifier
+			duration = -1
+		}
+	}
+	option = {
+		name = "per_muscovy_events.9.b"
+		add_country_modifier = {
+			name = per_rus_crown_court_mil_modifier
+			duration = -1
+		}
+	}
+	option = {
+		name = "per_muscovy_events.9.c"
+		add_country_modifier = {
+			name = per_rus_crown_court_advisor_modifier
+			duration = -1
+		}
+	}
+}

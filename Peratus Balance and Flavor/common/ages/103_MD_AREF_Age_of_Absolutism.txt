@@ -1,0 +1,319 @@
+age_of_absolutism = {
+	start = 1620
+	
+	can_start = {
+		is_institution_enabled = global_trade
+	}
+	
+	papacy = 1.5
+	
+	absolutism = {
+		harsh_treatment = 1
+		stability = 1
+		decrease_autonomy_command = 1
+		strengthen_government = 2
+		
+		increase_autonomy_command = -2
+		debase_currency = -1
+		execute_rebel_acceptance_command = -10
+		seat_in_parliament = -3
+		war_exhaustion = -1
+	}
+	
+	
+	
+	objectives = {
+		obj_md_enlarge_crownland = {
+			st_md_large_crownland = yes
+		}
+		obj_md_international_trade = {
+			st_md_international_trade = yes
+		}
+		obj_md_have_colony = {
+			st_md_have_colony = yes
+		}
+		obj_md_textiles_supply = {
+			st_md_textiles_supply = yes
+		}
+		obj_md_luxury_supply = {
+			st_md_luxury_supply = yes
+		}
+		obj_md_flavor_supply = {
+			st_md_flavor_supply = yes
+		}
+		obj_md_beverage_supply = {
+			st_md_beverage_supply = yes
+		}
+
+		# Large Capital -------------------------------------------------------------------
+
+		obj_md_city_tier_2_europe = {
+			allow = { st_md_capital_in_christian_europe = yes }
+			st_md_huge_capital = yes
+		}
+		obj_md_city_tier_2_steppe = {
+			allow = { st_md_capital_in_tartary = yes }
+			st_md_huge_capital = yes
+		}
+		obj_md_city_tier_2_eastasia = {
+			allow = { st_md_capital_in_eastasia = yes }
+			st_md_huge_capital = yes
+		}
+		obj_md_city_tier_2_southasia = {
+			allow = { st_md_capital_in_civilized_southasia = yes }
+			st_md_huge_capital = yes
+		}
+		obj_md_city_tier_2_africa = {
+			allow = { 
+				OR = {
+					st_md_capital_in_africa_not_muslim = yes
+					st_md_capital_in_australia = yes
+				}
+			}
+			st_md_huge_capital = yes
+		}
+		obj_md_city_tier_2_islamic = {
+			allow = { 
+				OR = {
+					st_md_is_muslim_in_europe = yes
+					st_md_capital_in_levant_persia_or_northafrica = yes
+					st_md_muslim_in_africa = yes
+				}
+			}
+			st_md_huge_capital = yes
+		}
+		obj_md_city_tier_2_mesoamerica = {
+			allow = {
+				OR = {
+					st_md_is_mesoamerican_religion = yes
+					st_md_capital_in_mesoamerican_regions = yes
+				}
+			}
+			st_md_huge_capital = yes
+		}
+		obj_md_city_tier_2_natives = {
+			allow = { 
+				OR = {
+					st_md_capital_in_americas = yes
+					st_md_capital_in_uncivilized_eastindies_or_oceania_not_australia = yes
+				}
+				st_md_is_mesoamerican_religion = no
+				st_md_capital_in_mesoamerican_regions = no
+			}
+			st_md_huge_capital = yes
+		}
+
+		# End Large Capital -------------------------------------------------------------------
+	}	
+	
+	abilities = {
+		ab_md_1600s_allow_edict_of_absolutism = {
+			effect = {
+				custom_tooltip = edict_of_absolutism_tt
+				set_country_flag = edict_of_absolutism
+			}
+			ai_will_do = {
+				factor = 10
+			}
+			effect = {
+				se_md_add_or_upgrade_bonus = { bonusName = edicts flagName = allow_edict_of_absolutism abilityName = ab_1600s_allow_edict_of_absolutism }
+			}
+		}
+		ab_md_1600s_rival_change = {
+			modifier = {
+				rival_change_cost = -0.5
+			}
+			ai_will_do = {
+				factor = 0
+			}
+			effect = {
+				se_md_refund_splendor = { flagName = rival_change_cost flagCategory = rival_change_cost }
+			}
+		}
+		ab_md_1600s_rival_border_fort = {
+			modifier = {
+				defensiveness = 0.10
+				fort_maintenance_modifier = -0.15
+				rival_border_fort_maintenance = -1.0
+			}
+			ai_will_do = {
+				factor = 10
+			}
+			effect = {
+				se_md_add_or_upgrade_bonus = { bonusName = siege flagName = rival_border_fort abilityName = ab_md_1600s_rival_border_fort showTooltip = true }
+			}
+		}
+		ab_md_1600s_autonomy = {
+			modifier = {
+				autonomy_change_time = -0.5
+			}
+			ai_will_do = {
+				factor = 10
+			}
+			effect = {
+				se_md_refund_splendor = { flagName = autonomy_change_time flagCategory = autonomy_change_time }
+			}
+		}
+		ab_md_1600s_harsh_treatment = {
+			modifier = {
+				harsh_treatment_cost = -0.5
+			}
+			ai_will_do = {
+				factor = 10
+			}
+			effect = {
+				se_md_add_or_upgrade_bonus = { bonusName = docile flagName = harsh_treatment_cost abilityName = ab_md_1600s_harsh_treatment showTooltip = true }
+			}
+		}
+		ab_md_1600s_fervent_march = {
+			modifier = {
+				movement_speed = 0.1
+			}
+			ai_will_do = {
+				factor = 10
+			}
+			effect = {
+				se_md_add_or_upgrade_bonus = { bonusName = endurance flagName = movement_speed abilityName = ab_md_1600s_fervent_march showTooltip = true }
+			}
+		}
+		ab_md_1600s_admin_efficiency = {
+			modifier = {
+				administrative_efficiency = 0.05
+			}
+			ai_will_do = {
+				factor = 10
+			}
+			effect = {
+				se_md_refund_splendor = { flagName = administrative_efficiency flagCategory = administrative_efficiency }
+			}
+		}
+		ab_md_1600s_yearly_absolutism = {
+			modifier = {
+				yearly_absolutism = 1
+			}
+			ai_will_do = {
+				factor = 100
+			}
+			effect = {
+				se_md_refund_splendor = { flagName = yearly_absolutism flagCategory = yearly_absolutism }
+			}
+		}
+		ab_md_1600s_divine_right = {
+			modifier = {
+				country_military_power = 1
+				prestige = 0.5
+			}
+			ai_will_do = {
+				factor = 100
+			}
+			effect = {
+				se_md_add_or_upgrade_bonus = { bonusName = monarchy flagName = divine_right abilityName = ab_md_1600s_divine_right showTooltip = true }
+			}
+		}
+		ab_md_1600s_colony_boost_development = {
+			modifier = {
+				can_colony_boost_development = yes
+			}
+			ai_will_do = {
+				factor = 10
+				modifier = {
+					factor = 0
+					NOT = { num_of_colonists = 1 }
+				}
+			}
+			effect = {
+				se_md_refund_splendor = { flagName = colony_boost_development flagCategory = colony_boost_development }
+			}
+		}
+		ab_md_1600s_religious_refugees = {
+			modifier = {
+				global_colonial_growth = 30
+			}
+			ai_will_do = {
+				factor = 0
+			}
+			effect = {
+				se_md_add_or_upgrade_bonus = { bonusName = religion flagName = colonial_growth abilityName = ab_md_1600s_religious_refugees showTooltip = true }
+			}
+		}
+		ab_md_1600s_colonial_charter = {
+			modifier = {
+				colonists = 1
+			}
+			ai_will_do = {
+				factor = 0
+			}
+			effect = {
+				se_md_add_or_upgrade_bonus = { bonusName = colonization flagName = colonist abilityName = ab_md_1600s_colonial_charter showTooltip = true }
+			}
+		}
+		ab_md_1600s_financial_opportunities = {
+			modifier = {
+				merchants = 1
+			}
+			ai_will_do = {
+				factor = 10
+			}
+			effect = {
+				se_md_add_or_upgrade_bonus = { bonusName = trade flagName = merchant abilityName = ab_md_1600s_financial_opportunities showTooltip = true }
+			}
+		}
+		ab_md_1600s_faster_trade_connections = {
+			modifier = {
+				trade_efficiency = 0.1
+			}
+			ai_will_do = {
+				factor = 10
+			}
+			effect = {
+				se_md_add_or_upgrade_bonus = { bonusName = navy flagName = trade_efficiency abilityName = ab_md_1600s_faster_trade_connections showTooltip = true }
+			}
+		}
+		ab_md_1600s_expel_minorities = {
+			modifier = {
+				expel_minorities_cost = -0.2
+			}
+			ai_will_do = {
+				factor = 10
+			}
+			effect = {
+				se_md_add_or_upgrade_bonus = { bonusName = culturalchange flagName = expel_minorities_cost abilityName = ab_md_1600s_expel_minorities showTooltip = true }
+			}
+		}
+		ab_md_1600s_royal_endorsement_of_science = {
+			modifier = {
+				global_institution_spread = 0.2
+			}
+			ai_will_do = {
+				factor = 10
+			}
+			effect = {
+				se_md_add_or_upgrade_bonus = { bonusName = science flagName = institution_spread abilityName = ab_md_1600s_royal_endorsement_of_science showTooltip = true }
+			}
+		}
+		ab_md_1600s_urgent_construction = {
+			modifier = {
+				build_time = -0.25
+			}
+			ai_will_do = {
+				factor = 10
+			}
+			effect = {
+				se_md_refund_splendor = { flagName = build_time flagCategory = build_time }
+			}
+		}
+		ab_md_1600s_developing_economies = {
+			modifier = {
+				global_trade_goods_size_modifier = 0.1
+			}
+			ai_will_do = {
+				factor = 10
+			}
+			effect = {
+				se_md_add_or_upgrade_bonus = { bonusName = economy flagName = development_cost abilityName = ab_md_1600s_developing_economies showTooltip = true }
+			}
+		}
+	}
+}
+
+

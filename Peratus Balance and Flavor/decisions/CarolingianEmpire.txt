@@ -1,0 +1,111 @@
+country_decisions = {
+
+	crl_form_decision = {
+		major = yes
+		potential = {
+			culture_group = french
+			NOT = { exists = CRL }
+			NOT = { has_country_flag = carolingian_empire_flag }
+		}
+		provinces_to_highlight = {
+			OR = {
+				region = france_region
+				region = low_countries_region
+				area = piedmont_area
+				area = lombardy_area
+				area = liguria_area
+				area = lower_rhineland_area
+				area = north_rhine_area
+				area = alsace_area
+				area = romandie_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		allow = {
+			is_free_or_tributary_trigger = yes
+			stability = 1
+			is_at_war = no
+			france_region = {
+				type = all
+				owned_by = ROOT
+			}
+			num_of_owned_provinces_with = {
+				value = 15
+				OR = {
+					region = low_countries_region
+				}
+			}
+			1878 = {
+				owned_by = ROOT
+			}
+			OR = {
+				north_rhine_area = {
+					type = all
+					owned_by = ROOT
+				}
+				lower_rhineland_area = {
+					type = all
+					owned_by = ROOT
+				}
+			}
+			piedmont_area = {
+				type = all
+				owned_by = ROOT
+			}
+			lombardy_area = {
+				type = all
+				owned_by = ROOT
+			}
+			liguria_area = {
+				type = all
+				owned_by = ROOT
+			}
+			alsace_area = {
+				type = all
+				owned_by = ROOT
+			}
+			romandie_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			set_country_flag = carolingian_empire_flag
+			change_tag = CRL
+			set_government_rank = 3
+			add_government_reform = carolingian_monarchy
+			add_prestige = 50
+			if = {
+				limit = {
+					has_custom_ideas = no
+				}
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			north_german_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = CRL
+			}
+			south_german_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = CRL
+			}
+			italy_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = CRL
+			}
+		}
+	}
+}

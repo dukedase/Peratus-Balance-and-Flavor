@@ -1,0 +1,47 @@
+spriteTypes = {	
+	
+	spriteType = {
+		name = "GFX_per_austrian_age_bonus"
+		texturefile = "gfx/interface/ages/per_austrian_age_bonus.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_per_british_age_bonus"
+		texturefile = "gfx/interface/ages/per_british_age_bonus.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_per_italian_merc_age_bonus"
+		texturefile = "gfx/interface/ages/per_italian_merc_age_bonus.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_per_reformation_age_bonus"
+		texturefile = "gfx/interface/ages/per_reformation_age_bonus.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_per_russian_age_bonus"
+		texturefile = "gfx/interface/ages/per_russian_age_bonus.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_ab_md_1400s_burgundy_manpower"
+		texturefile = "gfx/interface/ages/ab_md_1400s_burgundy_manpower.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_ab_md_1400s_ottoman_guns_of_urban"
+		texturefile = "gfx/interface/ages/ab_md_1400s_ottoman_guns_of_urban.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_ab_md_1400s_portuguese_colonies"
+		texturefile = "gfx/interface/ages/ab_md_1400s_portuguese_colonies.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_ab_md_1400s_mamluk_granary"
+		texturefile = "gfx/interface/ages/ab_md_1400s_mamluk_granary.dds"
+	}
+}

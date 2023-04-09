@@ -1,0 +1,57 @@
+#
+# Example mercenary companies
+#
+
+merc__local_free_company = {
+    regiments_per_development = 0.04
+    cavalry_weight = 0.0
+    artillery_weight = 0.0
+    cavalry_cap = 2
+    #cost_modifier = 0.75
+    trigger = {
+        #total_development = 150
+    }
+    # No home province means local mercenary company
+}
+
+merc__local_small_company = {
+    regiments_per_development = 0.04
+    cavalry_weight = 0.0
+    artillery_weight = 0.0
+    cavalry_cap = 2
+    trigger = {
+        NOT = { total_development = 150 }
+    }
+    cost_modifier = 0.3
+    modifier = {
+        reinforce_speed = -0.1
+        recover_army_morale_speed = -0.05
+    }
+    # No home province means local mercenary company
+}
+
+merc__local_grand_company = {
+    regiments_per_development = 0.04
+    cavalry_weight = 0.0
+    artillery_weight = 0.0
+    cavalry_cap = 2
+    #cost_modifier = 0.75
+    trigger = {
+        #total_development = 150
+        NOT = { total_development = 500 }
+    }
+    # No home province means local mercenary company
+}
+
+merc__local_independent_army = {
+    regiments_per_development = 0.04
+    cavalry_weight = 0.0
+    artillery_weight = 0.0
+    cavalry_cap = 2
+    #cost_modifier = 0.75
+    trigger = {
+        #total_development = 150
+        NOT = { total_development = 1000 }
+    }
+    # No home province means local mercenary company
+}

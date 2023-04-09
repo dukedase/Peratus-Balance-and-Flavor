@@ -1,0 +1,1192 @@
+per_mlo_missions_tree_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	
+	potential = {
+		OR = {
+			tag = MLO
+			
+		}
+		NOT = { map_setup = map_setup_random }
+	}
+	
+	has_country_shield = yes
+
+	per_mlo_piedmont_push = {
+		icon = fortify_the_passes
+		position = 2
+		required_missions = { per_mlo_military_readiness }
+		
+		trigger = {
+			piedmont_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+
+		provinces_to_highlight = {
+			OR = {
+				area = piedmont_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		
+		effect = {
+			custom_tooltip = per_mlo_savoy_vassal_tt
+			tooltip = {
+				add_country_modifier = {
+					name = per_mlo_savoy_march_modifier
+					duration = 9125 # 25 Years
+				}
+				SAV = {
+					add_country_modifier = {
+						name = per_mlo_savoy_march_subject_modifier
+						duration = -1
+					}
+				}
+			}
+			custom_tooltip = per_mlo_alternatively_tt
+			tooltip = {
+				add_prestige = 20
+				add_mil_power = 50
+				4727 = {
+					add_province_modifier = {
+						name = per_mlo_saluzzo_fort_modifier
+						duration = -1
+					}
+				}
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						SAV = {
+							is_subject_of = ROOT
+							is_subject_of_type = march
+							exists = yes
+						}
+					}
+					add_country_modifier = {
+						name = per_mlo_savoy_march_modifier
+						duration = 9125 # 25 Years
+					}
+					SAV = {
+						add_country_modifier = {
+							name = per_mlo_savoy_march_subject_modifier
+							duration = -1
+						}
+					}
+				}
+				else = {
+					add_prestige = 20
+					add_mil_power = 50
+					4727 = {
+						add_province_modifier = {
+							name = per_mlo_saluzzo_fort_modifier
+							duration = -1
+						}
+					}
+				}
+			}
+		} 
+	}
+	
+	per_mlo_renaissance_court = {
+		icon = renaissance_city
+		position = 3
+		required_missions = { }
+		
+		trigger = {
+			employed_advisor = {
+				category = ADM
+			}
+			employed_advisor = {
+				category = DIP
+			}
+			employed_advisor = {
+				category = MIL
+			}
+			has_institution = renaissance
+			NOT = {
+				any_neighbor_country = {
+					tech_difference = 1
+				} 
+			}
+		}
+		
+		effect = {
+			custom_tooltip = per_mlo_renaissance_court_tt
+			tooltip = {
+				add_country_modifier = {
+					name = per_mlo_renaissance_court_ruler_modifier
+					duration = 9125 # 25 Years
+				}
+				add_adm_power = 50
+				add_dip_power = 50
+				add_mil_power = 50
+			}
+			custom_tooltip = per_mlo_alternatively_tt
+			tooltip = {
+				change_adm = 1
+				change_dip = 1
+				change_mil = 1
+				add_country_modifier = {
+					name = per_mlo_renaissance_court_second_modifier
+					duration = 9125 # 25 Years
+				}
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						adm = 6
+						dip = 6
+						mil = 6
+					}
+					add_country_modifier = {
+						name = per_mlo_renaissance_court_ruler_modifier
+						duration = 9125 # 25 Years
+					}
+					add_adm_power = 50
+					add_dip_power = 50
+					add_mil_power = 50
+				}
+				else = {
+					change_adm = 1
+					change_dip = 1
+					change_mil = 1
+					add_country_modifier = {
+						name = per_mlo_renaissance_court_second_modifier
+						duration = 9125 # 25 Years
+					}
+				}
+			}
+		}
+	}
+
+	per_mlo_exceptional_republicanism = {
+		icon = kingdom_of_lombardy
+		position = 5
+		required_missions = { per_mlo_renaissance_court }
+		
+		trigger = {
+			prestige = 50
+			republican_tradition = 80
+			stability = 1
+		}
+		
+		effect = {
+			custom_tooltip = per_mlo_exceptional_republicanism_tt
+			tooltip = {
+				add_country_modifier = {
+					name = per_mlo_exceptional_republicanism_max_modifier
+					duration = 18250 # 50 Years
+				}
+			}
+			custom_tooltip = per_mlo_alternatively_tt
+			tooltip = {
+				add_stability = 1
+				add_country_modifier = {
+					name = per_mlo_exceptional_republicanism_modifier
+					duration = 9125 # 25 Years
+				}
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						prestige = 100
+						republican_tradition = 100
+						stability = 3
+					}
+					add_country_modifier = {
+						name = per_mlo_exceptional_republicanism_max_modifier
+						duration = 18250 # 50 Years
+					}
+				}
+				else = {
+					add_stability = 1
+					add_country_modifier = {
+						name = per_mlo_exceptional_republicanism_modifier
+						duration = 9125 # 25 Years
+					}
+				}
+			}
+		}
+	}
+}
+
+per_mlo_missions_tree_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	
+	potential = {
+		OR = {
+			tag = MLO
+			
+		}
+		NOT = { map_setup = map_setup_random }
+	}
+	
+	has_country_shield = yes
+	
+	per_mlo_military_readiness = {
+		icon = swiss_mercenaries
+		position = 1
+		required_missions = { }
+		
+		trigger = {
+			army_size_percentage = 1.0
+			custom_trigger_tooltip = {
+				tooltip = per_mlo_has_promoted_general_tt
+				has_country_flag = per_promoted_a_general_flag
+			}
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = per_mlo_military_readiness_modifier
+				duration = 5475 # 15 Years
+			}
+			liguria_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			piedmont_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+
+	per_mlo_take_genoa = {
+		icon = italian_riches
+		position = 3
+		required_missions = { per_mlo_piedmont_push per_mlo_consolidate_emilia }
+
+		trigger = {
+			101 = {
+				#type = all
+				owned_by = ROOT
+			}
+		}
+
+		provinces_to_highlight = {
+			OR = {
+				province_id = 101
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		
+		effect = {
+			corsica_sardinia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			per_sardinia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			per_pisa_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			custom_tooltip = per_mlo_take_genoa_tt
+			tooltip = {
+				add_prestige = 15
+				add_country_modifier = {
+					name = per_mlo_owns_liguria_modifier
+					duration = 5475 # 15 Years
+				}
+			}
+			custom_tooltip = per_mlo_alternatively_tt
+			tooltip = {
+				add_years_of_income = 1
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						liguria_area = {
+							type = all
+							country_or_non_sovereign_subject_holds = ROOT
+						}
+					}
+					add_prestige = 15
+					add_country_modifier = {
+						name = per_mlo_owns_liguria_modifier
+						duration = 5475 # 15 Years
+					}
+				}
+				else = {
+					add_prestige = 10
+					add_years_of_income = 1
+				}
+			}
+		}
+	}
+
+	per_mlo_take_sardinia_corsica = {
+		icon = renaissance_city
+		position = 5
+		required_missions = { per_mlo_take_genoa }
+
+		trigger = {
+			corsica_sardinia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			per_sardinia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+
+		provinces_to_highlight = {
+			OR = {
+				area = corsica_sardinia_area
+				area = per_sardinia_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		
+		effect = {
+			corsica_sardinia_area = {
+				add_province_modifier = {
+					name = per_mlo_western_islands_modifier
+					duration = 9125 # 25 Years
+				}
+			}
+			per_sardinia_area = {
+				add_province_modifier = {
+					name = per_mlo_western_islands_modifier
+					duration = 9125 # 25 Years
+				}
+			}
+		}
+	}
+}
+
+per_mlo_missions_tree_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	
+	potential = {
+		OR = {
+			tag = MLO
+			
+		}
+		NOT = { map_setup = map_setup_random }
+	}
+	
+	has_country_shield = yes
+	
+	per_mlo_consolidate_emilia = {
+		icon = reclaim_the_ducal_lands
+		position = 2
+		required_missions = { per_mlo_military_readiness per_mlo_revenge_on_venice }
+		
+		trigger = {
+			per_emilia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+
+		provinces_to_highlight = {
+			OR = {
+				area = per_emilia_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		
+		effect = {
+			emilia_romagna_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			custom_tooltip = per_mlo_consolidate_emilia_tt
+			tooltip = {
+				per_emilia_area = {
+					add_province_modifier = {
+						name = per_mlo_emilia_consolidate_modifier
+						duration = 9125 # 25 Years
+					}
+					add_local_autonomy = -25.0
+					add_base_production = 1
+				}
+			}
+			custom_tooltip = per_mlo_alternatively_tt
+			tooltip = {
+				per_emilia_area = {
+					add_core = ROOT
+					add_base_manpower = 1
+				}
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						per_emilia_area = {
+							is_core = ROOT
+						}
+						4950 = {
+							development = 10
+						}
+						105 = {
+							development = 10
+						}
+						106 = {
+							development = 10
+						}
+						4951 = {
+							development = 10
+						}
+					}
+					per_emilia_area = {
+						add_province_modifier = {
+							name = per_mlo_emilia_consolidate_modifier
+							duration = 9125 # 25 Years
+						}
+						add_local_autonomy = -0.25
+						add_base_production = 1
+					}
+				}
+				else = {
+					per_emilia_area = {
+						add_core = ROOT
+						add_base_manpower = 1
+					}
+				}
+			}
+		}
+	}
+
+	per_mlo_take_florence = {
+		icon = conquer_tuscany
+		position = 4
+		required_missions = { per_mlo_take_genoa per_mlo_take_romagna }
+		
+		trigger = {
+			tuscany_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+
+		provinces_to_highlight = {
+			OR = {
+				area = tuscany_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		
+		effect = {
+			lazio_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			per_spoleto_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			custom_tooltip = per_mlo_vassalized_florence_tt
+			tooltip = {
+				add_prestige = 25
+				add_adm_power = 50
+				add_dip_power = 50
+				add_country_modifier = {
+					name = per_mlo_vassalized_florence_modifier
+					duration = 9125 # 25 Years
+				}
+			}
+			custom_tooltip = per_mlo_alternatively_tt
+			tooltip = {
+				add_country_modifier = {
+					name = per_mlo_conquered_florence_modifier
+					duration = 9125 # 25 Years
+				}
+				tuscany_area = {
+					add_local_autonomy = -0.25
+					add_base_tax = -1
+					add_base_manpower = -1
+				}
+				lombardy_area = {
+					add_base_tax = 1
+					add_base_manpower = 1
+				}
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						LAN = {
+							exists = yes
+							is_subject_of = ROOT
+						}
+					}
+					add_prestige = 25
+					add_adm_power = 50
+					add_dip_power = 50
+					add_country_modifier = {
+						name = per_mlo_vassalized_florence_modifier
+						duration = 9125 # 25 Years
+					}
+				}
+				else = {
+					add_country_modifier = {
+						name = per_mlo_conquered_florence_modifier
+						duration = 9125 # 25 Years
+					}
+					tuscany_area = {
+						add_local_autonomy = -0.25
+						add_base_tax = -1
+						add_base_manpower = -1
+					}
+					lombardy_area = {
+						add_base_tax = 1
+						add_base_manpower = 1
+					}
+				}
+			}
+		}
+	}
+
+	per_mlo_take_rome = {
+		icon = friends_in_high_places
+		position = 6
+		required_missions = { per_mlo_take_sardinia_corsica per_mlo_take_florence per_mlo_take_central_italy }
+		
+		trigger = {
+			118 = {
+				#type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+
+		provinces_to_highlight = {
+			OR = {
+				province_id = 118
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		
+		effect = {
+			italy_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			custom_tooltip = per_mlo_take_rome_vassal_catholic_tt
+			tooltip = {
+				add_country_modifier = {
+					name = per_mlo_vassalized_pope_catholic_modifier
+					duration = 7300 # 20 years
+				}
+			}
+			custom_tooltip = per_mlo_take_rome_catholic_tt
+			tooltip = {
+				add_adm_power = 50
+				add_dip_power = 50
+				add_mil_power = 50
+				add_country_modifier = {
+					name = per_mlo_conquered_pope_catholic_modifier
+					duration = 7300 # 20 years
+				}
+			}
+			custom_tooltip = per_mlo_alternatively_tt
+			tooltip = {
+				add_country_modifier = {
+					name = per_mlo_conquered_pope_not_catholic_modifier
+					duration = 7300 # 20 years
+				}
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						PAP = {
+							is_subject_of = ROOT
+							exists = yes
+						}
+						religion = catholic
+					}
+					set_country_flag = per_mlo_subjugation_pope_flag
+					add_country_modifier = {
+						name = per_mlo_vassalized_pope_catholic_modifier
+						duration = 7300 # 20 years
+					}
+				}
+				else_if = {
+					limit = {
+						religion = catholic
+					}
+					add_adm_power = 50
+					add_dip_power = 50
+					add_mil_power = 50
+					add_country_modifier = {
+						name = per_mlo_conquered_pope_catholic_modifier
+						duration = 7300 # 20 years
+					}
+				}
+				else = {
+					add_country_modifier = {
+						name = per_mlo_conquered_pope_not_catholic_modifier
+						duration = 7300 # 20 years
+					}
+				}
+			}
+		}
+	}
+
+	per_mlo_unification_of_italy = {
+		icon = give_him_back_his_legions
+		position = 7
+		required_missions = { per_mlo_take_rome }
+		
+		trigger = {
+			italy_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+
+		provinces_to_highlight = {
+			OR = {
+				region = italy_region
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		
+		effect = {
+			custom_tooltip = per_mlo_master_of_italy_tt
+			tooltip = {
+				add_country_modifier = {
+					name = per_mlo_master_of_italy_modifier
+					duration = -1
+				}
+			}
+			custom_tooltip = per_mlo_alternatively_tt
+			tooltip = {
+				add_country_modifier = {
+					name = per_mlo_overlord_of_italy_modifier
+					duration = -1
+				}
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						italy_region = {
+							type = all
+							owned_by = ROOT
+						}
+					}
+					add_country_modifier = {
+						name = per_mlo_master_of_italy_modifier
+						duration = -1
+					}
+				}
+				else = {
+					add_country_modifier = {
+						name = per_mlo_overlord_of_italy_modifier
+						duration = -1
+					}
+				}
+			}
+		}
+	}
+}
+
+per_mlo_missions_tree_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	
+	potential = {
+		OR = {
+			tag = MLO
+			
+		}
+		NOT = { map_setup = map_setup_random }
+	}
+	
+	has_country_shield = yes
+	
+	per_mlo_revenge_on_venice = {
+		icon = expand_the_doges_palace
+		position = 1
+		required_missions = { }
+		
+		trigger = {
+			4739 = {
+				owned_by = ROOT
+			}
+			107 = {
+				owned_by = ROOT
+			}
+		}
+
+		provinces_to_highlight = {
+			OR = {
+				province_id = 4739
+				province_id = 107
+			}
+			NOT = { owned_by = ROOT }
+		}
+		
+		effect = {
+			add_prestige = 10
+			po_valley_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			venetia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			emilia_romagna_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			per_emilia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+
+	per_mlo_take_romagna = {
+		icon = expand_to_the_south
+		position = 3
+		required_missions = { per_mlo_consolidate_emilia per_mlo_the_swamp_city }
+		
+		trigger = {
+			emilia_romagna_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+
+		provinces_to_highlight = {
+			OR = {
+				area = emilia_romagna_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		
+		effect = {
+			tuscany_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			central_italy_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			custom_tooltip = per_mlo_romagna_milan_trade_tt
+			tooltip = {
+				add_treasury = 250
+				add_prestige = 20
+				add_country_modifier = {
+					name = per_mlo_milan_trade_modifier
+					duration = 9125 # 25 Years
+				}
+			}
+			custom_tooltip = per_mlo_alternatively_tt
+			tooltip = {
+				4962 = {
+					remove_province_modifier = po_estuary_modifier
+					add_province_modifier = {
+						name = per_po_estuary_modifier
+						duration = -1
+					}
+				}
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						104 = {
+							trade_share = {
+								country = ROOT
+								share = 51
+							}
+						}
+					}
+					add_treasury = 250
+					add_prestige = 20
+					add_country_modifier = {
+						name = per_mlo_milan_trade_modifier
+						duration = 9125 # 25 Years
+					}
+				}
+				else = {
+					4962 = {
+						remove_province_modifier = po_estuary_modifier
+						add_province_modifier = {
+							name = per_po_estuary_modifier
+							duration = -1
+						}
+					}
+				}
+			}
+		}
+	}
+
+	per_mlo_take_central_italy = {
+		icon = control_the_vatican
+		position = 5
+		required_missions = { per_mlo_take_romagna }
+		
+		trigger = {
+			central_italy_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+
+		provinces_to_highlight = {
+			OR = {
+				area = central_italy_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		
+		effect = {
+			add_mercantilism = 5
+			2977 = {
+				add_center_of_trade_level = 2
+			}
+		}
+	}
+}
+
+per_mlo_missions_tree_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	
+	potential = {
+		OR = {
+			tag = MLO
+			
+		}
+		NOT = { map_setup = map_setup_random }
+	}
+	
+	has_country_shield = yes
+	
+	per_mlo_the_swamp_city = {
+		icon = new_pilings
+		position = 2
+		required_missions = { per_mlo_revenge_on_venice }
+		
+		trigger = {
+			OR = {
+				venetia_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				venetia_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = HAB
+				}
+			}
+		}
+
+		provinces_to_highlight = {
+			OR = {
+				area = venetia_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		
+		effect = {
+			custom_tooltip = per_mlo_swamp_city_tt
+			tooltip = {
+				add_adm_power = 100
+				add_mil_power = 100
+				add_country_modifier = {
+					name = per_mlo_owns_venetia_personally_modifier
+					duration = 18250 # 50 Years
+				}
+			}
+			custom_tooltip = per_mlo_swamp_city_austria_allied_tt
+			tooltip = {
+				add_dip_power = 50
+				add_country_modifier = {
+					name = per_mlo_austria_owns_venetia_allied_modifier
+					duration = 9125 # 25 Years
+				}
+			}
+			custom_tooltip = per_mlo_alternatively_tt
+			tooltip = {
+				tirol_area = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+				carinthia_area = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						venetia_area = {
+							type = all
+							country_or_non_sovereign_subject_holds = ROOT
+						}
+					}
+					add_adm_power = 100
+					add_mil_power = 100
+					add_country_modifier = {
+						name = per_mlo_owns_venetia_personally_modifier
+						duration = 18250 # 50 Years
+					}
+				}
+				else_if = {
+					limit = {
+						venetia_area = {
+							type = all
+							country_or_non_sovereign_subject_holds = HAB
+						}
+						alliance_with = HAB
+					}
+					add_dip_power = 50
+					add_country_modifier = {
+						name = per_mlo_austria_owns_venetia_allied_modifier
+						duration = 3650
+					}
+				}
+				else = {
+					tirol_area = {
+						limit = {
+							NOT = { is_core = ROOT }
+							NOT = { is_permanent_claim = ROOT }
+						}
+						add_permanent_claim = ROOT
+					}
+					carinthia_area = {
+						limit = {
+							NOT = { is_core = ROOT }
+							NOT = { is_permanent_claim = ROOT }
+						}
+						add_permanent_claim = ROOT
+					}
+				}
+			}
+		} 
+	}
+
+	per_mlo_the_como_fortress = {
+		icon = the_alpine_wall
+		position = 3
+		required_missions = { }
+		
+		trigger = {
+			4740 = {
+				owned_by = ROOT
+				OR = {
+					has_building = fort_15th
+					has_building = fort_16th
+					has_building = fort_17th
+					has_building = fort_18th
+				}
+				has_building = ramparts
+			}
+		}
+		
+		effect = {
+			custom_tooltip = per_mlo_fortify_como_tt
+			tooltip = {
+				4740 = {
+					change_trade_goods = silk
+					add_province_modifier = {
+						name = per_mlo_como_fort_modifier
+						duration = -1
+					}
+				}
+			}
+			custom_tooltip = per_mlo_alternatively_tt
+			tooltip = {
+				4740 = {
+					add_province_modifier = {
+						name = per_mlo_como_fort_modifier
+						duration = -1
+					}
+				}
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						4740 = {
+							base_production = 10
+						}
+					}
+					4740 = {
+						change_trade_goods = silk
+						add_province_modifier = {
+							name = per_mlo_como_fort_modifier
+							duration = -1
+						}
+					}
+				}
+				else = {
+					4740 = {
+						add_province_modifier = {
+							name = per_mlo_como_fort_modifier
+							duration = -1
+						}
+					}
+				}
+			}
+		} 
+	}
+
+	per_mlo_fortress_italy = {
+		icon = alpine_defenses
+		position = 5
+		required_missions = { per_mlo_the_como_fortress }
+		
+		trigger = {
+			OR = {
+				fort_15th = 8
+				fort_16th = 8
+				fort_17th = 8
+				fort_18th = 8
+			}
+		}
+		
+		effect = {
+			custom_tooltip = per_mlo_fortress_italy_tt
+			tooltip = {
+				4727 = {
+					add_building = ramparts
+				}
+				4740 = {
+					add_building = ramparts
+				}
+				106 = {
+					add_building = ramparts
+				}
+				101 = {
+					add_building = ramparts
+				}
+				add_country_modifier = {
+					name = per_mlo_fortress_italy_modifier
+					duration = -1
+				}
+			}
+			custom_tooltip = per_mlo_alternatively_tt
+			tooltip = {
+				add_country_modifier = {
+					name = per_mlo_fortress_italy_modifier
+					duration = -1
+				}
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						4727 = {
+							OR = {
+								has_building = fort_15th
+								has_building = fort_16th
+								has_building = fort_17th
+								has_building = fort_18th
+							}
+						}
+						4740 = {
+							OR = {
+								has_building = fort_15th
+								has_building = fort_16th
+								has_building = fort_17th
+								has_building = fort_18th
+							}
+						}
+						106 = {
+							OR = {
+								has_building = fort_15th
+								has_building = fort_16th
+								has_building = fort_17th
+								has_building = fort_18th
+							}
+						}
+						101 = {
+							OR = {
+								has_building = fort_15th
+								has_building = fort_16th
+								has_building = fort_17th
+								has_building = fort_18th
+							}
+						}
+					}
+					4727 = {
+						add_building = ramparts
+					}
+					4740 = {
+						add_building = ramparts
+					}
+					106 = {
+						add_building = ramparts
+					}
+					101 = {
+						add_building = ramparts
+					}
+					add_country_modifier = {
+						name = per_mlo_fortress_italy_modifier
+						duration = -1
+					}
+				}
+				else = {
+					add_country_modifier = {
+						name = per_mlo_fortress_italy_modifier
+						duration = -1
+					}
+				}
+			}
+		} 
+	}
+}

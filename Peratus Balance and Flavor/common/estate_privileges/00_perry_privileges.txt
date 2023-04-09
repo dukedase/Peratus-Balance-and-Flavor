@@ -1,0 +1,732 @@
+estate_burghers_homogenous_state = {
+	icon = privilege_one_faith_one_culture
+	max_absolutism = 0
+	influence = 0.05
+	loyalty = 0.05
+	land_share = 0
+	is_valid = {
+		has_idea_group = culture_ideas
+	}
+	can_select = {
+		full_idea_group = culture_ideas
+	}
+	on_granted = {
+		custom_tooltip = estate_burghers_homogenous_state_tt
+	}
+	on_granted_province = {
+		if = {
+			limit = {
+				has_owner_culture = yes
+			}
+			add_province_modifier = {
+				name = estate_burghers_homogenous_state_modifier
+				duration = -1
+			}
+		}
+		else_if = {
+			limit = {
+				has_province_modifier = estate_burghers_homogenous_state_modifier
+			}
+			remove_province_modifier = estate_burghers_homogenous_state_modifier
+		}
+	}
+	on_revoked = {
+		custom_tooltip = estate_burghers_homogenous_state_remove_tt
+	}
+	on_revoked_province = {
+		if = {
+			limit = {
+				has_province_modifier = estate_burghers_homogenous_state_modifier
+			}
+			remove_province_modifier = estate_burghers_homogenous_state_modifier
+		}
+	}
+	on_invalid = {
+		custom_tooltip = estate_burghers_homogenous_state_tt
+	}
+	on_invalid_province = {
+		if = {
+			limit = {
+				has_province_modifier = estate_burghers_homogenous_state_modifier
+			}
+			remove_province_modifier = estate_burghers_homogenous_state_modifier
+		}
+	}
+	penalties = {
+	}
+	benefits = {
+	}
+	cooldown_years = 5
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+estate_huskarls_royal_berserkers = {
+	icon = privilege_spawn_rajput_regiments
+	loyalty = 0.1
+	influence = 0.1
+	is_valid = {
+		religion = norse_pagan_reformed
+	}
+	penalties = {
+		infantry_fire = -0.1
+	}
+	modifier_by_land_ownership = {
+		shock_damage = 0.3
+		fire_damage = -0.15
+	}
+	benefits = {
+		leader_land_shock = 1
+		infantry_shock = 0.25
+	}
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+estate_religious_legalism = {
+	icon = privilege_seek_legitimacy
+	loyalty = 0.05
+	influence = 0.1
+	is_valid = {
+		religion_group = muslim
+	}
+	can_select = {
+		NOT = { has_estate_privilege = estate_religious_mysticism }
+	}
+	benefits = {
+		monthly_piety = 0.015
+	}
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+estate_religious_mysticism = {
+	icon = privilege_seek_support_of_brahmins
+	loyalty = 0.05
+	influence = 0.1
+	is_valid = {
+		religion_group = muslim
+	}
+	can_select = {
+		NOT = { has_estate_privilege = estate_religious_legalism }
+	}
+	benefits = {
+		monthly_piety = -0.015
+	}
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+#### Estate Court ####
+
+estate_fund_construction_works = {
+	icon = privilege_dev_cost_forest
+	loyalty = 0.05
+	influence = 0.05
+	is_valid = {
+		#religion_group = muslim
+	}
+	can_select = {
+		#NOT = { has_estate_privilege = estate_religious_legalism }
+	}
+	benefits = {
+		build_cost = -0.05
+		build_time = -0.2
+	}
+	penalties = {
+		production_efficiency = -0.15
+	}
+	cooldown_years = 20
+	ai_will_do = {
+		factor = 3
+		modifier = {
+			factor = 5
+			NOT = { num_of_loans = 5 }
+		}
+	}
+}
+
+estate_production_economy = {
+	icon = privilege_carolean_march
+	loyalty = -0.05
+	influence = 0.05
+	is_valid = {
+		#religion_group = muslim
+	}
+	can_select = {
+		NOT = { has_estate_privilege = estate_military_complex }
+	}
+	benefits = {
+		global_trade_goods_size_modifier = 0.1
+		production_efficiency = 0.1
+		global_tax_modifier = 0.1
+	}
+	penalties = {
+		global_manpower_modifier = -0.15
+		manpower_recovery_speed = -0.15
+	}
+	cooldown_years = 20
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+estate_military_complex = {
+	icon = privilege_carolean_charge
+	loyalty = -0.05
+	influence = 0.05
+	is_valid = {
+		#religion_group = muslim
+	}
+	can_select = {
+		NOT = { has_estate_privilege = estate_production_economy }
+	}
+	benefits = {
+		global_manpower_modifier = 0.15
+		manpower_recovery_speed = 0.15
+	}
+	penalties = {
+		global_trade_goods_size_modifier = -0.1
+		production_efficiency = -0.1
+		global_tax_modifier = -0.1
+	}
+	cooldown_years = 20
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+estate_military_investment = {
+	icon = privilege_promote_purbias
+	loyalty = -0.05
+	influence = 0.05
+	is_valid = {
+		#religion_group = muslim
+	}
+	can_select = {
+		#NOT = { has_estate_privilege = estate_religious_legalism }
+	}
+	on_granted = {
+		add_years_of_income = -0.5
+	}
+	benefits = {
+		land_morale = 0.05
+		manpower_recovery_speed = 0.1
+	}
+	penalties = {
+		land_maintenance_modifier = 0.1
+	}
+	#cooldown_years = 5
+	ai_will_do = {
+		factor = 3
+		modifier = {
+			factor = 20
+			is_at_war = yes
+			is_in_deficit = no
+		}
+	}
+}
+
+estate_wood_for_ships = {
+	icon = privilege_sailors
+	loyalty = 0.05
+	influence = 0.05
+	is_valid = {
+		#religion_group = muslim
+	}
+	can_select = {
+		#NOT = { has_estate_privilege = estate_religious_legalism }
+	}
+	benefits = {
+		global_ship_recruit_speed = -0.25
+		global_ship_cost = -0.1
+	}
+	penalties = {
+		global_trade_goods_size_modifier = -0.05
+	}
+	can_revoke = {
+		always = yes
+	}
+	cooldown_years = 20
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+estate_seek_court_support = {
+	icon = privilege_empty_throne
+	loyalty = 0.1
+	influence = 0.1
+	is_valid = {
+		#religion_group = muslim
+	}
+	can_select = {
+		#NOT = { has_estate_privilege = estate_religious_legalism }
+	}
+	benefits = {
+		#legitimacy = 1
+		prestige = 0.5
+	}
+	penalties = {
+		#advisor_cost = 0.1
+		yearly_corruption = 0.1
+	}
+	on_cooldown_expires = {
+		#remove_estate_privilege = estate_seek_court_support
+	}
+	cooldown_years = 20
+	ai_will_do = {
+		factor = 5
+	}
+}
+
+estate_implement_toll_taxes = {
+	icon = privilege_give_money
+	loyalty = 0.05
+	influence = 0.05
+	is_valid = {
+		#religion_group = muslim
+	}
+	can_select = {
+		NOT = { has_estate_privilege = estate_decreased_taxes }
+	}
+	on_granted = {
+		custom_tooltip = estate_court_toll_tt
+	}
+	on_granted_province = {
+		if = {
+			limit = {
+				OR = {
+					has_building = per_road_tier_one
+					has_building = per_road_tier_two
+					has_building = per_road_tier_three
+				}
+			}
+			add_province_modifier = {
+				name = estate_court_toll_tax_modifier
+				duration = -1
+			}
+		}
+		else_if = {
+			limit = {
+				has_province_modifier = estate_court_toll_tax_modifier
+			}
+			remove_province_modifier = estate_court_toll_tax_modifier
+		}
+	}
+	on_revoked = {
+		custom_tooltip = estate_court_toll_lose_tt
+	}
+	on_revoked_province = {
+		if = {
+			limit = {
+				has_province_modifier = estate_court_toll_tax_modifier
+			}
+			remove_province_modifier = estate_court_toll_tax_modifier
+		}
+	}
+	on_invalid = {
+		custom_tooltip = estate_court_toll_tt
+	}
+	on_invalid_province = {
+		if = {
+			limit = {
+				has_province_modifier = estate_court_toll_tax_modifier
+			}
+			remove_province_modifier = estate_court_toll_tax_modifier
+		}
+	}
+	benefits = {
+		#global_autonomy = -0.05
+		#global_tax_modifier = 0.2
+	}
+	penalties = {
+		#global_unrest = 4
+		administrative_efficiency = -0.025
+		production_efficiency = -0.05
+	}
+	cooldown_years = 10
+	ai_will_do = {
+		factor = 2
+		modifier = {
+			factor = 4
+			num_of_rebel_armies = 0
+			has_any_disaster = no
+			is_in_deficit = yes
+		}
+		modifier = {
+			factor = 20
+			num_of_provinces_owned_or_owned_by_subjects_with = {
+				value = 10
+				OR = {
+					has_building = per_road_tier_one
+					has_building = per_road_tier_two
+					has_building = per_road_tier_three
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			NOT = { 
+				num_of_provinces_owned_or_owned_by_subjects_with = {
+				value = 5
+					OR = {
+						has_building = per_road_tier_one
+						has_building = per_road_tier_two
+						has_building = per_road_tier_three
+					}
+				}
+			}
+		}
+	}
+}
+
+estate_decreased_taxes = {
+	icon = privilege_autonomy
+	loyalty = -0.1
+	influence = -0.1
+	is_valid = {
+		#religion_group = muslim
+	}
+	can_select = {
+		NOT = { has_estate_privilege = estate_implement_toll_taxes }
+	}
+	benefits = {
+		global_unrest = -2
+		global_trade_goods_size_modifier = 0.05
+		production_efficiency = 0.1
+	}
+	penalties = {
+		global_tax_modifier = -0.2
+	}
+	cooldown_years = 5
+	ai_will_do = {
+		factor = 5
+	}
+}
+
+estate_import_tariffs = {
+	icon = privilege_gold_mint
+	loyalty = 0.05
+	influence = 0.05
+	is_valid = {
+		#religion_group = muslim
+	}
+	can_select = {
+		NOT = { has_estate_privilege = estate_export_tariffs }
+	}
+	benefits = {
+		global_tax_modifier = 0.1
+	}
+	penalties = {
+		trade_efficiency = -0.1
+	}
+	on_granted = {
+		add_mercantilism = -3
+	}
+	#cooldown_years = 15
+	ai_will_do = {
+		factor = 5
+		modifier = {
+			factor = 0
+			NOT = { trade_income_percentage = 0.4 }
+		}
+	}
+}
+
+estate_export_tariffs = {
+	icon = privilege_make_generous_donation
+	loyalty = -0.05
+	influence = 0.05
+	is_valid = {
+		#religion_group = muslim
+	}
+	can_select = {
+		NOT = { has_estate_privilege = estate_import_tariffs }
+	}
+	benefits = {
+		trade_efficiency = 0.1
+	}
+	penalties = {
+		global_tax_modifier = -0.15
+	}
+	on_granted = {
+		add_mercantilism = 3
+	}
+	cooldown_years = 15
+	ai_will_do = {
+		factor = 5
+		modifier = {
+			factor = 20
+			trade_income_percentage = 0.4
+		}
+	}
+}
+
+estate_lower_recruitment_standards = {
+	icon = privilege_demand_more_troops
+	loyalty = -0.1
+	influence = 0.1
+	is_valid = {
+		#army_tradition = 25
+		#army_professionalism = 0.05
+	}
+	can_select = {
+		army_tradition = 25
+		army_professionalism = 0.05
+	}
+	on_granted = {
+		add_army_tradition = -25
+		add_army_professionalism = -0.2
+		add_yearly_manpower = 5
+	}
+	benefits = {
+		manpower_recovery_speed = 0.5
+	}
+	penalties = {
+		global_trade_goods_size_modifier = -0.15
+		army_tradition_decay = 0.025
+		discipline = -0.05
+	}
+	on_cooldown_expires = {
+		remove_estate_privilege = estate_lower_recruitment_standards
+	}
+	cooldown_years = 20
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+estate_lower_recruitment_standards_navy = {
+	icon = privilege_sailors
+	loyalty = -0.05
+	influence = 0.05
+	is_valid = {
+		#religion_group = muslim
+	}
+	can_select = {
+		#NOT = { has_estate_privilege = estate_religious_legalism }
+	}
+	on_granted = {
+		add_navy_tradition = -10
+		add_army_professionalism = -0.05
+		add_yearly_sailors = 5
+	}
+	benefits = {
+		sailors_recovery_speed = 0.25
+	}
+	penalties = {
+		global_trade_goods_size_modifier = -0.1
+		navy_tradition_decay = 0.005
+	}
+	on_cooldown_expires = {
+		remove_estate_privilege = estate_lower_recruitment_standards_navy
+	}
+	cooldown_years = 20
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+estate_focus_on_metalwork = {
+	icon = privilege_monopoly_of_goods_iron
+	max_absolutism = 0
+	influence = 0.05
+	loyalty = -0.05
+	land_share = 0
+	is_valid = {
+		#has_idea_group = culture_ideas
+	}
+	can_select = {
+		NOT = { has_estate_privilege = estate_focus_on_farming }
+	}
+	on_granted = {
+		custom_tooltip = estate_court_metalwork_tt
+	}
+	on_granted_province = {
+		if = {
+			limit = {
+				OR = {
+					trade_goods = iron
+					trade_goods = copper
+				}
+
+			}
+			add_province_modifier = {
+				name = estate_court_metalwork_modifier
+				duration = -1
+			}
+		}
+		else_if = {
+			limit = {
+				has_province_modifier = estate_court_metalwork_modifier
+			}
+			remove_province_modifier = estate_court_metalwork_modifier
+		}
+	}
+	on_revoked = {
+		custom_tooltip = estate_court_metalwork_tt
+	}
+	on_revoked_province = {
+		if = {
+			limit = {
+				has_province_modifier = estate_court_metalwork_modifier
+			}
+			remove_province_modifier = estate_court_metalwork_modifier
+		}
+	}
+	on_invalid = {
+		custom_tooltip = estate_court_metalwork_tt
+	}
+	on_invalid_province = {
+		if = {
+			limit = {
+				has_province_modifier = estate_court_metalwork_modifier
+			}
+			remove_province_modifier = estate_court_metalwork_modifier
+		}
+	}
+	penalties = {
+		state_maintenance_modifier = 0.2
+		inflation_reduction = -0.05
+	}
+	benefits = {
+	}
+	cooldown_years = 25
+	ai_will_do = {
+		factor = 3
+		modifier = {
+			factor = 10
+			num_of_provinces_owned_or_owned_by_subjects_with = {
+				value = 6
+				OR = {
+					trade_goods = iron
+					trade_goods = copper
+				}
+			}
+		}
+		modifier = {
+			factor = 500
+			num_of_provinces_owned_or_owned_by_subjects_with = {
+				value = 12
+				OR = {
+					trade_goods = iron
+					trade_goods = copper
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+				num_of_provinces_owned_or_owned_by_subjects_with = {
+					value = 3
+					OR = {
+						trade_goods = iron
+						trade_goods = copper
+					}
+				}
+			}
+		}
+	}
+}
+
+estate_focus_on_farming = {
+	icon = privilege_monopoly_of_goods_wine
+	max_absolutism = 0
+	influence = 0.05
+	loyalty = -0.05
+	land_share = 0
+	is_valid = {
+		#has_idea_group = culture_ideas
+	}
+	can_select = {
+		NOT = { has_estate_privilege = estate_focus_on_metalwork }
+	}
+	on_granted = {
+		custom_tooltip = estate_court_farming_tt
+	}
+	on_granted_province = {
+		if = {
+			limit = {
+				OR = {
+					trade_goods = grain
+					trade_goods = wine
+					trade_goods = livestock
+					trade_goods = wool
+				}
+			}
+			add_province_modifier = {
+				name = estate_court_farming_modifier
+				duration = -1
+			}
+		}
+		else_if = {
+			limit = {
+				has_province_modifier = estate_court_farming_modifier
+			}
+			remove_province_modifier = estate_court_farming_modifier
+		}
+	}
+	on_revoked = {
+		custom_tooltip = estate_court_farming_lose_tt
+	}
+	on_revoked_province = {
+		if = {
+			limit = {
+				has_province_modifier = estate_court_farming_modifier
+			}
+			remove_province_modifier = estate_court_farming_modifier
+		}
+	}
+	on_invalid = {
+		custom_tooltip = estate_court_farming_tt
+	}
+	on_invalid_province = {
+		if = {
+			limit = {
+				has_province_modifier = estate_court_farming_modifier
+			}
+			remove_province_modifier = estate_court_farming_modifier
+		}
+	}
+	penalties = {
+		state_maintenance_modifier = 0.2
+		inflation_reduction = -0.05
+	}
+	benefits = {
+	}
+	cooldown_years = 25
+	ai_will_do = {
+		factor = 3
+		modifier = {
+			factor = 10
+			num_of_provinces_owned_or_owned_by_subjects_with = {
+				value = 12
+				OR = {
+					trade_goods = grain
+					trade_goods = wine
+					trade_goods = livestock
+					trade_goods = wool
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+				num_of_provinces_owned_or_owned_by_subjects_with = {
+					value = 5
+					OR = {
+					trade_goods = grain
+					trade_goods = wine
+					trade_goods = livestock
+					trade_goods = wool
+					}
+				}
+			}
+		}
+	}
+}

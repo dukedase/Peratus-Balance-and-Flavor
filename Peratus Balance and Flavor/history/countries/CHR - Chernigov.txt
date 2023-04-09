@@ -1,0 +1,21 @@
+government = monarchy
+add_government_reform = principality
+government_rank = 1
+technology_group = eastern
+religion = orthodox
+primary_culture = ryazanian
+capital = 289	# Chernigov
+fixed_capital = 289 # Cannot move capital away from this province & no power cost to move to it
+add_rival = SMO
+add_rival = PLT
+add_rival = KIE
+1440.1.1 = {
+	monarch = {
+		name = "Dmitriy"
+		dynasty = Gorchakov
+		birth_date = 1421.1.14
+		adm = 4
+		dip = 2
+		mil = 6
+	}
+}

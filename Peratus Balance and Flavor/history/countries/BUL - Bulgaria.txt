@@ -1,0 +1,16 @@
+government = monarchy
+add_government_reform = feudalism_reform
+technology_group = eastern
+primary_culture = bulgarian
+religion = orthodox
+capital = 150	# Sofia
+
+1444.1.1 = {
+	monarch = {
+		name = "Petar III"
+		dynasty = "Shishman"
+		adm = 5
+		dip = 2
+		mil = 6
+	}
+}

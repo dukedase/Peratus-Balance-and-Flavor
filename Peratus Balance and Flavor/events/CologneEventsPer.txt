@@ -1,0 +1,249 @@
+#### Cologne Events ###
+### By Peratus ###
+
+
+namespace = per_cologne_events
+normal_or_historical_nations = yes
+
+### Cologne Events
+
+
+country_event = { # Hansa Members get the Hanseatic League Membership 
+	id = per_cologne_events.1
+	title = "per_cologne_events.1.t"
+	desc = "per_cologne_events.1.desc"
+	picture = GREAT_BUILDING_eventPicture
+	
+	major = no
+	fire_only_once = no
+	
+	trigger = {
+		OR = {
+			tag = RVA # Dortmund 
+			tag = HAM # Hamburg
+			tag = RIG # Riga
+			tag = HSA # Lubeck
+			tag = LUN # Luneburg
+			tag = FRN # Frankfurt 
+			tag = MKL # Mecklenburg
+			tag = KOL # Cologne
+		}
+		NOT = {
+			has_country_flag = per_hansa_member_flag
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		set_country_flag = per_hansa_member_flag
+	}	
+	
+	option = {
+		name = "per_cologne_events.1.a" # Yes
+		add_country_modifier = {
+			name = per_cologne_hansa_modifier
+			duration = -1
+		}
+		add_opinion = {
+			who = HSA
+			modifier = per_cologne_hansa_opinion
+		}
+		add_opinion = {
+			who = HAM
+			modifier = per_cologne_hansa_opinion
+		}
+		HSA = {
+			add_opinion = {
+				who = ROOT
+				modifier = per_cologne_hansa_opinion
+			}
+		}
+		HAM = {
+			add_opinion = {
+				who = ROOT
+				modifier = per_cologne_hansa_opinion
+			}
+		}
+		add_mercantilism = 5
+		add_prestige = 5
+	}
+}
+
+country_event = { # Cologne Event To Become Capital of Westphalia Circle
+	id = per_cologne_events.2
+	title = "per_cologne_events.2.t"
+	desc = "per_cologne_events.2.desc"
+	picture = GREAT_BUILDING_eventPicture
+	
+	major = yes
+	fire_only_once = yes
+	
+	trigger = {
+		tag = KOL
+		85 = {
+			owned_by = ROOT
+		}
+		AND = {
+			HSA = {
+				exists = yes
+			}
+			HAM = {
+				exists = yes
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+	}
+	
+	immediate = {
+	}	
+	
+	option = {
+		name = "per_cologne_events.2.a" # Accept
+		ai_chance = { factor = 80 }
+		85 = {
+			add_province_modifier = {
+				name = per_cologne_province_hansa_modifier
+				duration = -1
+			}
+		}
+		add_mercantilism = 5
+		add_prestige = 10
+	}
+	option = {
+		name = "per_cologne_events.2.b" # Decline
+		ai_chance = { factor = 20 }
+		set_global_flag = per_cologne_declined_capital_westphalia_circle
+		add_adm_power = 25
+		add_dip_power = 25
+		add_mil_power = 25
+	}
+}
+
+country_event = { # Dortmund Becomes New Hansa Capital of Westphalia If Cologne Declines
+	id = per_cologne_events.3
+	title = "per_cologne_events.3.t"
+	desc = "per_cologne_events.3.desc"
+	picture = GREAT_BUILDING_eventPicture
+	
+	major = yes
+	fire_only_once = yes
+	
+	trigger = {
+		has_global_flag = per_cologne_declined_capital_westphalia_circle
+		tag = RVA
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	immediate = {
+	}	
+	
+	option = {
+		name = "per_cologne_events.3.a" # Yes
+		ai_chance = { factor = 90 }
+		69 = {
+			add_province_modifier = {
+				name = per_cologne_province_hansa_modifier
+				duration = -1
+			}
+		}
+		add_opinion = {
+			who = HSA
+			modifier = per_cologne_hansa_opinion
+		}
+		add_opinion = {
+			who = HAM
+			modifier = per_cologne_hansa_opinion
+		}
+		HSA = {
+			add_opinion = {
+				who = ROOT
+				modifier = per_cologne_hansa_opinion
+			}
+		}
+		HAM = {
+			add_opinion = {
+				who = ROOT
+				modifier = per_cologne_hansa_opinion
+			}
+		}
+		add_mercantilism = 20
+		add_prestige = 20
+	}
+	option = {
+		name = "per_cologne_events.3.b" # No
+		add_adm_power = 50
+		add_dip_power = 50
+		add_mil_power = 50
+		add_treasury = 150
+	}
+}
+
+country_event = { # Event for Ascension of the Rhineland Mission
+	id = per_cologne_events.10
+	title = "per_cologne_events.10.t"
+	desc = "per_cologne_events.10.desc"
+	picture = CONQUEST_eventPicture
+	
+	major = yes
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "per_cologne_events.10.a" # Yes
+		add_country_modifier = {
+			name = per_kol_rhineland_unified_modifier
+			duration = -1
+		}
+		add_prestige = 50
+		add_legitimacy = 50
+		add_splendor = 800
+	}
+}
+
+country_event = { # Become a monarchy or republic?
+	id = per_cologne_events.11
+	title = "per_cologne_events.11.t"
+	desc = "per_cologne_events.11.desc"
+	picture = GREAT_BUILDING_eventPicture
+	
+	major = no
+	fire_only_once = yes
+	is_triggered_only = no
+	
+	trigger = {
+		tag = RHI
+	}
+	
+	mean_time_to_happen = {
+		days = 10
+	}
+	
+	immediate = {
+	}	
+	
+	option = {
+		name = "per_cologne_events.11.a" # Monarchy
+		change_government = monarchy
+		add_legitimacy = 25
+	}
+	
+	option = {
+		name = "per_cologne_events.11.b" # Republic
+		change_government = republic
+		add_republican_tradition = 25
+	}
+	
+	option = {
+		name = "per_cologne_events.11.c" # Stay theocracy
+		add_stability = 1
+	}
+}

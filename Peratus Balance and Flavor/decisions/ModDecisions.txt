@@ -1,0 +1,403 @@
+country_decisions = {
+
+#	idea_group_info_decision = {
+#		major = no
+#		potential = {
+#			ai = no
+#			NOT = { has_country_flag = per_shut_up_flag }
+#		}
+#		
+#		provinces_to_highlight = {
+#		}
+#		
+#		allow = {
+#			custom_trigger_tooltip = {
+#				tooltip = idea_group_info_ct
+#				NOT = { has_country_flag = per_shut_up_flag }
+#			}
+#		}
+#		
+#		effect = {
+#			ROOT = { country_event = { ID = per_mod_events.2 } }
+#		}
+#	}
+	
+	per_educate_ruler = { 
+		major = yes
+		potential = {
+			ai = no
+			NOT = { has_ruler_flag = per_educated_ruler_flag }
+			NOT = {
+				government = republic
+			}
+			OR = {
+				NOT = {
+					adm = 3
+					dip = 3
+					mil = 3
+				}
+				NOT = {
+					adm = 2
+					dip = 5
+					mil = 2
+				}
+				NOT = {
+					adm = 2
+					dip = 2
+					mil = 5
+				}
+				NOT = {
+					adm = 5
+					dip = 2
+					mil = 2
+				}
+				NOT = {
+					adm = 4
+					dip = 2
+					mil = 3
+				}
+				NOT = {
+					adm = 2
+					dip = 4
+					mil = 3
+				}
+				NOT = {
+					adm = 4
+					dip = 3
+					mil = 2
+				}
+				NOT = {
+					adm = 3
+					dip = 4
+					mil = 2
+				}
+				NOT = {
+					adm = 2
+					dip = 3
+					mil = 4
+				}
+				NOT = {
+					adm = 3
+					dip = 2
+					mil = 4
+				}
+			}
+		}
+		allow = {
+			custom_trigger_tooltip = {
+				tooltip = per_educated_ruler_tooltip
+				OR = {
+					NOT = {
+						adm = 3
+						dip = 3
+						mil = 3
+					}
+					NOT = {
+						adm = 5
+						dip = 2
+						mil = 2
+					}
+					NOT = {
+						adm = 2
+						dip = 5
+						mil = 2
+					}
+					NOT = {
+						adm = 2
+						dip = 2
+						mil = 5
+					}
+					NOT = {
+						adm = 2
+						dip = 4
+						mil = 3
+					}
+					NOT = {
+						adm = 4
+						dip = 2
+						mil = 3
+					}
+					NOT = {
+						adm = 4
+						dip = 3
+						mil = 2
+					}
+					NOT = {
+						adm = 3
+						dip = 4
+						mil = 2
+					}
+					NOT = {
+						adm = 2
+						dip = 3
+						mil = 4
+					}
+					NOT = {
+						adm = 3
+						dip = 2
+						mil = 4
+					}
+				}
+			}
+		}
+		effect = {
+			set_ruler_flag = educate_ruler_flag
+			change_adm = 1
+			change_dip = 1
+			change_mil = 1
+			add_years_of_income = -0.33
+		}
+	}
+	
+	per_major_events = {
+		major = yes
+		potential = {
+			ai = no
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		allow = {
+			custom_trigger_tooltip = {
+				tooltip = per_radical_reform_decision
+				NOT = { has_country_flag = radical_mercantilist_reforms }
+			}
+			custom_trigger_tooltip = {
+				tooltip = per_military_reform_decision
+				NOT = { has_country_flag = military_reform }
+			}
+			custom_trigger_tooltip = {
+				tooltip = per_commandant_decision
+				NOT = { has_country_flag = commandant }
+			}
+			custom_trigger_tooltip = {
+				tooltip = per_grand_captain_decision
+				NOT = { has_country_flag = grand_captain }
+			}
+			custom_trigger_tooltip = {
+				tooltip = per_infantry_decision_tt
+				NOT = { has_country_flag = per_infantry_officer_flag }
+			}
+			custom_trigger_tooltip = {
+				tooltip = per_cavalry_decision_tt
+				NOT = { has_country_flag = per_cavalry_officer_flag }
+			}
+			custom_trigger_tooltip = {
+				tooltip = per_artillery_decision_tt
+				NOT = { has_country_flag = per_artillery_officer_flag }
+			}
+			custom_trigger_tooltip = {
+				tooltip = per_charge_decision_tt
+				NOT = { has_country_flag = per_charge_officer_flag }
+			}
+			custom_trigger_tooltip = {
+				tooltip = per_gunpowder_decision_tt
+				NOT = { has_country_flag = per_gunpowder_officer_flag }
+			}
+			custom_trigger_tooltip = {
+				tooltip = per_stalwart_decision_tt
+				NOT = { has_country_flag = per_stalwart_defender_flag }
+			}
+			custom_trigger_tooltip = {
+				tooltip = per_formation_decision_tt
+				NOT = { has_country_flag = per_formation_officer_flag }
+			}
+			always = no
+		}
+		effect = {
+		}
+	}
+	
+	per_recruit_general = {
+		potential = {
+			ai = no
+			NOT = { has_ruler_flag = per_recruited_general }
+		}
+		allow = {
+			NOT = { army_tradition = 60 }
+		}
+		effect = {
+			add_years_of_income = -0.25
+			create_general = { tradition = 60 }
+			set_ruler_flag = per_recruited_general
+			set_country_flag = per_promoted_a_general_flag
+		}
+	}
+	
+	per_recruit_conquistador = {	
+		potential = {
+			ai = no
+			has_institution = new_world_i
+			NOT = { has_ruler_flag = per_recruited_conquistador }
+		}
+		allow = {
+			has_institution = new_world_i
+		}
+		effect = {
+			add_years_of_income = -0.15
+			create_conquistador = { tradition = 15 }
+			set_ruler_flag = per_recruited_conquistador
+		}	
+	}
+	
+	per_recruit_explorer = {	
+		potential = {
+			ai = no
+			has_institution = new_world_i
+			NOT = { has_ruler_flag = per_recruited_explorer }
+		}
+		allow = {
+			has_institution = new_world_i
+		}
+		effect = {
+			add_years_of_income = -0.15
+			create_explorer = { tradition = 15 }
+			set_ruler_flag = per_recruited_explorer
+		}
+	}	
+	
+	encourage_colonialism = {
+		potential = {
+			NOT = {
+				capital_scope = {
+					continent = north_america
+				}
+			}
+			NOT = {
+				capital_scope = {
+					continent = south_america
+				}
+			}
+			NOT = { has_country_modifier = encouraged_colonialism }
+			dip_tech = 7
+		}
+
+		allow = {
+			dip_tech = 7
+			ai = no
+		}
+		effect = {
+			add_country_modifier = {
+				name = "encouraged_colonialism"
+				duration = -1
+			}
+		}
+	}
+	
+	recover_economy = {
+		major = yes
+		potential = {
+			NOT = { has_country_modifier = recover_economy_modifier }
+			ai = no
+		}
+
+		allow = {	
+			num_of_loans = 15
+			is_bankrupt = no
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "recover_economy_modifier"
+				duration = -1
+			}
+			custom_tooltip = recover_economy_tt
+			hidden_effect = {
+				add_country_modifier = {
+					name = "hidden_recover_modifier"
+					duration = 1825
+					hidden = yes
+				}
+			}
+		}
+	}
+	
+	end_economic_recovery = {
+		major = yes
+		potential = {
+			has_country_modifier = recover_economy_modifier
+			ai = no
+			#NOT = { has_country_modifier = hidden_recover_modifier }
+		}
+
+		allow = {	
+			#NOT = { num_of_loans = 10 }
+			is_in_deficit = no
+			custom_trigger_tooltip = {
+				tooltip = per_end_economic_recovery_tt
+				NOT = { has_country_modifier = hidden_recover_modifier }
+			}
+		}
+		
+		effect = {
+			remove_country_modifier = recover_economy_modifier
+			add_country_modifier = {
+				name = "per_military_buildup_modifier"
+				duration = 1825
+			}
+		}
+	}
+
+	per_embrace_the_charge = {
+		major = yes
+		potential = {
+			mil_tech = 8
+			NOT = { has_country_flag = embrace_shock_cavalry_flag }
+		}
+
+		allow = {	
+			mil_tech = 8
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "per_embrace_the_charge_modifier"
+				duration = -1
+			}
+			set_country_flag = embrace_shock_cavalry_flag
+		}
+	}
+
+	per_gunpowder_era = {
+		major = yes
+		potential = {
+			mil_tech = 12
+			NOT = { has_country_flag = per_gunpowder_era_flag }
+		}
+
+		allow = {	
+			mil_tech = 12
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "per_gunpowder_era_modifier"
+				duration = -1
+			}
+			set_country_flag = per_gunpowder_era_flag
+		}
+	}
+
+	per_age_of_cannons = {
+		major = yes
+		potential = {
+			mil_tech = 16
+			NOT = { has_country_flag = per_cannon_age_flag }
+			has_country_flag = per_gunpowder_era_flag
+		}
+
+		allow = {	
+			mil_tech = 16
+		}
+		
+		effect = {
+			remove_country_modifier = per_gunpowder_era_modifier
+			add_country_modifier = {
+				name = "per_age_of_cannons_modifier"
+				duration = -1
+			}
+			set_country_flag = per_cannon_age_flag
+		}
+	}
+
+}

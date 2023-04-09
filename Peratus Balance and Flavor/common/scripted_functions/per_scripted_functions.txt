@@ -1,0 +1,30 @@
+can_increase_autonomy = {
+	condition = {
+		potential = {
+			FROM = {
+				ai = yes
+			}	
+		}
+		allow = {
+			always = no
+		}
+	}
+}
+
+can_colonize_province = {
+	condition = {
+		tooltip = "per_tooltip_cn_colonize"
+		potential = {
+			FROM = {
+				is_colonial_nation = yes
+			}
+		}
+		allow = {
+			FROM = {
+				capital_scope = {
+					colonial_region = ROOT
+				}
+			}
+		}
+	}
+}

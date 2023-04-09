@@ -1,0 +1,79 @@
+#### General Mod Events ###
+### By Peratus ###
+
+
+namespace = per_mod_events
+normal_or_historical_nations = yes
+
+### General Mod Events
+
+country_event = { # General Mod Information
+	id = per_mod_events.1
+	title = "per_mod_events.1.t"
+	desc = "per_mod_events.1.desc"
+	picture = MILITARY_CAMP_eventPicture
+	
+	major = no
+	fire_only_once = no
+	
+	
+	trigger = {
+		is_year = 1444
+		ai = no
+		NOT = {
+			has_country_flag = per_info_event_flag
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "per_mod_events.1.a"
+		set_country_flag = per_info_event_flag
+		add_treasury = -10 
+		add_prestige = -5
+	}
+	
+	option = {
+		name = "per_mod_events.1.b"
+		set_country_flag = per_info_event_flag
+		add_treasury = 10 
+		add_prestige = 5
+	}
+}
+
+country_event = { # New Age of Warfare
+	id = per_mod_events.2
+	title = "per_mod_events.2.t"
+	desc = "per_mod_events.2.desc"
+	picture = BATTLE_eventPicture
+	
+	major = yes
+	fire_only_once = yes
+	
+	
+	trigger = {
+		mil_tech = 14
+		ai = no
+	}
+	
+	mean_time_to_happen = {
+		days = 10
+	}
+	
+	option = { 
+		name = "per_mod_events.2.a"
+		add_prestige = 25
+		custom_tooltip = per_new_age_of_warfare_tt
+		hidden_effect = {
+			every_country = {
+				add_country_modifier = {
+					name = per_mod_new_age_of_warfare_modifier
+					duration = -1
+				}
+			}
+		}
+	}
+}

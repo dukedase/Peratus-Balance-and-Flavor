@@ -1,0 +1,42 @@
+#### Swiss Events ###
+### By Peratus ###
+
+
+namespace = per_swiss_events
+normal_or_historical_nations = yes
+
+### Swiss Events
+
+country_event = { # Swiss Gold
+	id = per_swiss_events.3
+	title = "per_swiss_events.3.t"
+	desc = "per_swiss_events.3.desc"
+	picture = CITY_DEVELOPMENT_eventPicture
+	
+	major = no
+	
+	trigger = {
+		tag = SWI
+		mission_completed = per_swi_mine
+		NOT = { has_country_flag = per_swi_gold_flag }
+	}
+	
+	immediate = {
+		set_country_flag = per_swi_gold_flag
+	}
+	
+	mean_time_to_happen = {
+		months = 36
+	}
+	
+	option = {
+		name = "per_swiss_events.3.a"
+		1869 = {
+			change_trade_goods = gold
+			add_province_modifier = {
+				name = per_swiss_zurich_modifier
+				duration = 5475 # 15 Years
+			}
+		}
+	}
+}

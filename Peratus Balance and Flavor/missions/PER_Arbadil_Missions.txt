@@ -1,0 +1,268 @@
+per_arl_mission_tree_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	
+	potential = {
+		tag = ARL
+		NOT = { map_setup = map_setup_random }
+	}
+	
+	has_country_shield = yes
+	
+	per_arl_zoroastrian_kingdom = {
+		icon = mission_into_persia_1
+		position = 1
+		required_missions = {  }
+		
+		trigger = {
+			424 = {
+				has_owner_religion = yes
+			}
+		}
+		
+		provinces_to_highlight = {
+			province_id = 424
+			has_owner_religion = no
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = per_arl_zoroastrian_kingdom_modifier
+				duration = -1
+			}
+		}
+	}
+
+	per_arl_spread_the_faith = {
+		icon = mission_norse_faith
+		position = 3
+		required_missions = { per_arl_zoroastrian_kingdom }
+		
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 15
+				has_owner_religion = yes
+			}
+		}
+		
+		provinces_to_highlight = {
+			owned_by = ROOT
+			has_owner_religion = no
+		}
+		
+		effect = {
+			add_stability = 1
+			add_prestige = 25
+			add_country_modifier = {
+				name = per_arl_spread_the_faith_modifier
+				duration = 7300 # 20 Years
+			}
+		}
+	}
+}
+
+per_arl_mission_tree_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	
+	potential = {
+		tag = ARL
+		NOT = { map_setup = map_setup_random }
+	}
+	
+	has_country_shield = yes
+	
+	per_arl_zoroastrian_court = {
+		icon = mission_restore_faith_in_the_throne
+		position = 2
+		required_missions = { per_arl_zoroastrian_kingdom }
+		
+		trigger = {
+			employed_advisor = {
+				category = ADM
+				religion = zoroastrian
+			}
+			employed_advisor = {
+				category = DIP
+				religion = zoroastrian
+			}
+			employed_advisor = {
+				category = MIL
+				religion = zoroastrian
+			}
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = per_arl_zoroastrian_court
+				duration = -1
+			}
+			change_government_reform_progress = 25
+		}
+	}
+}
+
+per_arl_mission_tree_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	
+	potential = {
+		tag = ARL
+		NOT = { map_setup = map_setup_random }
+	}
+	
+	has_country_shield = yes
+	
+	per_arl_ready_the_army = {
+		icon = mission_build_up_to_force_limit
+		position = 1
+		required_missions = {  }
+		
+		trigger = {
+			army_size_percentage = 0.8
+			manpower_percentage = 0.6
+		}
+
+		provinces_to_highlight = {
+		}
+		
+		effect = {
+			azerbaijan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			tabarestan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			karabakh_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			shahrizor_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+
+	per_arl_fateful_war = {
+		icon = mission_war_for_the_crown
+		position = 2
+		required_missions = { per_arl_ready_the_army }
+		
+		trigger = {
+			OR = {
+				custom_trigger_tooltip = {
+					tooltip = arl_fateful_war_tt
+					2212 = {
+						owner = {
+							war_with = ROOT
+						}
+					}
+				}
+				2212 = { owned_by = ROOT }
+			}
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = per_arl_war_with_ajam_modifier
+				duration = 3650
+			}
+			add_mil_power = 50
+		}
+	}
+
+	per_arl_persian_ambitions = {
+		icon = mission_into_persia_2
+		position = 3
+		required_missions = { per_arl_fateful_war }
+		
+		trigger = {
+			azerbaijan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+
+		provinces_to_highlight = {
+			OR = {
+				area = azerbaijan_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		
+		effect = {
+			add_adm_power = 100
+			persia_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+per_arl_mission_tree_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	
+	potential = {
+		tag = ARL
+		NOT = { map_setup = map_setup_random }
+	}
+	
+	has_country_shield = yes
+
+	per_arl_northern_expansion = {
+		icon = fortress_switzerland
+		position = 2
+		required_missions = { per_arl_ready_the_army }
+		
+		trigger = {
+			karabakh_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+
+		provinces_to_highlight = {
+			OR = {
+				area = karabakh_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		
+		effect = {
+			add_adm_power = 50
+			add_dip_power = 50
+			add_mil_power = 50
+			caucasia_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}

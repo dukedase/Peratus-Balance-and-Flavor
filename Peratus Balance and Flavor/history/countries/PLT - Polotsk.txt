@@ -1,0 +1,22 @@
+government = monarchy
+add_government_reform = principality
+government_rank = 1
+primary_culture = byelorussian
+religion = orthodox
+technology_group = eastern
+capital = 275	# Polotsk
+fixed_capital = 275 # Cannot move capital away from this province & no power cost to move to it
+add_rival = SMO
+add_rival = CHR
+add_rival = KIE
+
+1440.1.1 = {
+	monarch = {
+		name = "Vladimir"
+		dynasty = Gorchakov
+		birth_date = 1415.7.21
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}

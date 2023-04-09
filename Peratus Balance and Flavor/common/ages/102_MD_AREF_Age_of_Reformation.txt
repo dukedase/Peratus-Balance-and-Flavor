@@ -1,0 +1,599 @@
+age_of_reformation = {
+	start = 1530
+	
+	can_start = {
+		is_religion_enabled = protestant
+	}
+	
+	
+	religious_conflicts = yes
+	papacy = 1.25
+	
+	objectives = {
+
+		# Convert Provinces -------------------------------------------------------------------
+
+		obj_md_convert_provinces_protestant = {
+			allow = { st_md_religion_art_protestant = yes }
+			custom_trigger_tooltip = { tooltip = obj_md_convert_provinces_tooltip check_variable = { which = num_converted_religion value = 25 } }
+		}
+		obj_md_convert_provinces_catholic = {
+			allow = { st_md_religion_art_catholic = yes }
+			custom_trigger_tooltip = { tooltip = obj_md_convert_provinces_tooltip check_variable = { which = num_converted_religion value = 25 } }
+		}
+		obj_md_convert_provinces_orthodox = {
+			allow = { st_md_religion_art_orthodox = yes }
+			custom_trigger_tooltip = { tooltip = obj_md_convert_provinces_tooltip check_variable = { which = num_converted_religion value = 25 } }
+		}
+		obj_md_convert_provinces_coptic = {
+			allow = { st_md_religion_art_coptic = yes }
+			custom_trigger_tooltip = { tooltip = obj_md_convert_provinces_tooltip check_variable = { which = num_converted_religion value = 25 } }
+		}
+		obj_md_convert_provinces_islamic = {
+			allow = { st_md_religion_art_islamic = yes }
+			custom_trigger_tooltip = { tooltip = obj_md_convert_provinces_tooltip check_variable = { which = num_converted_religion value = 25 } }
+		}
+		obj_md_convert_provinces_buddhist = {
+			allow = { st_md_religion_art_buddhist = yes }
+			custom_trigger_tooltip = { tooltip = obj_md_convert_provinces_tooltip check_variable = { which = num_converted_religion value = 25 } }
+		}
+		obj_md_convert_provinces_confucian = {
+			allow = { st_md_religion_art_confucian = yes }
+			custom_trigger_tooltip = { tooltip = obj_md_convert_provinces_tooltip check_variable = { which = num_converted_religion value = 25 } }
+		}
+		obj_md_convert_provinces_shinto = {
+			allow = { st_md_religion_art_shinto = yes }
+			custom_trigger_tooltip = { tooltip = obj_md_convert_provinces_tooltip check_variable = { which = num_converted_religion value = 25 } }
+		}
+		obj_md_convert_provinces_animist = {
+			allow = { st_md_religion_art_animist = yes }
+			custom_trigger_tooltip = { tooltip = obj_md_convert_provinces_tooltip check_variable = { which = num_converted_religion value = 25 } }
+		}
+		obj_md_convert_provinces_fetishist = {
+			allow = { st_md_religion_art_fetishist = yes }
+			custom_trigger_tooltip = { tooltip = obj_md_convert_provinces_tooltip check_variable = { which = num_converted_religion value = 25 } }
+		}
+		obj_md_convert_provinces_totemist = {
+			allow = { st_md_religion_art_totemist = yes }
+			custom_trigger_tooltip = { tooltip = obj_md_convert_provinces_tooltip check_variable = { which = num_converted_religion value = 25 } }
+		}
+		obj_md_convert_provinces_mesoamerican = {
+			allow = { st_md_religion_art_mesoamerican = yes }
+			custom_trigger_tooltip = { tooltip = obj_md_convert_provinces_tooltip check_variable = { which = num_converted_religion value = 25 } }
+		}
+		obj_md_convert_provinces_tengri = {
+			allow = { st_md_religion_art_tengri = yes }
+			custom_trigger_tooltip = { tooltip = obj_md_convert_provinces_tooltip check_variable = { which = num_converted_religion value = 25 } }
+		}
+		obj_md_convert_provinces_norse = {
+			allow = { st_md_religion_art_norse = yes }
+			custom_trigger_tooltip = { tooltip = obj_md_convert_provinces_tooltip check_variable = { which = num_converted_religion value = 25 } }
+		}
+		obj_md_convert_provinces_aboriginal = {
+			allow = { st_md_religion_art_aboriginal = yes }
+			custom_trigger_tooltip = { tooltip = obj_md_convert_provinces_tooltip check_variable = { which = num_converted_religion value = 25 } }
+		}
+		obj_md_convert_provinces_hindu = {
+			allow = { st_md_religion_art_hindu = yes }
+			custom_trigger_tooltip = { tooltip = obj_md_convert_provinces_tooltip check_variable = { which = num_converted_religion value = 25 } }
+		}
+		obj_md_convert_provinces_sikh = {
+			allow = { st_md_religion_art_sikh = yes }
+			custom_trigger_tooltip = { tooltip = obj_md_convert_provinces_tooltip check_variable = { which = num_converted_religion value = 25 } }
+		}
+		obj_md_convert_provinces_jewish = {
+			allow = { st_md_religion_art_jewish = yes }
+			custom_trigger_tooltip = { tooltip = obj_md_convert_provinces_tooltip check_variable = { which = num_converted_religion value = 25 } }
+		}
+		obj_md_convert_provinces_zoroastrian = {
+			allow = { st_md_religion_art_zoroastrian = yes }
+			custom_trigger_tooltip = { tooltip = obj_md_convert_provinces_tooltip check_variable = { which = num_converted_religion value = 25 } }
+		}
+		obj_md_convert_provinces = {
+			allow = {
+				st_md_religion_art_protestant = no
+				st_md_religion_art_catholic = no
+				st_md_religion_art_orthodox = no
+				st_md_religion_art_coptic = no
+				st_md_religion_art_islamic = no
+				st_md_religion_art_buddhist = no
+				st_md_religion_art_confucian = no
+				st_md_religion_art_shinto = no
+				st_md_religion_art_animist = no
+				st_md_religion_art_fetishist = no
+				st_md_religion_art_totemist = no
+				st_md_religion_art_mesoamerican = no
+				st_md_religion_art_tengri = no
+				st_md_religion_art_norse = no
+				st_md_religion_art_aboriginal = no
+				st_md_religion_art_hindu = no
+				st_md_religion_art_sikh = no
+				st_md_religion_art_jewish = no
+				st_md_religion_art_zoroastrian = no
+			}
+			custom_trigger_tooltip = { tooltip = obj_md_convert_provinces_tooltip check_variable = { which = num_converted_religion value = 25 } }
+		}
+
+		# End Convert Provinces -------------------------------------------------------------------
+
+		# Theocratic Rule -------------------------------------------------------------------
+
+		obj_md_theocratic_rule_white = {
+			allow = { st_md_is_white = yes }
+			st_md_religious_estates_influence = yes
+		}
+		obj_md_theocratic_rule_brown = {
+			allow = { st_md_is_brown = yes }
+			st_md_religious_estates_influence = yes
+		}
+		obj_md_theocratic_rule_black = {
+			allow = { st_md_is_black = yes }
+			st_md_religious_estates_influence = yes
+		}
+
+		# End Theocratic Rule -------------------------------------------------------------------
+
+		# Force Converted -------------------------------------------------------------------
+
+		obj_md_force_converted_europe = {
+			allow = {
+				st_md_capital_in_christian_europe = yes
+			}
+			custom_trigger_tooltip = {
+				tooltip = obj_md_force_converted_tooltip
+				check_variable = { which = var_md_forced_conversion_counter value = 2 }
+			}
+		}
+		obj_md_force_converted_asian = {
+			allow = {
+				OR = {
+					st_md_capital_in_eastasia = yes
+					st_md_capital_in_civilized_southasia = yes
+					st_md_capital_in_tartary = yes
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = obj_md_force_converted_tooltip
+				check_variable = { which = var_md_forced_conversion_counter value = 2 }
+			}
+		}
+		obj_md_force_converted_arabic = {
+			allow = {
+				OR = {
+					st_md_capital_in_levant_persia_or_northafrica = yes
+					st_md_is_muslim_in_europe = yes
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = obj_md_force_converted_tooltip
+				check_variable = { which = var_md_forced_conversion_counter value = 2 }
+			}
+		}
+		obj_md_force_converted_natives = {
+			allow = {
+				OR = {
+					st_md_capital_in_subsaharan_africa = yes
+					st_md_capital_in_uncivilized_eastindies_or_oceania = yes
+					st_md_capital_in_americas = yes
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = obj_md_force_converted_tooltip
+				check_variable = { which = var_md_forced_conversion_counter value = 2 }
+			}
+		}
+
+		# End Force Converted -------------------------------------------------------------------
+
+		obj_md_humanism_religious = {
+			OR = {
+				full_idea_group = humanist_ideas
+				full_idea_group = religious_ideas
+			}
+		}
+		obj_md_unify_culture = {	
+			is_subject = no
+			has_unified_culture_group = yes
+		}
+
+		# Religious Unity -------------------------------------------------------------------
+
+		obj_md_religious_unity_christian = {
+			allow = {
+				OR = {
+					st_md_religion_art_protestant = yes
+					st_md_religion_art_catholic = yes
+					st_md_religion_art_orthodox = yes
+				}
+			}
+			religious_unity = 1
+		}
+		obj_md_religious_unity_dharmic = {
+			allow = {
+				OR = {
+					st_md_religion_art_hindu = yes
+					st_md_religion_art_sikh = yes
+				}
+			}
+			religious_unity = 1
+		}
+		obj_md_religious_unity_eastasia = {
+			allow = {
+				OR = {
+					st_md_religion_art_shinto = yes
+					st_md_religion_art_confucian = yes
+				}
+			}
+			religious_unity = 1
+		}
+		obj_md_religious_unity_native = {
+			allow = {
+				OR = {
+					st_md_religion_art_totemist = yes
+					st_md_religion_art_tengri = yes
+					AND = {
+						st_md_capital_in_americas = yes
+						st_md_religion_art_animist = yes
+					}
+				}
+			}
+			religious_unity = 1
+		}
+		obj_md_religious_unity_animist = {
+			allow = {
+				OR = {
+					st_md_religion_art_aboriginal = yes
+					st_md_religion_art_fetishist = yes
+					AND = {
+						st_md_capital_in_americas = no
+						st_md_religion_art_animist = yes
+					}
+				}
+			}
+			religious_unity = 1
+		}
+
+		obj_md_religious_unity_christian_black = {
+			allow = { st_md_religion_art_coptic = yes }
+			religious_unity = 1
+		}
+		obj_md_religious_unity_islamic = {
+			allow = { st_md_religion_art_islamic = yes }
+			religious_unity = 1
+		}
+		obj_md_religious_unity_jewish = {
+			allow = { st_md_religion_art_jewish = yes }
+			religious_unity = 1
+		}
+		obj_md_religious_unity_buddhist = {
+			allow = { st_md_religion_art_buddhist = yes }
+			religious_unity = 1
+		}
+		obj_md_religious_unity_mesoamerica = {
+			allow = { st_md_religion_art_mesoamerican = yes }
+			religious_unity = 1
+		}
+		obj_md_religious_unity_norse = {
+			allow = { st_md_religion_art_norse = yes }
+			religious_unity = 1
+		}
+		obj_md_religious_unity_zoroastrian = {
+			allow = { st_md_religion_art_zoroastrian = yes }
+			religious_unity = 1
+		}
+		obj_md_religious_unity = {
+			allow = {
+				st_md_religion_art_protestant = no
+				st_md_religion_art_catholic = no
+				st_md_religion_art_orthodox = no
+				st_md_religion_art_coptic = no
+				st_md_religion_art_islamic = no
+				st_md_religion_art_buddhist = no
+				st_md_religion_art_confucian = no
+				st_md_religion_art_shinto = no
+				st_md_religion_art_animist = no
+				st_md_religion_art_fetishist = no
+				st_md_religion_art_totemist = no
+				st_md_religion_art_mesoamerican = no
+				st_md_religion_art_tengri = no
+				st_md_religion_art_norse = no
+				st_md_religion_art_aboriginal = no
+				st_md_religion_art_hindu = no
+				st_md_religion_art_sikh = no
+				st_md_religion_art_jewish = no
+				st_md_religion_art_zoroastrian = no
+			}
+			religious_unity = 1
+		}
+
+		# End Religious Unity -------------------------------------------------------------------
+
+		# Two Continents or Empire -------------------------------------------------------------------
+
+		obj_md_two_continents_europe = {
+			allow = {
+				capital_scope = {
+					OR = {
+						continent = europe
+						region = maghreb_region
+					}
+				}
+				NOT = {
+					tag = TUR
+				}
+			}
+			num_of_continents = 2
+		}
+		obj_md_two_continents_levant = {
+			allow = {
+				OR = {
+					capital_scope = {
+						OR = {
+							superregion = near_east_superregion
+							superregion = persia_superregion
+						}
+					}
+					tag = TUR
+				}
+			}
+			num_of_continents = 2
+		}
+		obj_md_two_continents_asia = {
+			allow = {
+				OR = {
+					st_md_capital_in_civilized_southasia = yes
+					st_md_capital_in_eastasia = yes
+				}
+			}
+			num_of_continents = 2
+		}
+		obj_md_growing_empire_africa = {
+			allow = {
+				capital_scope = {
+					continent = africa
+					NOT = {
+						region = maghreb_region
+					}
+				}
+			}
+			grown_by_states = 7
+		}
+		obj_md_growing_empire_americas = {
+			allow = {
+				st_md_capital_in_americas = yes
+			}
+			grown_by_states = 7
+		}
+		obj_md_growing_empire_oceania = {
+			allow = {
+				st_md_capital_in_uncivilized_eastindies_or_oceania = yes
+			}
+			grown_by_states = 7
+		}
+		obj_md_growing_empire_tartary = {
+			allow = {
+				st_md_capital_in_tartary = yes
+			}
+			grown_by_states = 7
+		}
+
+		# End Two Continents or Empire -------------------------------------------------------------------
+
+		obj_md_audit_government = {
+			st_md_audit_government = yes
+		}
+	}	
+	
+	
+	abilities = {
+		ab_md_1500s_allow_religion_enforced = {
+			effect = {
+				custom_tooltip = religion_enforced_edict
+				set_country_flag = religion_enforced_edict
+			}
+			ai_will_do = {
+				factor = 0
+			}
+			effect = {
+				se_md_add_or_upgrade_bonus = { bonusName = edicts flagName = allow_religion_enforced abilityName = ab_md_1500s_allow_religion_enforced }
+			}
+		}
+		ab_md_1500s_warscore_vs_religion = {
+			modifier = {
+				warscore_cost_vs_other_religion = -0.1
+			}
+			ai_will_do = {
+				factor = 10
+			}
+			effect = {
+				se_md_refund_splendor = { flagName = religion_warscore flagCategory = religion_war }
+			}
+		}
+		ab_md_1500s_mercenary_discipline = {
+			modifier = {
+				mercenary_discipline = 0.05
+			}
+			ai_will_do = {
+				factor = 10
+			}
+			effect = {
+				se_md_add_or_upgrade_bonus = { bonusName = mercenary flagName = mercenary_discipline abilityName = ab_md_1500s_mercenary_discipline showTooltip = true }
+			}
+		}
+		ab_md_1500s_ship_power_propagation = {
+			modifier = {
+				ship_power_propagation = 0.2
+			}
+			ai_will_do = {
+				factor = 10
+			}
+			effect = {
+				se_md_add_or_upgrade_bonus = { bonusName = navy flagName = ship_power_propagation abilityName = ab_md_1500s_ship_power_propagation showTooltip = true }
+			}
+		}
+		ab_md_1500s_institution_spread_from_true_faith = {
+			modifier = {
+				institution_spread_from_true_faith = 0.5
+				global_institution_spread = 0.1
+			}
+			ai_will_do = {
+				factor = 10
+			}
+			effect = {
+				se_md_refund_splendor = { flagName = institution_spread_religion flagCategory = institution_spread }
+			}
+		}
+		ab_md_1500s_prestige_per_development_from_conversion = {
+			modifier = {
+				prestige_per_development_from_conversion = 0.3
+			}
+			ai_will_do = {
+				factor = 10
+			}
+			effect = {
+				se_md_refund_splendor = { flagName = prestige_conversion flagCategory = prestige_conversion }
+			}
+		}
+		ab_md_1500s_additional_missionary = {
+			modifier = {
+				missionaries = 1
+			}
+			ai_will_do = {
+				factor = 10
+			}
+			effect = {
+				se_md_refund_splendor = { flagName = additional_missionary flagCategory = additional_missionary }
+			}
+		}
+		ab_md_1500s_attentive_listening = {
+			modifier = {
+				global_missionary_strength = 0.02
+			}
+			ai_will_do = {
+				factor = 100
+			}
+			effect = {
+				se_md_add_or_upgrade_bonus = { bonusName = religion flagName = missionary_strength abilityName = ab_md_1500s_attentive_listening showTooltip = true }
+			}
+		}
+		ab_md_1500s_hardened_soldiers = {
+			modifier = {
+				land_attrition = -0.25
+			}
+			ai_will_do = {
+				factor = 10
+			}
+			effect = {
+				se_md_add_or_upgrade_bonus = { bonusName = endurance flagName = reduced_attrition abilityName = ab_md_1500s_hardened_soldiers showTooltip = true }
+			}
+		}
+		ab_md_1500s_persecution_migration = {
+			modifier = {
+				culture_conversion_cost = -0.2
+			}
+			ai_will_do = {
+				factor = 10
+			}
+			effect = {
+				se_md_add_or_upgrade_bonus = { bonusName = culturalchange flagName = culture_conversion abilityName = ab_md_1500s_persecution_migration showTooltip = true }
+			}
+		}
+		ab_md_1500s_accepting_new_ideas = {
+			modifier = {
+				technology_cost = -0.05
+			}
+			ai_will_do = {
+				factor = 10
+			}
+			effect = {
+				se_md_add_or_upgrade_bonus = { bonusName = science flagName = idea_cost abilityName = ab_md_1500s_accepting_new_ideas showTooltip = true }
+			}
+		}
+		ab_md_1500s_secret_religion = {
+			modifier = {
+				spy_offence = 0.25
+			}
+			ai_will_do = {
+				factor = 10
+			}
+			effect = {
+				se_md_add_or_upgrade_bonus = { bonusName = espionage flagName = spy_offence abilityName = ab_md_1500s_secret_religion showTooltip = true }
+			}
+		}
+		ab_md_1500s_holy_kingdom = {
+			modifier = {
+				yearly_corruption = -0.05
+				global_spy_defence = 0.2
+			}
+			ai_will_do = {
+				factor = 10
+			}
+			effect = {
+				se_md_refund_splendor = { flagName = corruption_spydefence flagCategory = corruption_spydefence }
+			}
+		}
+		ab_md_1500s_god_over_country = {
+			modifier = {
+				relation_with_same_religion = 20
+			}
+			ai_will_do = {
+				factor = 10
+			}
+			effect = {
+				se_md_add_or_upgrade_bonus = { bonusName = diplomacy flagName = relation_with_same_religion abilityName = ab_md_1500s_god_over_country showTooltip = true }
+			}
+		}
+		ab_md_1500s_converted_merchants = {
+			modifier = {
+				merchants = 1
+				trade_efficiency = 0.05
+			}
+			ai_will_do = {
+				factor = 10
+			}
+			effect = {
+				se_md_add_or_upgrade_bonus = { bonusName = trade flagName = trade_efficiency_and_merchant abilityName = ab_md_1500s_converted_merchants showTooltip = true }
+			}
+		}
+		ab_md_1500s_like_minded_immigration = {
+			modifier = {
+				#development_cost = -0.1
+				build_cost = -0.1
+			}
+			ai_will_do = {
+				factor = 10
+			}
+			effect = {
+				se_md_add_or_upgrade_bonus = { bonusName = economy flagName = like_minded_immigration abilityName = ab_md_1500s_like_minded_immigration showTooltip = true }
+			}
+		}
+		ab_md_1500s_colony_boost_development = {
+			modifier = {
+				can_colony_boost_development = yes
+			}
+			ai_will_do = {
+				factor = 10
+				modifier = {
+					factor = 0
+					NOT = { num_of_colonists = 1 }
+				}
+			}
+			effect = {
+				se_md_refund_splendor = { flagName = colony_boost_development flagCategory = colony_boost_development }
+			}
+		}
+		ab_md_1500s_early_colonial_interest = {
+			modifier = {
+				global_colonial_growth = 20
+			}
+			ai_will_do = {
+				factor = 10
+			}
+			effect = {
+				se_md_add_or_upgrade_bonus = { bonusName = colonization flagName = colonial_growth abilityName = ab_md_1500s_early_colonial_interest showTooltip = true }
+			}
+		}
+	}
+}
+
+

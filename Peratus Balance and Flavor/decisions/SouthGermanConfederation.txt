@@ -1,0 +1,119 @@
+country_decisions = {
+
+		sgc_form_decision = {
+			major = yes
+			potential = {
+				culture_group = germanic
+				NOT = { has_country_flag = sgc_formed_flag }
+				NOT = {
+					exists = SGC
+				}
+				NOT = {
+					OR = {
+						tag = GER
+						tag = NGC
+						tag = PRU
+						tag = HAB
+						tag = AUE 
+						tag = AUH
+					}
+				}
+			}
+			provinces_to_highlight = {
+				OR = {
+					province_id = 1872
+					province_id = 70
+					province_id = 64
+					province_id = 67
+				}
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			}
+			allow = {
+				adm_tech = 10
+				is_free_or_tributary_trigger = yes
+				stability = 1
+				is_at_war = no
+				IF = {
+					limit = {
+						OR = {
+							tag = HAB
+							tag = AUE
+							tag = AUH
+						}
+					}
+					num_of_owned_provinces_with = {
+						value = 35
+						region = south_german_region
+					}
+				}
+				else = {
+					num_of_owned_provinces_with = {
+						value = 20
+						region = south_german_region
+					}
+				}
+				1872 = {
+					owned_by = ROOT
+				}	
+				70 = {
+					owned_by = ROOT
+				}
+				64 = {
+					owned_by = ROOT
+				}	
+				67 = {
+					owned_by = ROOT
+				}
+			}
+			effect = {
+				set_country_flag = sgc_formed_flag
+				change_tag = SGC
+				IF = {
+					limit = {
+						has_reform = free_city
+					}
+					remove_government_reform = free_city
+					change_government = monarchy
+				}
+				add_government_reform = swabian_monarchy_reform
+				add_prestige = 25
+				set_government_rank = 2
+				if = {
+					limit = {
+						has_custom_ideas = no
+					}
+					country_event = { id = ideagroups.1 } #Swap Ideas
+				}
+				add_country_modifier = {
+					name = "centralization_modifier"
+					duration = 7300
+				}
+				custom_tooltip = sgc_form_tooltip
+				south_german_region = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { owned_by = ROOT }
+					}
+					add_permanent_claim = SGC
+				}
+				hidden_effect = {
+					every_subject_country = {
+						limit = {
+							AND = {
+								capital_scope = {
+									region = south_german_region
+								}
+							}
+						}
+						every_owned_province = {
+							limit = {
+								region = south_german_region
+							}
+							cede_province = ROOT
+							add_core = ROOT
+						}
+					}
+				}
+			}
+		}
+}

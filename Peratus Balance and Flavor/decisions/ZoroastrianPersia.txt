@@ -1,0 +1,76 @@
+country_decisions = {
+
+	zpr_form_decision = {
+		major = yes
+		potential = {
+			religion = zoroastrian
+			culture_group = iranian
+			NOT = {
+				OR = {
+					exists = PER
+					exists = ZPR
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 424
+				province_id = 2213
+				province_id = 2218
+				province_id = 421
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		allow = {
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			num_of_owned_provinces_with = {
+				value = 35
+				region = persia_region
+			}
+			424 = {
+				owned_by = ROOT
+			}	
+			2213 = {
+				owned_by = ROOT
+			}	
+			2218 = {
+				owned_by = ROOT
+			}	
+			421 = {
+				owned_by = ROOT
+			}	
+		}
+		effect = {
+			set_country_flag = zpr_form_flag
+			custom_tooltip = per_forming_zpr_tt
+			change_tag = ZPR
+			add_prestige = 25
+			change_adm = 1
+			change_dip = 1
+			change_mil = 1
+			swap_non_generic_missions = yes
+			if = {
+				limit = {
+					NOT = {
+						OR = {
+							government_rank = 3
+							government_rank = 2
+						}
+					}
+				}
+				set_government_rank = 2
+			}
+			if = {
+				limit = { is_revolutionary = no }
+				add_government_reform = feudal_theocracy
+			}
+			if = {
+				limit = {
+					has_custom_ideas = no
+				}
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+		}
+	}
+}

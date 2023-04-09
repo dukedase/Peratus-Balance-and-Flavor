@@ -1,0 +1,39 @@
+#### Persia Events ###
+### By Peratus ###
+
+
+namespace = per_persia_events
+normal_or_historical_nations = yes
+
+### Persia Events
+
+country_event = { 
+	id = per_persia_events.1
+	title = "per_persia_events.1.t"
+	desc = "per_persia_events.1.desc"
+	picture = CITY_DEVELOPMENT_eventPicture
+	
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "per_persia_events.1.a"
+		416 = {
+			add_base_tax = 5
+			add_base_production = 5
+			add_base_manpower = 5
+		}
+	}
+
+	option = {
+		name = "per_persia_events.1.b"
+		set_country_flag = developing_persepolis_flag
+		custom_tooltip = per_developing_persepolis_event_tt
+		2218 = {
+			add_province_modifier = {
+				name = per_develop_persepolis_modifier
+				duration = -1
+			}
+		}
+	}
+}

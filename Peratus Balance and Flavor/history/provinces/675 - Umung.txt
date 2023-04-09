@@ -1,0 +1,21 @@
+#675 - Qujing
+
+owner = CDL
+controller = CDL
+add_core = CDL
+culture = yi
+religion = animism
+capital = "Umung"
+trade_goods = copper
+hre = no
+base_tax = 2
+base_production = 1
+base_manpower = 3
+is_city = yes
+
+
+
+discovered_by = chinese
+discovered_by = indian
+discovered_by = nomad_group
+

@@ -1,0 +1,95 @@
+#### Brandenburg Events ###
+### By Peratus ###
+
+
+namespace = per_brandenburg_events
+normal_or_historical_nations = yes
+
+### BB Events
+
+country_event = { # Saxon and Sorbian
+	id = per_brandenburg_events.1
+	title = "per_brandenburg_events.1.t"
+	desc = "per_brandenburg_events.1.desc"
+	picture = DEATH_OF_HEIR_eventPicture
+	
+	major = no
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "per_brandenburg_events.1.a"
+		ai_chance = { factor = 50 }
+		61 = {
+			add_base_tax = 1
+			add_base_production = 1
+			add_base_manpower = 2
+			add_center_of_trade_level = 2
+		}
+	}
+	option = {
+		name = "per_brandenburg_events.1.b"
+		ai_chance = { factor = 50 }
+		lusatia_area = {
+			add_base_tax = 1
+			add_base_production = 1
+			add_base_manpower = 1
+			add_local_autonomy = -25
+			change_culture = saxon
+		}
+		#4778 = {
+		#	add_base_tax = 1
+		#	add_base_production = 1
+		#	add_base_manpower = 1
+		#	add_local_autonomy = -15
+		#	change_culture = saxon
+		#}
+		#60 = {
+		#	add_base_tax = 1
+		#	add_base_production = 1
+		#	add_base_manpower = 1
+		#	add_local_autonomy = -15
+		#	change_culture = saxon
+		#}
+	}
+}
+
+country_event = { # Renovate Capital
+	id = per_brandenburg_events.2
+	title = "per_brandenburg_events.2.t"
+	desc = "per_brandenburg_events.2.desc"
+	picture = DEATH_OF_HEIR_eventPicture
+	
+	major = no
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "per_brandenburg_events.2.a"
+		ai_chance = { factor = 50 }
+		50 = {
+			add_province_modifier = {
+				name = per_brandenburg_renovate_1_modifier
+				duration = -1
+			}
+			add_great_project_tier = {
+				type = brandenburg_gate
+				tier = 1
+			}
+		}
+	}
+	option = {
+		name = "per_brandenburg_events.2.b"
+		ai_chance = { factor = 50 }
+		50 = {
+			add_province_modifier = {
+				name = per_brandenburg_renovate_2_modifier
+				duration = -1
+			}
+			add_great_project_tier = {
+				type = brandenburg_gate
+				tier = 1
+			}
+		}
+	}
+}

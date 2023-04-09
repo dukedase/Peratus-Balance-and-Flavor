@@ -1,0 +1,18 @@
+government = monarchy
+add_government_reform = feudalism_reform
+technology_group = eastern
+religion = catholic
+primary_culture = ruthenian
+capital = 279	# Volhynia
+
+1440.1.1 = {
+	monarch = {
+		name = "Mieczys?aw"
+		dynasty = Koz?owski
+		birth_date = 1427.11.30
+		adm = 6
+		dip = 6
+		mil = 2
+	}
+}
+

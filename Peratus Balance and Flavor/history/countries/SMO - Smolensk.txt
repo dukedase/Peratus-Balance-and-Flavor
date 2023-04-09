@@ -1,0 +1,20 @@
+government = monarchy
+add_government_reform = principality
+government_rank = 1
+primary_culture = ryazanian
+religion = orthodox
+technology_group = eastern
+capital = 293	# Smolensk
+fixed_capital = 293 # Cannot move capital away from this province & no power cost to move to it
+add_rival = PLT
+add_rival = CHR
+add_rival = KIE
+1444.1.1 = {
+	monarch = {
+		name = "Yury II"
+		dynasty = "Rostaslavichi"
+		adm = 5
+		dip = 4
+		mil = 3
+	}
+}

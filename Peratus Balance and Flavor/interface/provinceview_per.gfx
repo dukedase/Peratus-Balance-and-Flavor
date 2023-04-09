@@ -1,0 +1,117 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_resource_icon"
+		texturefile = "gfx//interface//resources.tga"
+		noOfFrames = 33
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_resource_icon_small"
+		texturefile = "gfx//interface//resources_small.dds"
+		noOfFrames = 33
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_resource_icon_transparent"
+		texturefile = "gfx//interface//resources.tga"
+		noOfFrames = 33
+		loadType = "INGAME"
+		allwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_province_view_religion"
+		texturefile = "gfx//interface//province_view_religion.dds"
+		noOfFrames = 30
+		loadType = "INGAME"
+		allwaystransparent = yes
+	}
+
+	### Buildings
+	
+	spriteType = {
+		name = "GFX_per_road_tier_one"
+		texturefile = "gfx//interface//buildings//per_road_tier_one.tga"
+		loadType = "INGAME"
+	}
+	
+	spriteType = {
+		name = "GFX_per_road_tier_two"
+		texturefile = "gfx//interface//buildings//per_road_tier_two.tga"
+		loadType = "INGAME"
+	}
+	
+	spriteType = {
+		name = "GFX_per_road_tier_three"
+		texturefile = "gfx//interface//buildings//per_road_tier_three.tga"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_per_road_tier_four"
+		texturefile = "gfx//interface//buildings//per_road_tier_four.tga"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_per_infrastructure_blacksmith"
+		texturefile = "gfx//interface//buildings//per_infrastructure_blacksmith.tga"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_per_infrastructure_foundry"
+		texturefile = "gfx//interface//buildings//per_infrastructure_foundry.tga"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_per_infrastructure_clothier"
+		texturefile = "gfx//interface//buildings//per_infrastructure_clothier.tga"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_per_infrastructure_arsenal"
+		texturefile = "gfx//interface//buildings//per_infrastructure_arsenal.tga"
+		loadType = "INGAME"
+	}
+	
+	spriteType = {
+		name = "GFX_select_building_large_bg"
+		texturefile = "gfx/interface/select_building_large_bg.dds"
+	}		
+	
+	spriteType = {
+		name = "gfx_select_building_large_bg2"
+		texturefile = "gfx/interface/select_building_large_bg2.dds"
+	}		
+	
+	spriteType = {
+		name = "GFX_select_building_small_bg"
+		texturefile = "gfx/interface/select_building_large_bg2.dds"
+	}	
+	
+	spriteType = {
+		name = "GFX_select_building_small_bg2"
+		texturefile = "gfx/interface/select_building_small_bg.dds"
+	}		
+	
+	spriteType = {
+		name = "GFX_select_building_bg"
+		texturefile = "gfx/interface/select_building_bg.dds"
+	}
+	
+	# Monuments
+	
+	spriteType = {
+		name = "GFX_great_project_mount_ararat"
+		texturefile = "gfx/interface/great_projects/great_project_mount_ararat.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_great_project_grand_cothon_of_carthage"
+		texturefile = "gfx/interface/great_projects/great_project_grand_cothon_of_carthage.dds"
+	}
+	
+}
+

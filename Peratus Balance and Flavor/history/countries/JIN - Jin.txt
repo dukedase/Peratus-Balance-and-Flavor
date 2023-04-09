@@ -1,0 +1,15 @@
+government = monarchy
+add_government_reform = chinese_warlord
+technology_group = chinese
+religion = confucianism
+primary_culture = jin
+capital = 693	#Taiyuan
+1415.7.11 = {
+	monarch = {
+		name = "Li"
+		dynasty = "Zhicheng"
+		adm = 4
+		dip = 1
+		mil = 1
+		birth_date = 1400.9.2
+	}

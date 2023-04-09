@@ -1,0 +1,148 @@
+government = monarchy
+add_government_reform = feudalism_reform
+government_rank = 2
+primary_culture = burgundian
+add_accepted_culture = belgian
+religion = catholic
+technology_group = western
+capital = 192	# Dijon
+add_army_professionalism = 0.15
+add_treasury = 150
+add_manpower = 15
+
+1419.9.11 = {
+	monarch = {
+		name = "Philippe III"
+		dynasty = "de Bourgogne"
+		birth_date = 1409.7.31
+		adm = 5
+		dip = 5
+		mil = 5
+	}
+	clear_scripted_personalities = yes
+	add_ruler_personality = industrious_personality
+	add_ruler_personality = well_connected_personality
+	add_ruler_personality = midas_touched_personality
+	#add_heir_personality = bold_fighter_personality
+	add_heir_personality = strict_personality
+}
+
+1430.1.7 = {
+	queen = {
+		country_of_origin = POR
+		name = "Isabella"
+		dynasty = "de Avis"
+		birth_date = 1397.2.21
+		death_date = 1471.12.17
+		female = yes
+		adm = 3 
+		dip = 4
+		mil = 6
+	}
+}
+
+1440.11.10 = {
+	heir = {
+		name = "Charles"
+		monarch_name = "Charles I"
+		dynasty = "de Bourgogne"
+		birth_date = 1438.11.10
+		death_date = 1477.1.5
+		claim = 95
+		adm = 4
+		dip = 4
+		mil = 4
+	}
+	set_heir_flag = is_charles_of_burg_flag
+}
+
+1468.7.3 = {
+	queen = {
+		country_of_origin = ENG
+		name = "Margaret"
+		dynasty = "York"
+		birth_date = 1446.5.3
+		death_date = 1503.11.23
+		female = yes
+		adm = 5
+		dip = 4
+		mil = 1
+	}
+}
+
+1477.1.6 = {
+	monarch = {
+		name = "Marie I"
+		dynasty = "de Bourgogne"
+		birth_date = 1457.2.13
+		adm = 3
+		dip = 4
+		mil = 2
+		female = yes
+	}
+	remove_country_modifier = burgundian_succession_crisis
+	clear_scripted_personalities = yes
+	add_ruler_personality = benevolent_personality
+}
+
+# Burgundy is owned by the Habsburgs at this point, represented as HAB ownership
+
+1478.7.22 = {
+	heir = {
+		name = "Philippe"
+		monarch_name = "Philippe IV"
+		dynasty = "von Habsburg"
+		birth_date = 1478.7.22
+		death_date = 1506.9.25
+		claim = 95
+		adm = 0
+		dip = 0
+		mil = 0
+	}
+}
+
+1482.3.28 = {
+	monarch = {
+		name = "Philippe IV"
+		dynasty = "von Habsburg"
+		birth_date = 1478.7.22
+		adm = 0
+		dip = 0
+		mil = 0
+	}
+}
+
+1500.2.24 = {
+	heir = {
+		name = "Charles"
+		monarch_name = "Charles II"
+		dynasty = "von Habsburg"
+		birth_date = 1500.2.24
+		death_date = 1558.9.21
+		claim = 95
+		adm = 4
+		dip = 5
+		mil = 5
+	}
+}
+
+1506.9.26 = { government = monarchy
+add_government_reform = autocracy_reform }
+
+1506.9.26 = {
+	monarch = {
+		name = "Charles II"
+		dynasty = "von Habsburg"
+		birth_date = 1500.2.24
+		adm = 4
+		dip = 5
+		mil = 5
+	}
+}
+
+
+1589.8.3 = { set_legacy_government = administrative_monarchy }
+
+
+1661.3.9 = { government = monarchy
+add_government_reform = autocracy_reform }

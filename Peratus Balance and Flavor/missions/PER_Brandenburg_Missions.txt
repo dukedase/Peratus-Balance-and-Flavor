@@ -1,0 +1,872 @@
+per_bra_missions_tree_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	
+	potential = {
+		OR = {
+			tag = BRA
+			was_tag = BRA
+		}
+		NOT = { map_setup = map_setup_random }
+	}
+	
+	has_country_shield = yes
+
+	per_bra_all_roads_lead_to_berlin = {
+		icon = develop_konigsberg
+		position = 1
+		required_missions = { }
+		
+		trigger = {
+			OR = {
+				per_road_tier_one = 10
+				per_road_tier_two = 10
+				per_road_tier_three = 10
+			}
+		}
+		
+		effect = {
+			custom_tooltip = per_bra_all_roads_tt
+			tooltip = {
+				change_adm = 1
+				add_country_modifier = {
+					name = per_bra_all_roads_modifier
+					duration = 7300 # 20 Years
+				}
+			}
+			custom_tooltip = per_bra_alternatively_tt
+			tooltip = {
+				add_country_modifier = {
+					name = per_bra_all_roads_modifier
+					duration = 3650 # 10 Years
+				}
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						all_owned_province = {
+							OR = {
+								has_building = per_road_tier_one
+								has_building = per_road_tier_two
+								has_building = per_road_tier_three
+							}
+						}
+					}
+					change_adm = 1
+					add_country_modifier = {
+						name = per_bra_all_roads_modifier
+						duration = 7300 # 20 Years
+					}
+				}
+				else = {
+					add_country_modifier = {
+						name = per_bra_all_roads_modifier
+						duration = 3650 # 10 Years
+					}
+				}
+			}
+		} 
+	}
+	
+	per_bra_city_of_lubeck = {
+		icon = reform_the_state
+		position = 4
+		required_missions = { per_bra_northern_march per_bra_all_roads_lead_to_berlin }
+		
+		trigger = {
+			45 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+
+		provinces_to_highlight = {
+			OR = {
+				province_id = 45
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		
+		effect = {
+			holstein_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			custom_tooltip = per_bra_lub_vassal_tt
+			tooltip = {
+				add_country_modifier = {
+					name = per_bra_lub_vassal_bra_modifier
+					duration = 7300 #  20 Years
+				}
+				45 = {
+					add_province_modifier = {
+						name = per_bra_lub_vassal_modifier
+						duration = -1
+					}
+				}
+			}
+			custom_tooltip = per_bra_alternatively_tt
+			tooltip = {
+				add_years_of_income = 1.0
+				45 = {
+					add_province_modifier = {
+						name = per_bra_lub_owned_modifier
+						duration = 7300 #  20 Years
+					}
+				}
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						HSA = {
+							exists = yes
+							vassal_of = ROOT
+						}
+					}
+					add_country_modifier = {
+						name = per_bra_lub_vassal_bra_modifier
+						duration = 7300 #  20 Years
+					}
+					45 = {
+						add_province_modifier = {
+							name = per_bra_lub_vassal_modifier
+							duration = -1
+						}
+					}
+				}
+				else = {
+					add_years_of_income = 1.0
+					45 = {
+						add_province_modifier = {
+							name = per_bra_lub_owned_modifier
+							duration = 7300 #  20 Years
+						}
+					}
+				}
+			}
+		}
+	}
+
+	per_bra_expel_the_danish = {
+		icon = army_reforms
+		position = 5
+		required_missions = { per_bra_city_of_lubeck }
+		
+		trigger = {
+			holstein_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+
+		provinces_to_highlight = {
+			OR = {
+				area = holstein_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		
+		effect = {
+			add_prestige = 25
+			add_adm_power = 50
+			add_dip_power = 50
+			add_mil_power = 50
+		}
+	}
+}
+
+per_bra_missions_tree_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	
+	potential = {
+		OR = {
+			tag = BRA
+			was_tag = BRA
+		}
+		NOT = { map_setup = map_setup_random }
+	}
+	
+	has_country_shield = yes
+	
+	per_bra_western_thrust = {
+		icon = a_show_of_strength_but_west
+		position = 2
+		required_missions = { per_bra_military_court }
+		
+		trigger = {
+			army_size_percentage = 1.0
+		}
+		
+		effect = {
+			per_rostock_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			northern_saxony_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			mecklenburg_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+
+	per_bra_northern_march = {
+		icon = edict_of_potsdam
+		position = 3
+		required_missions = { per_bra_western_thrust }
+
+		trigger = {
+			per_rostock_area = {
+				type = all
+				owned_by = ROOT
+			}
+			mecklenburg_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+
+		provinces_to_highlight = {
+			OR = {
+				area = per_rostock_area
+				area = mecklenburg_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		
+		effect = {
+			lower_saxony_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			weser_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			braunschweig_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+per_bra_missions_tree_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	
+	potential = {
+		OR = {
+			tag = BRA
+			was_tag = BRA
+		}
+		NOT = { map_setup = map_setup_random }
+	}
+	
+	has_country_shield = yes
+	
+	per_bra_military_court = {
+		icon = enlightened_absolutism
+		position = 1
+		required_missions = {  }
+		
+		trigger = {
+			OR = {
+				commandant = 2
+				army_reformer = 2
+			}
+			national_focus = MIL
+			#num_of_generals = 1
+		}
+		
+		effect = {
+			south_saxony_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			lusatia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			custom_tooltip = per_bra_mil_court_if_reformer_tt
+			tooltip = {
+				add_army_tradition = 10
+				add_country_modifier = {
+					name = per_bra_military_court_modifier
+					duration = 5475
+				}
+			}
+			custom_tooltip = per_bra_alternatively_tt
+			tooltip = {
+				add_mil_power = 100
+				add_army_tradition = 10
+				create_general = {
+					tradition = 50
+					add_shock = 1
+					add_siege = 1
+				}
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						army_reformer = 2
+					}
+					add_country_modifier = {
+						name = per_bra_military_court_modifier
+						duration = 5475
+					}
+					add_army_tradition = 10
+				}
+				else = {
+					add_mil_power = 100
+					add_army_tradition = 10
+					create_general = {
+						tradition = 50
+						add_shock = 1
+						add_siege = 1
+					}
+				}
+			}
+		}
+	}
+
+	per_bra_saxon_and_sorbian = {
+		icon = ansbach_succession
+		position = 3
+		required_missions = { per_bra_military_court }
+		
+		trigger = {
+			south_saxony_area = {
+				type = all
+				owned_by = ROOT
+			}
+			lusatia_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+
+		provinces_to_highlight = {
+			OR = {
+				area = south_saxony_area
+				area = lusatia_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		
+		effect = {
+			country_event = { id = per_brandenburg_events.1 }
+			silesia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			per_lower_silesia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+
+	per_bra_destiny_of_brandenburg = {
+		icon = an_army_with_a_state
+		position = 4
+		required_missions = { per_bra_saxon_and_sorbian per_bra_integration_of_pomerania per_bra_northern_march }
+		
+		trigger = {
+			army_professionalism = 0.5
+			army_tradition = 50
+			OR = {
+				total_development = 250
+				AND = {
+					43 = { owned_by = ROOT }
+					41 = { owned_by = ROOT }
+				}
+			}
+		}
+
+		provinces_to_highlight = {
+			OR = {
+				province_id = 43
+				province_id = 41
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		
+		effect = {
+			custom_tooltip = per_bra_destiny_owns_prussia_tt
+			tooltip = {
+				add_adm_power = 100
+				add_dip_power = 100
+				add_mil_power = 100
+				west_prussia_area = {
+					limit = {
+						NOT = { owned_by = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+				east_prussia_area = {
+					limit = {
+						NOT = { owned_by = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+			custom_tooltip = per_bra_alternatively_tt
+			tooltip = {
+				add_country_modifier = {
+					name = per_bra_ngc_modifier
+					duration = 7300 # 20 years
+				}
+				north_german_region = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						AND = {
+							43 = { owned_by = ROOT }
+							41 = { owned_by = ROOT }
+						}
+					}
+					add_adm_power = 100
+					add_dip_power = 100
+					add_mil_power = 100
+				}
+				else = {
+					add_country_modifier = {
+						name = per_bra_ngc_modifier
+						duration = 7300 # 20 years
+					}
+					north_german_region = {
+						limit = {
+							NOT = { is_core = ROOT }
+							NOT = { is_permanent_claim = ROOT }
+						}
+						add_permanent_claim = ROOT
+					}
+				}
+				west_prussia_area = {
+					limit = {
+						NOT = { owned_by = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+				east_prussia_area = {
+					limit = {
+						NOT = { owned_by = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+		}
+	}
+
+	per_bra_destruction_of_cologne = {
+		icon = rhineland_conquest
+		position = 6
+		required_missions = { per_bra_destiny_of_brandenburg }
+		
+		trigger = {
+			north_rhine_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			lower_rhineland_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+
+		provinces_to_highlight = {
+			OR = {
+				area = north_rhine_area
+				area = lower_rhineland_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		
+		effect = {
+			custom_tooltip = per_bra_vassalize_cologne_tt
+			tooltip = {
+				add_power_projection = {
+					type = 25_permanent_power_projection
+					amount = 25
+				}
+				add_country_modifier = {
+					name = per_bra_vassalized_cologne_modifier
+					duration = 7300 # 20 Years
+				}
+			}
+			custom_tooltip = per_bra_alternatively_tt
+			tooltip = {
+				add_country_modifier = {
+					name = per_bra_owns_cologne_modifier
+					duration = 18250 # 50 Years
+				}
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						OR = {
+							KOL = {
+								exists = yes
+								vassal_of = ROOT
+							}
+							RHI = {
+								exists = yes
+								vassal_of = ROOT
+							}
+						}
+					}
+					add_power_projection = {
+						type = 25_permanent_power_projection
+						amount = 25
+					}
+					add_country_modifier = {
+						name = per_bra_vassalized_cologne_modifier
+						duration = 7300 # 20 Years
+					}
+				}
+				else = {
+					add_prestige = 25
+					add_mil_power = 50
+					add_country_modifier = {
+						name = per_bra_owns_cologne_modifier
+						duration = 18250 # 50 Years
+					}
+				}
+			}
+		}
+	}
+}
+
+per_bra_missions_tree_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	
+	potential = {
+		OR = {
+			tag = BRA
+			was_tag = BRA
+		}
+		NOT = { map_setup = map_setup_random }
+	}
+	
+	has_country_shield = yes
+	
+	per_bra_reclaim_neumark = {
+		icon = league_of_the_public_weal
+		position = 2
+		required_missions = { per_bra_military_court }
+		
+		trigger = {
+			neumark_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+
+		provinces_to_highlight = {
+			OR = {
+				area = neumark_area
+			}
+			NOT = { owned_by = ROOT }
+		}
+		
+		effect = {
+			add_prestige = 10
+			hinter_pommern_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			vorpommern_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+
+	per_bra_integration_of_pomerania = {
+		icon = empower_the_junkers
+		position = 3
+		required_missions = { per_bra_reclaim_neumark  }
+		
+		trigger = {
+			hinter_pommern_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			vorpommern_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+
+		provinces_to_highlight = {
+			OR = {
+				area = hinter_pommern_area
+				area = vorpommern_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		
+		effect = {
+			custom_tooltip = per_bra_int_pomerania_if_vassal_tt
+			tooltip = {
+				add_prestige = 25
+				change_dip = 1
+				add_country_modifier = {
+					name = per_bra_pom_vassal_modifier
+					duration = 9125 # 25 Years
+				}
+			}
+			custom_tooltip = per_bra_alternatively_tt
+			tooltip = {
+				change_mil = 1
+				hinter_pommern_area = {
+					add_local_autonomy = -25
+					add_nationalism = -10
+					add_province_modifier = {
+						name = per_bra_int_pom_conquest_modifier
+						duration = 5475 # 15 Years
+					}
+				}
+				vorpommern_area = {
+					add_local_autonomy = -25
+					add_nationalism = -10
+					add_province_modifier = {
+						name = per_bra_int_pom_conquest_modifier
+						duration = 5475 # 15 Years
+					}
+				}
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						POM = {
+							exists = yes
+							vassal_of = ROOT
+						}
+					}
+					add_prestige = 25
+					change_dip = 1
+					add_country_modifier = {
+						name = per_bra_pom_vassal_modifier
+						duration = 9125 # 25 Years
+					}
+				}
+				else = {
+					change_mil = 1
+					add_accepted_culture = pommeranian
+					hinter_pommern_area = {
+						add_local_autonomy = -25
+						add_nationalism = -10
+						add_province_modifier = {
+							name = per_bra_int_pom_conquest_modifier
+							duration = 5475 # 15 Years
+						}
+					}
+					vorpommern_area = {
+						add_local_autonomy = -25
+						add_nationalism = -10
+						add_province_modifier = {
+							name = per_bra_int_pom_conquest_modifier
+							duration = 5475 # 15 Years
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+per_bra_missions_tree_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	
+	potential = {
+		OR = {
+			tag = BRA
+			was_tag = BRA
+		}
+		NOT = { map_setup = map_setup_random }
+	}
+	
+	has_country_shield = yes
+	
+	per_bra_birth_of_a_kingdom = {
+		icon = renovate_berlin
+		position = 1
+		required_missions = {  }
+		
+		trigger = {
+			grown_by_development = 200
+		}
+		
+		effect = {
+			custom_tooltip = per_bra_birth_year_tt
+			tooltip = {
+				add_adm_power = 100
+				add_country_modifier = {
+					name = per_bra_birth_year_modifier
+					duration = 18250 # 50 Years
+				}
+			}
+			custom_tooltip = per_bra_alternatively_tt
+			tooltip = {
+				add_adm_power = 50
+				add_years_of_income = 1.0
+				add_prestige = 10
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						NOT = { is_year = 1480 }
+					}
+					add_adm_power = 100
+					add_country_modifier = {
+						name = per_bra_birth_year_modifier
+						duration = 18250 # 50 Years
+					}
+				}
+				else = {
+					add_adm_power = 50
+					add_years_of_income = 1.0
+					add_prestige = 10
+				}
+			}
+		} 
+	}
+
+	per_bra_renovate_berlin = {
+		icon = the_balance_of_power
+		position = 4
+		required_missions = { per_bra_integration_of_pomerania per_bra_birth_of_a_kingdom }
+		
+		trigger = {
+			50 = {
+				base_tax = 10
+				base_production = 10
+				base_manpower = 10
+				has_building = workshop
+				has_building = temple 
+				has_building = marketplace
+			}
+		}
+		
+		effect = {
+			country_event = { id = per_brandenburg_events.2 }
+		}
+	}
+
+	per_bra_develop_the_kingdom = {
+		icon = the_emden_company
+		position = 5
+		required_missions = { per_bra_renovate_berlin }
+		
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = per_dev_clicks_trigger_tt
+				check_variable = {
+					which = DevelopmentClicksVariable
+					value = 350
+				}
+			}
+		}
+		
+		effect = {
+			custom_tooltip = per_bra_develop_the_kingdom_tt
+			tooltip = {
+				change_government_reform_progress = 100
+				add_country_modifier = {
+					name = per_bra_develop_mil_modifier
+					duration = 18250 # 50 Years
+				}
+			}
+			custom_tooltip = per_bra_alternatively_tt
+			tooltip = {
+				change_government_reform_progress = 100
+				add_country_modifier = {
+					name = per_bra_develop_dip_modifier
+					duration = 18250 # 50 Years
+				}
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						check_variable = {
+							which = MilClicksVariable
+							which = DipClicksVariable
+						}
+					}
+					change_government_reform_progress = 50
+					change_mil = 1
+					add_country_modifier = {
+						name = per_bra_develop_mil_modifier
+						duration = 18250 # 50 Years
+					}
+				}
+				else = {
+					change_government_reform_progress = 50
+					change_dip = 1
+					add_country_modifier = {
+						name = per_bra_develop_dip_modifier
+						duration = 18250 # 50 Years
+					}
+				}
+			}
+		} 
+	}
+}
